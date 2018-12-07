@@ -20,7 +20,6 @@ public final class Dice {
 
     private int id;
     private String state; //Face up of the dice 
-    private boolean isDeath;
 
     Map<Integer, String> sides = new HashMap<>(); //Map of all faces
     Random rnd = new Random();
@@ -30,7 +29,6 @@ public final class Dice {
         this.id = idIndex;
         initializeDiceFaces();
         rollDice();
-        this.isDeath = this.state == "Death";
         idIndex++;
     }
 
@@ -55,6 +53,14 @@ public final class Dice {
             System.out.println(e.getMessage());
         }
     }
+    
+    public boolean isDeath() {
+        if (this.state == "Death") {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     //Getters & Setters
     public int getId() {
@@ -65,8 +71,6 @@ public final class Dice {
         return state;
     }
 
-    public boolean getIsDeath() {
-        return isDeath;
-    }
+    
 
- }
+}

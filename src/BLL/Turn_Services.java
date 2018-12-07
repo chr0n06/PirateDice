@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
-
-import java.util.List;
+package BLL;
 
 /**
  *
  * @author chr0n06
  */
-public class Game {
-    List<Player> players;
-    List<Turn> turns;
+public class Turn_Services {
+    
 }

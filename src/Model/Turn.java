@@ -5,9 +5,7 @@
  */
 package Model;
 
-import BLL.Services;
 import Settings.Preferences;
-import java.util.Random;
 
 /**
  *
@@ -18,12 +16,15 @@ public class Turn {
     private Player player;
     private Card card;
     private int score;
+    private int lifes;
+    private boolean started;
     
     public Turn(Player player) {
         this.player = player;
         this.card = null;
-        this.score = 0;
-        
+        this.score = Preferences.TURN_STARTING_POINTS;
+        this.lifes = Preferences.DEFAULT_LIFE_QTY;
+        this.started = false;
     }    
     
     public int getId() {
@@ -53,5 +54,17 @@ public class Turn {
     public void setCard(Card card) {
         this.card = card;
     }
-    
+
+    public int getLifes() {
+        return lifes;
+    }
+
+    public void setLifes(int lifes) {
+        this.lifes = lifes;
+    }
+
+    public boolean isStarted() {
+        return started;
+    }  
+
 }
