@@ -8,6 +8,7 @@ package piratedice;
 import BLL.Card_Services;
 import BLL.Dice_Services;
 import BLL.Player_Services;
+import BLL.Turn_Services;
 import Model.Dice;
 import Model.Turn;
 import java.util.Arrays;
@@ -27,6 +28,7 @@ public class PirateDice {
         Player_Services player_service = Player_Services.getInstance();
         Card_Services card_service = Card_Services.getInstance();
         Dice_Services dice_service = Dice_Services.getInstance();
+        Turn_Services turn_services = Turn_Services.getInstance();
 
         /*Testing Dices and states*/
  /*
@@ -49,33 +51,34 @@ public class PirateDice {
         }
          */
  /*Testing turn*/
-        Turn turn1 = new Turn(player_service.getAllPlayers().get(0));
+        //Turn turn1 = new Turn(player_service.getAllPlayers().get(0));
 
+       Turn turn1 = turn_services.newTurn();
+        
         card_service.pickACard(turn1);
 
         System.out.println(turn1.getPlayer().getName() + " has picked the " + turn1.getCard().getName() + " card!!!");
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("1-Roll all dices");
+        System.out.println("2-Roll specific dices");
+
         while (sc.hasNextInt()) {
+            System.out.println("1-Roll all dices");
+            System.out.println("2-Roll specific dices");
             switch (sc.nextInt()) {
                 case 1:
-                    /*serv.rollAllDices();
-                    for (Dice dice : serv.getDices()) {
-                        System.out.println(dice.getId() + "--" + dice.getState() + "--" + dice.getIsDeath());
-                    }*/
-                    break;
-                case 2:
-                    List<Integer> dicesToRoll = Arrays.asList(2,4,6);
-                    dice_service.rollSpecificDices(dicesToRoll);
-                    for (Dice dice : dice_service.getAllDices()) {
-                        System.out.println(dice.getId() + "--" + dice.getState() + "--" + dice.isDeath());
-                    }
-                    break;
-                case 3:
                     dice_service.rollAllDices();
                     for (Dice dice : dice_service.getAllDices()) {
                         System.out.println(dice.getId() + "--" + dice.getState() + "--" + dice.isDeath());
-                        
+
+                    }
+                    break;
+                case 2:
+                    List<Integer> dicesToRoll = Arrays.asList(2, 4, 6);
+                    dice_service.rollSpecificDices(dicesToRoll);
+                    for (Dice dice : dice_service.getAllDices()) {
+                        System.out.println(dice.getId() + "--" + dice.getState() + "--" + dice.isDeath());
                     }
                     break;
 

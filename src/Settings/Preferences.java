@@ -21,6 +21,8 @@ public class Preferences {
 
     public static int TURN_STARTING_POINTS = 0;
     public static int PLAYER_STARTING_POINTS = 0;
+    public static int PLAYER_TURN_INDEX = 0;
+    
     
     public static int WINNING_SCORE = 6000;
 
