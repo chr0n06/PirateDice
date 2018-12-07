@@ -1,7 +1,10 @@
 package DAL;
 
+import Model.Card;
 import Model.Dice;
+import Model.Player;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -15,16 +18,20 @@ import java.util.List;
  */
 public class Repository {
 
-    private static List<Dice> dices;
     private static Repository repository = null;
+
+    private List<Dice> dices;
+    private List<Player> players;
+    private List<Card> cards;
 
     // private constructor restricted to this class itself 
     private Repository() {
         this.dices = new ArrayList<>();
+        this.players = new ArrayList<>();
+        this.cards = new ArrayList<>();
         initializeBoard();
     }
 
-    // static method to create instance of Singleton class 
     public static Repository getInstance() {
         if (repository == null) {
             repository = new Repository();
@@ -32,18 +39,70 @@ public class Repository {
         return repository;
     }
 
-    public void initializeBoard() {
+    private void initializeBoard() {
+        generateDices();
+        generatePlayers();
+        generateCards();
+    }
+
+    private void generateDices() {
         for (int i = 0; i < 8; i++) {
             dices.add(new Dice());
         }
     }
 
-    public static List<Dice> getDices() {
+    private void generatePlayers() { //Hard Coded for the moment ! 
+        players.add(new Player("Maxime"));
+        players.add(new Player("Charles"));
+        players.add(new Player("Cynthia"));
+        players.add(new Player("Sebastien"));
+        
+        Collections.shuffle(players);
+    }
+
+    private void generateCards() {
+        for (int i = 0; i < 35; i++) {
+            if (i <= 4) {
+                cards.add(new Card("Piece of Gold"));
+            } else if (i <= 9) {
+                cards.add(new Card("Brilliant Diamond"));
+            } else if (i <= 12) {
+                cards.add(new Card("Treasure"));
+            } else if (i <= 14) {
+                cards.add(new Card("Witch"));
+            } else if (i <= 17) {
+                cards.add(new Card("Pirate"));
+            } else if (i <= 23) {
+                cards.add(new Card("Monkey & Parrot"));
+            } else if (i <= 26) {
+                cards.add(new Card("Simple Skull"));
+            } else if (i <= 28) {
+                cards.add(new Card("Double Skulls"));
+            } else if (i <= 31) {
+                cards.add(new Card("Pirate Ship 1"));
+            } else if (i <= 33) {
+                cards.add(new Card("Pirate Ship 2"));
+            } else if (i == 34) {
+                cards.add(new Card("Pirate Ship 3"));
+            }
+        }
+        Collections.shuffle(cards);
+    }
+
+    public List<Dice> getDices() {
         return dices;
     }
 
-    public static void setDices(List<Dice> aDices) {
-        dices = aDices;
+    public List<Player> getPlayers() {
+        return players;
     }
 
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }    
+    
 }

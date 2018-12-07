@@ -12,16 +12,19 @@ import Settings.Preferences;
  * @author Maxime
  */
 public class Player {
+    
     private int id;
     private String name;
     private int point;
 
+    //Constructor(s)
     public Player(String name) {
         this.id = id;
         this.name = name;
         this.point = Preferences.PLAYER_STARTING_POINTS;
     }
-
+    
+    //Getters & Setters
     public int getId() {
         return id;
     }

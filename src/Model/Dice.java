@@ -17,19 +17,25 @@ import java.util.Random;
 public final class Dice {
 
     private static int idIndex = 1;
-    private int id;
-    Map<Integer, String> sides = new HashMap<>();
-    private String actualPosition;
 
+    private int id;
+    private String state; //Face up of the dice 
+    private boolean isDeath;
+
+    Map<Integer, String> sides = new HashMap<>(); //Map of all faces
     Random rnd = new Random();
 
+    //Constructor(s)
     public Dice() {
         this.id = idIndex;
-        initializeFaces();
-        this.actualPosition = rollDice();
+        initializeDiceFaces();
+        rollDice();
+        this.isDeath = this.state == "Death";
+        idIndex++;
     }
 
-    private void initializeFaces() {
+    //Method(s)
+    private void initializeDiceFaces() {
         try {
             this.sides.put(0, "Parrot");
             this.sides.put(1, "Monkey");
@@ -42,21 +48,25 @@ public final class Dice {
         }
     }
 
-    public String rollDice() {
+    public void rollDice() {
         try {
-            return this.sides.get(rnd.nextInt(Preferences.DICE_SIDE_QTY));
+            this.state = this.sides.get(rnd.nextInt(Preferences.DICE_SIDE_QTY));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return null;
     }
 
+    //Getters & Setters
     public int getId() {
         return id;
     }
 
-    public String getActualPosition() {
-        return actualPosition;
+    public String getState() {
+        return state;
     }
 
-}
+    public boolean getIsDeath() {
+        return isDeath;
+    }
+
+ }

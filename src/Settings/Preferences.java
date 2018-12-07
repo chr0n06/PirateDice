@@ -10,7 +10,15 @@ package Settings;
  * @author Maxime
  */
 public class Preferences {
-    public static int DICE_SIDE_QTY = 6;
+
+    public static int CARD_PACK_INDEX = 1;
+    public static int CARD_PACK_QTY = 36;
     
+    
+    public static int DICE_SIDE_QTY = 6;
+
     public static int PLAYER_STARTING_POINTS = 0;
+    
+    public static int WINNING_SCORE = 6000;
+
 }
