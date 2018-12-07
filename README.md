@@ -4,7 +4,7 @@ Excercising myself to implement the business logics of a cool game I've played w
 Mille Sabord
 
 ![mille sabord]
-(https://www.google.ca/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiM9IaN447fAhUonOAKHUgOC9gQjRx6BAgBEAU&url=https%3A%2F%2Fwww.fnac.com%2FMille-Sabords-Gigamic%2Fa5362595%2Fw-4&psig=AOvVaw1abaqHjrtBvdTgEzgi836u&ust=1544308361848126)
+(https://static.fnac-static.com/multimedia/Images/FR/MDM/9d/48/38/3688605/1540-1/tsp20180719191145/Mille-Sabords-Gigamic.jpg)
 
 # Rules
  //35 cartes Pirates
