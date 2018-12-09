@@ -3,8 +3,8 @@ Excercising myself to implement the business logics of a cool game I've played w
 
 Mille Sabord
 
-![Image of mille sabord]
-(https://static.fnac-static.com/multimedia/Images/FR/MDM/9d/48/38/3688605/1540-1/tsp20180719191145/Mille-Sabords-Gigamic.jpg)
+![picture](src/Assets/MilleSabord.jpg)
+
 
 # Rules
 35 cartes Pirates
