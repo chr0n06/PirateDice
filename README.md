@@ -1,12 +1,28 @@
-# PirateDice
-Excercising myself to implement the business logics of a cool game I've played with friends 
+# PirateDice (Mille Sabord)
 
-Mille Sabord
+## Purpose
 
+This project is a very simple exercice that I build like I do a puzzle. I do it simply to relax and keep on touch with Java. Here I implement this cool game I've played with friends. 
+
+## The Game
 ![picture](src/Assets/MilleSabord.jpg)
 
+## Phase(s)
+| ID |                    Description                       |
+| ---|------------------------------------------------------|
+|  1 |    Building the Business logic of the game (Console) |
+|  2 |    Building the game with a Real UI                  |
+|  3 |    Doing a Mobile version (Maybe)                    | 
+
+
+- [x] 1-Doing the minimum viable product of the game
+- [x] 2-Filling the cooler with beer!
+- [ ] 3-Completing the logic patterns of the game
 
 # Rules
+
+![picture](src/Assets/Chart_Points.png)
+
 35 cartes Pirates
 -Coffre au trésor
         -safe dice
@@ -33,14 +49,4 @@ Mille Sabord
   -4 épées => 1000
     
 -Joute 6000 points
- 
-    
-    //Or 100
-    //Diamant 100
-    //Suite de 3 100
-    //Suite de 4 200
-    //Suite de 5 500
-    //Suite de 6 1000
-    //Suite de 7 2000
-    //Suite de 8 4000
-    //Coffre 500
+
