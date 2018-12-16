@@ -3,6 +3,7 @@ package DAL;
 import Model.Card;
 import Model.Dice;
 import Model.Player;
+import Settings.Preferences;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -51,12 +52,10 @@ public class Repository {
         }
     }
 
-    private void generatePlayers() { //Hard Coded for the moment ! 
-        players.add(new Player("Maxime"));
-        players.add(new Player("Charles"));
-        players.add(new Player("Cynthia"));
-        players.add(new Player("Sebastien"));
-        
+    private void generatePlayers() { 
+        for(int i=0;i<Preferences.PLAYER_NAMES.length;i++){
+            players.add(new Player(Preferences.PLAYER_NAMES[i]));
+        }
         Collections.shuffle(players);
     }
 

@@ -14,16 +14,21 @@ public class Preferences {
     public static int CARD_PACK_INDEX = 1;
     public static int CARD_PACK_QTY = 36;
     
+    public static String[] PLAYER_NAMES = {
+        "Maxime",
+        "Sebastien",
+        "Cynthia",
+        "Charles"
+    };
+ 
     public static int DEFAULT_LIFE_QTY = 3;
-    
-    
+
     public static int DICE_SIDE_QTY = 6;
 
     public static int TURN_STARTING_POINTS = 0;
     public static int PLAYER_STARTING_POINTS = 0;
     public static int PLAYER_TURN_INDEX = 0;
-    
-    
+
     public static int WINNING_SCORE = 6000;
 
 }
