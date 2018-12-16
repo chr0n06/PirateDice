@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BLL;
+package Controllers;
 
 import DAL.Repository;
 import Model.Card;
@@ -16,18 +16,18 @@ import java.util.List;
  *
  * @author chr0n06
  */
-public class Card_Services {
+public class Card_Controller {
 
     public Repository repo;
-    private static Card_Services card_services = null;
+    private static Card_Controller card_services = null;
 
-    private Card_Services() {
+    private Card_Controller() {
         repo = Repository.getInstance();
     }
 
-    public static Card_Services getInstance() {
+    public static Card_Controller getInstance() {
         if (card_services == null) {
-            card_services = new Card_Services();
+            card_services = new Card_Controller();
         }
         return card_services;
     }

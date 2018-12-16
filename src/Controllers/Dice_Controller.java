@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BLL;
+package Controllers;
 
 import DAL.Repository;
 import Model.Dice;
@@ -13,18 +13,18 @@ import java.util.List;
  *
  * @author chr0n06
  */
-public class Dice_Services {
+public class Dice_Controller {
 
     public Repository repo;
-    private static Dice_Services dice_services = null;
+    private static Dice_Controller dice_services = null;
 
-    private Dice_Services() {
+    private Dice_Controller() {
         repo = Repository.getInstance();
     }
 
-    public static Dice_Services getInstance() {
+    public static Dice_Controller getInstance() {
         if (dice_services == null) {
-            dice_services = new Dice_Services();
+            dice_services = new Dice_Controller();
         }
         return dice_services;
     }

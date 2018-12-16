@@ -5,10 +5,11 @@
  */
 package piratedice;
 
-import BLL.Card_Services;
-import BLL.Dice_Services;
-import BLL.Player_Services;
-import BLL.Turn_Services;
+import Controllers.Card_Controller;
+import Controllers.Dice_Controller;
+import BLL.Master_Services;
+import Controllers.Player_Controller;
+import Controllers.Turn_Controller;
 import Model.Dice;
 import Model.Turn;
 import java.util.Arrays;
@@ -25,10 +26,12 @@ public class PirateDice {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Player_Services player_service = Player_Services.getInstance();
-        Card_Services card_service = Card_Services.getInstance();
-        Dice_Services dice_service = Dice_Services.getInstance();
-        Turn_Services turn_services = Turn_Services.getInstance();
+        Master_Services ms = Master_Services.getInstance();
+        
+        Player_Controller player_service = Player_Controller.getInstance();
+        Card_Controller card_service = Card_Controller.getInstance();
+        Dice_Controller dice_service = Dice_Controller.getInstance();
+        Turn_Controller turn_services = Turn_Controller.getInstance();
 
         /*Testing Dices and states*/
  /*

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BLL;
+package Controllers;
 
 import DAL.Repository;
 import Model.Turn;
@@ -13,22 +13,22 @@ import Settings.Preferences;
  *
  * @author chr0n06
  */
-public class Turn_Services {
+public class Turn_Controller {
 
     public Repository repo;
-    private static Turn_Services turn_services = null;
-    private static Dice_Services dice_services = null;
+    private static Turn_Controller turn_services = null;
+    private static Dice_Controller dice_services = null;
     Turn turn = null; 
     
-    private Turn_Services() {
+    private Turn_Controller() {
         repo = Repository.getInstance();
-        dice_services = Dice_Services.getInstance();
+        dice_services = Dice_Controller.getInstance();
         newTurn();
     }
 
-    public static Turn_Services getInstance() {
+    public static Turn_Controller getInstance() {
         if (turn_services == null) {
-            turn_services = new Turn_Services();
+            turn_services = new Turn_Controller();
         }
         return turn_services;
     }
