@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maxime/Desktop/PirateDice/src/Model/Player.java</file>
-            <file>file:/C:/Users/Maxime/Desktop/PirateDice/src/Model/Dice.java</file>
-            <file>file:/C:/Users/Maxime/Desktop/PirateDice/src/Model/Card.java</file>
-            <file>file:/C:/Users/Maxime/Desktop/PirateDice/src/Settings/Preferences.java</file>
-            <file>file:/C:/Users/Maxime/Desktop/PirateDice/src/Model/Turn.java</file>
-            <file>file:/C:/Users/Maxime/Desktop/PirateDice/src/piratedice/PirateDice.java</file>
+            <file>file:/D:/PirateDice/src/Controllers/Card_Controller.java</file>
+            <file>file:/D:/PirateDice/src/Controllers/Turn_Controller.java</file>
+            <file>file:/D:/PirateDice/src/BLL/Master_Services.java</file>
+            <file>file:/D:/PirateDice/src/piratedice/PirateDice.java</file>
         </group>
     </open-files>
 </project-private>

@@ -16,17 +16,21 @@ import DAL.Repository;
  * @author Maxime
  */
 public class Master_Services {
-    Player_Controller player_service = Player_Controller.getInstance();
-    Card_Controller card_service = Card_Controller.getInstance();
-    Dice_Controller dice_service = Dice_Controller.getInstance();
-    Turn_Controller turn_services = Turn_Controller.getInstance();
-    
-    
+
+    public Player_Controller player_service = null;
+    public Card_Controller card_service = null;
+    public Dice_Controller dice_service = null;
+    public Turn_Controller turn_services = null;
+
     public Repository repo;
     private static Master_Services master_services = null;
 
     private Master_Services() {
         repo = Repository.getInstance();
+        player_service = Player_Controller.getInstance();
+        card_service = Card_Controller.getInstance();
+        dice_service = Dice_Controller.getInstance();
+        turn_services = Turn_Controller.getInstance();
     }
 
     public static Master_Services getInstance() {

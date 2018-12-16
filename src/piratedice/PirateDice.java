@@ -27,11 +27,11 @@ public class PirateDice {
      */
     public static void main(String[] args) {
         Master_Services ms = Master_Services.getInstance();
-        
-        Player_Controller player_service = Player_Controller.getInstance();
-        Card_Controller card_service = Card_Controller.getInstance();
-        Dice_Controller dice_service = Dice_Controller.getInstance();
-        Turn_Controller turn_services = Turn_Controller.getInstance();
+        for (Dice dice : ms.dice_service.getAllDices()) {
+            System.out.println(dice.getId()+ "--" + dice.getState() + "--" + dice.isDeath());
+        }
+ 
+       
 
         /*Testing Dices and states*/
  /*
@@ -55,7 +55,7 @@ public class PirateDice {
          */
  /*Testing turn*/
         //Turn turn1 = new Turn(player_service.getAllPlayers().get(0));
-
+/*
        Turn turn1 = turn_services.newTurn();
         
         card_service.pickACard(turn1);
@@ -88,7 +88,6 @@ public class PirateDice {
             }
         }
         sc.close();
-
-    }
-
-}
+*/
+    }//main
+}//PirateDice
