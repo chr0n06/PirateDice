@@ -5,11 +5,11 @@
  */
 package piratedice;
 
-import Controllers.Card_Controller;
-import Controllers.Dice_Controller;
+import BLL.Card_Service;
+import BLL.Dice_Service;
 import BLL.Master_Services;
-import Controllers.Player_Controller;
-import Controllers.Turn_Controller;
+import BLL.Player_Service;
+import BLL.Turn_Service;
 import Model.Dice;
 import Model.Turn;
 import java.util.Arrays;

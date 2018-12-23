@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controllers;
+package BLL;
 
 import DAL.Repository;
 import Model.Player;
@@ -13,17 +13,17 @@ import java.util.List;
  *
  * @author chr0n06
  */
-public class Player_Controller {
+public class Player_Service {
     public Repository repo;
-    private static Player_Controller player_services = null;
+    private static Player_Service player_services = null;
 
-    private Player_Controller() {
+    private Player_Service() {
         repo = Repository.getInstance();
     }
 
-    public static Player_Controller getInstance() {
+    public static Player_Service getInstance() {
         if (player_services == null) {
-            player_services = new Player_Controller();
+            player_services = new Player_Service();
         }
         return player_services;
     }

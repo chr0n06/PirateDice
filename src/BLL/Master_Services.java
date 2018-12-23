@@ -5,10 +5,6 @@
  */
 package BLL;
 
-import Controllers.Player_Controller;
-import Controllers.Card_Controller;
-import Controllers.Dice_Controller;
-import Controllers.Turn_Controller;
 import DAL.Repository;
 
 /**
@@ -17,20 +13,20 @@ import DAL.Repository;
  */
 public class Master_Services {
 
-    public Player_Controller player_service = null;
-    public Card_Controller card_service = null;
-    public Dice_Controller dice_service = null;
-    public Turn_Controller turn_services = null;
+    public Player_Service player_service = null;
+    public Card_Service card_service = null;
+    public Dice_Service dice_service = null;
+    public Turn_Service turn_services = null;
 
     public Repository repo;
     private static Master_Services master_services = null;
 
     private Master_Services() {
         repo = Repository.getInstance();
-        player_service = Player_Controller.getInstance();
-        card_service = Card_Controller.getInstance();
-        dice_service = Dice_Controller.getInstance();
-        turn_services = Turn_Controller.getInstance();
+        player_service = Player_Service.getInstance();
+        card_service = Card_Service.getInstance();
+        dice_service = Dice_Service.getInstance();
+        turn_services = Turn_Service.getInstance();
     }
 
     public static Master_Services getInstance() {
