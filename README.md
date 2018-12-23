@@ -21,15 +21,12 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 # Rules
 
-![picture](src/Rules/Rules_0.png)
-![picture](src/Rules/Rules_1.png)
-![picture](src/Rules/Rules_2.png)
-![picture](src/Rules/Rules_3.png)
+![picture](src/Assets/Rules/Rules_1.png)
+![picture](src/Assets/Rules/Rules_2.png)
+![picture](src/Assets/Rules/Rules_3.png)
+![picture](src/Assets/Rules/Rules_4.png)
 
-
-
-
-***
+<!--
 35 cartes Pirates
 -Coffre au trésor
         -safe dice
@@ -49,11 +46,16 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 -Tête de mort
         -Une tete
         -Deux tete
-    
 -Les bateaux (Pirate Ship)
   -2 épées => 300
   -3 épées => 500
   -4 épées => 1000
-    
 -Joute 6000 points
+-->
+
+# Copyright
+***
+Author : Haim Shafir
+Design : Jose Pedro
+Programmor : Maxime Laniel 
 ***
