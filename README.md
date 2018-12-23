@@ -54,8 +54,6 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 -->
 
 # Copyright
-***
 Author : Haim Shafir
 Design : Jose Pedro
 Programmor : Maxime Laniel 
-***
