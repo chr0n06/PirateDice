@@ -30,5 +30,8 @@ public class Preferences {
     public static int PLAYER_TURN_INDEX = 0;
 
     public static int WINNING_SCORE = 6000;
+    
+    //Dice Layout
+    public static String DICE_LAYOUT = "Zeke";//"Cartoon""Real"; 
 
 }

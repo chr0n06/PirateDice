@@ -1,6 +1,7 @@
 package Controllers;
 
 import Model.Dice;
+import Settings.Preferences;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,14 +59,14 @@ public class BoardGame implements Initializable {
     void onActionPlay(ActionEvent event) {
         dc.rollAllDices();
 
-        dice1.setImage(new Image("Assets/" + dc.getAllDices().get(0).getState() + ".jpg"));
-        dice2.setImage(new Image("Assets/" + dc.getAllDices().get(1).getState() + ".jpg"));
-        dice3.setImage(new Image("Assets/" + dc.getAllDices().get(2).getState() + ".jpg"));
-        dice4.setImage(new Image("Assets/" + dc.getAllDices().get(3).getState() + ".jpg"));
-        dice5.setImage(new Image("Assets/" + dc.getAllDices().get(4).getState() + ".jpg"));
-        dice6.setImage(new Image("Assets/" + dc.getAllDices().get(5).getState() + ".jpg"));
-        dice7.setImage(new Image("Assets/" + dc.getAllDices().get(6).getState() + ".jpg"));
-        dice8.setImage(new Image("Assets/" + dc.getAllDices().get(7).getState() + ".jpg"));
+        dice1.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(0).getState() + ".png"));
+        dice2.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(1).getState() + ".png"));
+        dice3.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(2).getState() + ".png"));
+        dice4.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(3).getState() + ".png"));
+        dice5.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(4).getState() + ".png"));
+        dice6.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(5).getState() + ".png"));
+        dice7.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(6).getState() + ".png"));
+        dice8.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + dc.getAllDices().get(7).getState() + ".png"));
       
     }//onActionPlay
 
