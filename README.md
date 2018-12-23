@@ -5,7 +5,7 @@
 This project is a very simple exercice that I build like I do a puzzle. I do it simply to relax and keep on touch with Java. Here I implement this cool game I've played with friends. 
 
 ## The Game
-![picture](src/Assets/MilleSabord.jpg)
+![picture](src/Assets/PirateDice.jpg)
 
 ## Phase(s)
 | ID |                    Description                       |
@@ -15,14 +15,21 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 |  3 |    Doing a Mobile version (Maybe)                    | 
 
 
-- [x] 1-Doing the minimum viable product of the game
-- [x] 2-Filling the cooler with beer!
-- [ ] 3-Completing the logic patterns of the game
+- [] 1-Implementing Doing the minimum viable product of the game
+- [] 2-Filling the cooler with beer!
+- [] 3-Completing the logic patterns of the game
 
 # Rules
 
-![picture](src/Assets/Chart_Points.png)
+![picture](src/Rules/Rules_0.png)
+![picture](src/Rules/Rules_1.png)
+![picture](src/Rules/Rules_2.png)
+![picture](src/Rules/Rules_3.png)
 
+
+
+
+***
 35 cartes Pirates
 -Coffre au trésor
         -safe dice
@@ -49,4 +56,4 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
   -4 épées => 1000
     
 -Joute 6000 points
-
+***
