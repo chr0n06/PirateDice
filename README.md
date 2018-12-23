@@ -29,7 +29,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Coding a singleton repository
 - [x] Preparing a Preferences files 
 - [x] Preparing a Strong Assets 
-- []  Implementing the business logic   
+- [ ] Implementing the business logic   
 
 <!--
 35 cartes Pirates
