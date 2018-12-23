@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardGame">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -59,7 +59,7 @@
          <children>
             <ImageView id="dice1" fx:id="dice1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
-                  <Image url="@../Assets/sample.jpg" />
+                  <Image url="@../Assets/gold.jpg" />
                </image>
             </ImageView>
             <ImageView id="dice2" fx:id="dice2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
@@ -74,17 +74,17 @@
             </ImageView>
             <ImageView id="dice4" fx:id="dice4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
-                  <Image url="@../Assets/sample.jpg" />
+                  <Image url="@../Assets/gold.jpg" />
                </image>
             </ImageView>
             <ImageView id="dice5" fx:id="dice5" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
-                  <Image url="@../Assets/sample.jpg" />
+                  <Image url="@../Assets/monkey.jpg" />
                </image>
             </ImageView>
             <ImageView id="dice6" fx:id="dice6" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
-                  <Image url="@../Assets/sample.jpg" />
+                  <Image url="@../Assets/death.jpg" />
                </image>
             </ImageView>
             <ImageView id="dice7" fx:id="dice7" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
@@ -95,11 +95,6 @@
             <ImageView id="dice8" fx:id="dice8" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                <image>
                   <Image url="@../Assets/monkey.jpg" />
-               </image>
-            </ImageView>
-            <ImageView id="dice9" fx:id="dice9" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../Assets/gold.jpg" />
                </image>
             </ImageView>
          </children>
@@ -126,7 +121,7 @@
                   <Image url="@../Assets/Chart_Points.png" />
                </image>
             </ImageView>
-            <Button layoutX="406.0" layoutY="14.0" mnemonicParsing="false" text="Roll All Dice" />
+            <Button layoutX="406.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionPlay" text="Roll All Dice" />
          </children>
     </AnchorPane>
   </children>
