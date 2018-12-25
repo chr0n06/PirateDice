@@ -60,7 +60,10 @@ public class Repository {
     }
 
     private void generateCards() {
-        for (int i = 0; i < 35; i++) {
+        
+        
+        /*Older verison of the card genarator*/
+       /* for (int i = 0; i < 35; i++) {
             if (i <= 4) {
                 cards.add(new Card("Piece of Gold"));
             } else if (i <= 9) {
@@ -78,13 +81,13 @@ public class Repository {
             } else if (i <= 28) {
                 cards.add(new Card("Double Skulls"));
             } else if (i <= 31) {
-                cards.add(new Card("Pirate Ship 1"));
+                cards.add(new Card("Pirate Ship easy"));
             } else if (i <= 33) {
                 cards.add(new Card("Pirate Ship 2"));
             } else if (i == 34) {
                 cards.add(new Card("Pirate Ship 3"));
             }
-        }
+        }*/
         Collections.shuffle(cards);
     }
 

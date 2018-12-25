@@ -17,10 +17,12 @@ public class Card {
     
     private int id;
     private String name;
+    private String Description;
 
-    public Card(String name) {
+    public Card(String name, String Description) {
         this.id = idIndex;
         this.name = name;
+        this.Description = Description;
         idIndex++;
     }
 
@@ -31,4 +33,8 @@ public class Card {
     public int getId() {
         return id;
     }   
+
+    public String getDescription() {
+        return Description;
+    }    
 }

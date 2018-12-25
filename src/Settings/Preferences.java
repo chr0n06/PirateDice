@@ -11,8 +11,20 @@ package Settings;
  */
 public class Preferences {
 
+    //Card Setup
     public static int CARD_PACK_INDEX = 1;
     public static int CARD_PACK_QTY = 36;
+    public static int CARD_PIRATEBOATEASY_QTY = 2;
+    public static int CARD_PIRATEBOATMEDIUM_QTY = 2;
+    public static int CARD_PIRATEBOATHARD_QTY = 2;
+    public static int CARD_DOUBLESKULL_QTY = 2;
+    public static int CARD_SIMPLESKULL_QTY = 3;
+    public static int CARD_CHEST_QTY = 4;
+    public static int CARD_PIRATE_QTY = 4;
+    public static int CARD_BRILLIANT_DIAMOND_QTY = 4;
+    public static int CARD_PIECEOFGOLD_QTY = 4;
+    public static int CARD_MONKEY_PIRATE_QTY = 4;
+    public static int CARD_WITCH_QTY = 4;
     
     public static String[] PLAYER_NAMES = {
         "Maxime",
