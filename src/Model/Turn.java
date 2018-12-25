@@ -12,7 +12,6 @@ import Settings.Preferences;
  * @author Maxime
  */
 public class Turn {
-    private int id;
     private Player player;
     private Card card;
     private int score;
@@ -24,10 +23,6 @@ public class Turn {
         this.score = Preferences.TURN_STARTING_POINTS;
         this.lifes = Preferences.DEFAULT_LIFE_QTY;
     }    
-    
-    public int getId() {
-        return id;
-    }
 
     public Player getPlayer() {
         return player;

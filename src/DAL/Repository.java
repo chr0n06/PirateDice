@@ -27,6 +27,7 @@ public class Repository {
 
     // private constructor restricted to this class itself 
     private Repository() {
+
         this.dices = new ArrayList<>();
         this.players = new ArrayList<>();
         this.cards = new ArrayList<>();
@@ -52,43 +53,44 @@ public class Repository {
         }
     }
 
-    private void generatePlayers() { 
-        for(int i=0;i<Preferences.PLAYER_NAMES.length;i++){
+    private void generatePlayers() {
+        for (int i = 0; i < Preferences.PLAYER_NAMES.length; i++) {
             players.add(new Player(Preferences.PLAYER_NAMES[i]));
         }
         Collections.shuffle(players);
     }
 
     private void generateCards() {
-        
-        
-        /*Older verison of the card genarator*/
-       /* for (int i = 0; i < 35; i++) {
-            if (i <= 4) {
-                cards.add(new Card("Piece of Gold"));
-            } else if (i <= 9) {
-                cards.add(new Card("Brilliant Diamond"));
-            } else if (i <= 12) {
-                cards.add(new Card("Treasure"));
-            } else if (i <= 14) {
-                cards.add(new Card("Witch"));
-            } else if (i <= 17) {
-                cards.add(new Card("Pirate"));
-            } else if (i <= 23) {
-                cards.add(new Card("Monkey & Parrot"));
-            } else if (i <= 26) {
-                cards.add(new Card("Simple Skull"));
-            } else if (i <= 28) {
-                cards.add(new Card("Double Skulls"));
-            } else if (i <= 31) {
-                cards.add(new Card("Pirate Ship easy"));
-            } else if (i <= 33) {
-                cards.add(new Card("Pirate Ship 2"));
-            } else if (i == 34) {
-                cards.add(new Card("Pirate Ship 3"));
-            }
-        }*/
+        cardQtyManager("WitchCard", "You have the capability to reroll one Death dice by the end of your turn!",
+                Preferences.CARD_WITCH_QTY);
+        cardQtyManager("SimpleSkullCard", "You already start your turn with only 2 lifes", 
+                Preferences.CARD_SIMPLESKULL_QTY);
+        cardQtyManager("DoubleSkullCard", "You already start your turn with only 1 life", 
+                Preferences.CARD_DOUBLESKULL_QTY);
+        cardQtyManager("PirateCard", "Your points will be doubled at the end of that turn", 
+                Preferences.CARD_PIRATE_QTY);
+        cardQtyManager("MonkeyParrotCard", "The monkey and Parrot are considered similars dices", 
+                Preferences.CARD_MONKEY_PIRATE_QTY);
+        cardQtyManager("EasyPirateBoatCard", "Roll 2 swords dices to destroy the pirate boat and collecting his treasure or die trying and lose the equivalent", 
+                Preferences.CARD_PIRATEBOATEASY_QTY);
+        cardQtyManager("MediumPirateBoatCard", "Roll 3 swords dices to destroy the pirate boat and collecting his treasure or die trying and lose the equivalent", 
+                Preferences.CARD_PIRATEBOATMEDIUM_QTY);
+        cardQtyManager("HardPirateBoatCard", "Roll 4 swords dices to destroy the pirate boat and collecting his treasure or die trying and lose the equivalent", 
+                Preferences.CARD_PIRATEBOATHARD_QTY);
+        cardQtyManager("ChestCard", "Roll till your death but don't forget the protect the dices of your choice by putting it inside the chest", 
+                Preferences.CARD_CHEST_QTY);
+        cardQtyManager("PieceOfGoldCard", "Start your turn with this additional Piece of gold", 
+                Preferences.CARD_PIECEOFGOLD_QTY);
+        cardQtyManager("BrilliantDiamondCard", "Start your turn with this additional Brilliant Diamond", 
+                Preferences.CARD_BRILLIANT_DIAMOND_QTY);
+
         Collections.shuffle(cards);
+    }
+
+    public void cardQtyManager(String name, String description, int qty) {
+        for (int i = 0; i < qty; i++) {
+            cards.add(new Card(name, description));
+        }
     }
 
     public List<Dice> getDices() {
@@ -105,6 +107,6 @@ public class Repository {
 
     public List<Card> getCards() {
         return cards;
-    }    
-    
+    }
+
 }

@@ -19,12 +19,11 @@ public class Turn_Service {
     public Repository repo;
     private static Turn_Service turn_services = null;
     private static Dice_Service dice_services = null;
-    Turn turn = null; 
+    
     
     private Turn_Service() {
         repo = Repository.getInstance();
-        dice_services = Dice_Service.getInstance();
-        newTurn();
+
     }
 
     public static Turn_Service getInstance() {
@@ -38,13 +37,6 @@ public class Turn_Service {
         Turn turn = new Turn(repo.getPlayers().get(Preferences.PLAYER_TURN_INDEX));
         Preferences.PLAYER_TURN_INDEX++;
         return turn;
-    }
-    
-    public void shakeDice(){
-        dice_services.rollAllDices();
-        
-    
-     
     }
 
 }
