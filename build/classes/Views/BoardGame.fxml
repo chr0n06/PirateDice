@@ -100,11 +100,6 @@
       </HBox>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-image: &quot;../Assets/CanvasBackground.png&quot;; -fx-background-color: black;" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="226.0" fitWidth="172.0" layoutX="507.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Assets/Chart_Points.png" />
-               </image>
-            </ImageView>
             <Button layoutX="406.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionPlay" text="Roll All Dice" />
             <ImageView fitHeight="212.0" fitWidth="131.0" layoutX="46.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                <image>

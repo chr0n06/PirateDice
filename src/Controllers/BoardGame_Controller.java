@@ -3,6 +3,9 @@ package Controllers;
 import BLL.Services;
 import Settings.Preferences;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +15,6 @@ import javafx.scene.image.ImageView;
 
 public class BoardGame_Controller implements Initializable {
 
-    
     @FXML
     private ResourceBundle resources;
 
@@ -46,29 +48,26 @@ public class BoardGame_Controller implements Initializable {
     @FXML
     private ImageView dice9;
 
+    List<ImageView> dices ;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
     }
- 
+
     @FXML
-    void onactionNextTurn(ActionEvent event){
-        
+    void onactionNextTurn(ActionEvent event) {
+
     }
+
     @FXML
     void onActionPlay(ActionEvent event) {
-        
         Services.rollAllDices();
-
-        dice1.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(0).getState() + ".png"));
-        dice2.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(1).getState() + ".png"));
-        dice3.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(2).getState() + ".png"));
-        dice4.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(3).getState() + ".png"));
-        dice5.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(4).getState() + ".png"));
-        dice6.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(5).getState() + ".png"));
-        dice7.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(6).getState() + ".png"));
-        dice8.setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(7).getState() + ".png"));
-      
+        int index = 0;
+        for (ImageView dice : dices) {
+            dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
+            
+        }
     }//onActionPlay
 
 }//BoardGame
