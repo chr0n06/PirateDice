@@ -9,6 +9,7 @@ import DAL.Repository;
 import Model.Card;
 import Model.Dice;
 import Model.Player;
+import Model.Turn;
 import Settings.Preferences;
 import java.util.Collections;
 import java.util.List;
@@ -65,5 +66,23 @@ public class Services {
         return repo.getPlayers();
     }
     
+    public static void nextTurn(){
+        //Inject a player and a card to the next turn
+        //repo.getTurn().setPlayer(repo.getPlayers().get(Preferences.PLAYER_TURN_INDEX++));
+        if(Preferences.CARD_PACK_INDEX < Preferences.CARD_PACK_QTY){
+            repo.getTurn().setCard(repo.getCards().get(Preferences.CARD_PACK_INDEX++));
+        } else {
+            resetCardPackIndex();
+            System.out.println("Pack has been resetted");
+            nextTurn();
+        }
+        
+        
+
+    }
     
+    public static Turn getTurn(){
+        return repo.getTurn();
+    }
+     
 }

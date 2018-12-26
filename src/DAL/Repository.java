@@ -3,6 +3,7 @@ package DAL;
 import Model.Card;
 import Model.Dice;
 import Model.Player;
+import Model.Turn;
 import Settings.Preferences;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,17 +21,18 @@ import java.util.List;
 public class Repository {
 
     private static Repository repository = null;
-
+    
+    private Turn turn;
     private List<Dice> dices;
     private List<Player> players;
     private List<Card> cards;
 
     // private constructor restricted to this class itself 
     private Repository() {
-
         this.dices = new ArrayList<>();
         this.players = new ArrayList<>();
         this.cards = new ArrayList<>();
+        this.turn = new Turn();
         initializeBoard();
     }
 
@@ -47,6 +49,7 @@ public class Repository {
         generateCards();
     }
 
+    
     private void generateDices() {
         for (int i = 0; i < 8; i++) {
             dices.add(new Dice());
@@ -101,12 +104,11 @@ public class Repository {
         return players;
     }
 
-    public void setPlayers(List<Player> players) {
-        this.players = players;
-    }
-
     public List<Card> getCards() {
         return cards;
     }
 
+    public Turn getTurn() {
+        return turn;
+    }
 }

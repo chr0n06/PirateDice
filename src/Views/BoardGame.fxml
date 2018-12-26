@@ -101,7 +101,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-image: &quot;../Assets/CanvasBackground.png&quot;; -fx-background-color: black;" VBox.vgrow="ALWAYS">
          <children>
             <Button layoutX="406.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionPlay" text="Roll All Dice" />
-            <ImageView fitHeight="212.0" fitWidth="131.0" layoutX="46.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="cardView" fitHeight="212.0" fitWidth="131.0" layoutX="46.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Assets/Cards/ChestCard_x.png" />
                </image>

@@ -13,7 +13,7 @@ public class Preferences {
 
     //Card Setup
     public static int CARD_PACK_INDEX = 1;
-    public static int CARD_PACK_QTY = 36;
+    public static int CARD_PACK_QTY = 35;
     public static int CARD_PIRATEBOATEASY_QTY = 2;
     public static int CARD_PIRATEBOATMEDIUM_QTY = 2;
     public static int CARD_PIRATEBOATHARD_QTY = 2;
@@ -37,7 +37,7 @@ public class Preferences {
 
     public static int DICE_SIDE_QTY = 6;
 
-    public static int TURN_STARTING_POINTS = 0;
+
     public static int PLAYER_STARTING_POINTS = 0;
     public static int PLAYER_TURN_INDEX = 0;
 

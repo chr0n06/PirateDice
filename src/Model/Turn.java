@@ -17,10 +17,10 @@ public class Turn {
     private int score;
     private int lifes;
     
-    public Turn(Player player) {
-        this.player = player;
+    public Turn() {
+        this.player = null;
         this.card = null;
-        this.score = Preferences.TURN_STARTING_POINTS;
+        this.score = 0;
         this.lifes = Preferences.DEFAULT_LIFE_QTY;
     }    
 

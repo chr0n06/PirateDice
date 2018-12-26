@@ -3,7 +3,6 @@ package Controllers;
 import BLL.Services;
 import Settings.Preferences;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -46,9 +45,9 @@ public class BoardGame_Controller implements Initializable {
     private ImageView dice8;
 
     @FXML
-    private ImageView dice9;
+    private ImageView cardView;
 
-    List<ImageView> dices ;
+    List<ImageView> dices;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,6 +56,19 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     void onactionNextTurn(ActionEvent event) {
+        Services.nextTurn();
+
+        switch (Services.getTurn().getCard().getName()) {
+            case "ChestCard":
+                System.out.println("ChestCard");
+                cardView.setImage(new Image("Assets/Cards/ChestCard_x.png"));
+                break;
+            case "MonkeyParrotCard":
+                System.out.println("monkey parrot");
+                cardView.setImage(new Image("Assets/Cards/monkeyParrot.jpg"));
+            default:
+                System.out.println("None");
+        }
 
     }
 
@@ -66,7 +78,7 @@ public class BoardGame_Controller implements Initializable {
         int index = 0;
         for (ImageView dice : dices) {
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
-            
+
         }
     }//onActionPlay
 
