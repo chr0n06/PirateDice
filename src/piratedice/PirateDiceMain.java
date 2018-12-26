@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author Maxime
  */
-public class PirateDiceGUI extends Application{
+public class PirateDiceMain extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {

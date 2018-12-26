@@ -139,6 +139,7 @@
                   </Label>
                </children>
             </HBox>
+            <Button layoutX="217.0" layoutY="151.0" mnemonicParsing="false" onAction="#onactionNextTurn" text="Next Turn" />
          </children>
     </AnchorPane>
   </children>

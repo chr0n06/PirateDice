@@ -87,7 +87,7 @@ public class Repository {
         Collections.shuffle(cards);
     }
 
-    public void cardQtyManager(String name, String description, int qty) {
+    private void cardQtyManager(String name, String description, int qty) {
         for (int i = 0; i < qty; i++) {
             cards.add(new Card(name, description));
         }
