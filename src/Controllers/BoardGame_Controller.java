@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Popup;
 
 public class BoardGame_Controller implements Initializable {
 
@@ -55,11 +57,10 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     private ImageView cardView;
-    
+
     @FXML
     private Label cardName;
 
-    
     @FXML
     private Text cardDescription;
 
@@ -89,6 +90,11 @@ public class BoardGame_Controller implements Initializable {
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
 
         }//for
+    }//onActionPlay
+
+    @FXML
+    void MenuQuit(ActionEvent event) {
+        Platform.exit();
     }//onActionPlay
 
 }//BoardGame

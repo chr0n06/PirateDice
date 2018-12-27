@@ -22,53 +22,32 @@
         <Menu mnemonicParsing="false" text="File">
           <items>
             <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" text="Preferences…" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
+            <MenuItem mnemonicParsing="false" onAction="#MenuQuit" text="Quit" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+            <MenuItem mnemonicParsing="false" text="Copyright" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
       <HBox alignment="CENTER" prefHeight="0.0" prefWidth="437.0" spacing="10.0" style="-fx-background-color: black;">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice1" fx:id="dice1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Assets/DicesLayouts/3D/Parrot.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" text="CheckBox" />
+                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice2" fx:id="dice2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
@@ -78,64 +57,64 @@
                   <CheckBox contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice3" fx:id="dice3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Assets/DicesLayouts/3D/Monkey.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" text="CheckBox" />
+                  <CheckBox mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice4" fx:id="dice4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Assets/DicesLayouts/3D/Parrot.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" text="CheckBox" />
+                  <CheckBox mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice5" fx:id="dice5" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Assets/DicesLayouts/3D/Gold.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" text="CheckBox" />
+                  <CheckBox mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice6" fx:id="dice6" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Assets/DicesLayouts/3D/Death.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" text="CheckBox" />
+                  <CheckBox mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice7" fx:id="dice7" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Assets/DicesLayouts/3D/Diamond.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" text="CheckBox" />
+                  <CheckBox mnemonicParsing="false" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
                   <ImageView id="dice8" fx:id="dice8" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
                         <Image url="@../Assets/DicesLayouts/3D/Swords.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" text="CheckBox" />
+                  <CheckBox mnemonicParsing="false" />
                </children>
             </VBox>
          </children>
