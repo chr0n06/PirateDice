@@ -7,7 +7,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 ## The Game
 ![picture](src/Assets/PirateDice.jpg)
 
-# Rules
+## Rules
 
 ![picture](src/Assets/Rules/Rules_1.png)
 ![picture](src/Assets/Rules/Rules_2.png)
@@ -16,14 +16,14 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 ## Phase(s)
 
-| Phase # |                    Description                       |
-| --------|------------------------------------------------------|
-|    1    |  Building the minimum viable product of the game     |
-|    2    |  Enhance gaming experience                           |
-|    3    |  Deploying a Mobile version of the game              |
-|    4    |  Implementing a multiplayer game experience          |
+| # | Life cycle |                  Description                       |
+|---|------------|----------------------------------------------------|
+| 1 | ALPHA      | Building the minimum viable product of the game    |
+| 2 | BETA       | Enhance gaming experience                          |
+| 3 | RELEASE    | Deploying a Mobile version of the game             |
+| 4 | RELEASE    | Implementing a multiplayer game experience         |
 
-# What have been done
+## What have been done
 
 - [x] Generating Models
 - [x] Coding a singleton repository
@@ -31,7 +31,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Preparing a Strong Assets 
 - [ ] Implementing the business logic   
 
-# Interface (Temp)
+## Interface (Temp)
 
 ![picture](src/Assets/Looking/2018-12-27.png)
 
