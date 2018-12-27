@@ -64,9 +64,9 @@ public class BoardGame_Controller implements Initializable {
     @FXML
     void onactionNextTurn(ActionEvent event) {
         Services.nextTurn();
-
-        //name.setText(Services.getAllPlayers().get(Preferences.PLAYER_TURN_INDEX).getName());
+        name.setText(Services.getTurn().getPlayer().getName());
         cardView.setImage(Services.getTurn().getCard().getImage());
+        points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
     }
 
     @FXML

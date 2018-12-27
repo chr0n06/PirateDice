@@ -51,7 +51,7 @@ public class Services {
 
     public static void nextTurn() {
         //Inject a player and a card to the new turn
-        //selectAPlayer();
+        selectAPlayer();
         pickACard();
 
     }
