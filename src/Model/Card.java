@@ -6,6 +6,8 @@
 package Model;
 
 import java.util.Random;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -18,11 +20,13 @@ public class Card {
     private int id;
     private String name;
     private String Description;
+    private Image image;
 
-    public Card(String name, String Description) {
+    public Card(String name, String Description, Image image) {
         this.id = idIndex;
         this.name = name;
         this.Description = Description;
+        this.image = image;
         idIndex++;
     }
 
@@ -37,4 +41,14 @@ public class Card {
     public String getDescription() {
         return Description;
     }    
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+    
+   
 }

@@ -113,7 +113,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Label text="Label" textFill="WHITE">
+                  <Label fx:id="name" text="Label" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -127,7 +127,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Label text="Label" textFill="WHITE">
+                  <Label fx:id="points" text="Label" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>

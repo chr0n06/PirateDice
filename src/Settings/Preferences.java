@@ -5,6 +5,8 @@
  */
 package Settings;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author Maxime
@@ -12,7 +14,7 @@ package Settings;
 public class Preferences {
 
     //Card Setup
-    public static int CARD_PACK_INDEX = 1;
+    public static int CARD_PACK_INDEX = 0;
     public static int CARD_PACK_QTY = 35;
     public static int CARD_PIRATEBOATEASY_QTY = 2;
     public static int CARD_PIRATEBOATMEDIUM_QTY = 2;
@@ -25,6 +27,18 @@ public class Preferences {
     public static int CARD_PIECEOFGOLD_QTY = 4;
     public static int CARD_MONKEY_PIRATE_QTY = 4;
     public static int CARD_WITCH_QTY = 4;
+    
+    public static String CARD_PIRATEBOATEASY_IMG = "Assets/Cards/PirateBoatEasyCard.jpg";
+    public static String CARD_PIRATEBOATMEDIUM_IMG = "Assets/Cards/PirateBoatMediumCard.jpg";
+    public static String CARD_PIRATEBOATHARD_IMG = "Assets/Cards/PirateBoatHardCard.jpg";
+    public static String CARD_DOUBLESKULL_IMG = "Assets/Cards/DoubleSkullCard.jpg";
+    public static String CARD_SIMPLESKULL_IMG = "Assets/Cards/SimpleSkullCard.jpg";
+    public static String CARD_CHEST_IMG = "Assets/Cards/ChestCard_x.png";
+    public static String CARD_PIRATE_IMG = "Assets/Cards/PirateCard.jpg";
+    public static String CARD_BRILLIANT_DIAMOND_IMG = "Assets/Cards/DiamondCard_x.png";
+    public static String CARD_PIECEOFGOLD_IMG = "Assets/Cards/GoldenPiece.jpg";
+    public static String CARD_MONKEY_PIRATE_IMG = "Assets/Cards/monkeyParrot.jpg";
+    public static String CARD_WITCH_IMG = "Assets/Cards/witchCard.jpg";
     
     public static String[] PLAYER_NAMES = {
         "Maxime",

@@ -22,23 +22,6 @@ public class Services {
 
     public static Repository repo = Repository.getInstance();
 
-
-    public static Card pickACard() {
-        if (Preferences.CARD_PACK_INDEX <= Preferences.CARD_PACK_QTY) {
-            repo.getCards().get(Preferences.CARD_PACK_INDEX);
-            Preferences.CARD_PACK_INDEX++;
-        } else {
-            resetCardPackIndex();
-        }
-        return null;
-    }
-
-    private static void resetCardPackIndex() {
-        Preferences.CARD_PACK_INDEX = 1;
-        Collections.shuffle(repo.getCards());
-    }
-
-
     public static void rollAllDices() {
         for (Dice dice : repo.getDices()) {
             dice.rollDice();
@@ -62,27 +45,50 @@ public class Services {
         return repo.getDices();
     }
 
-     public static List<Player> getAllPlayers() {
+    public static List<Player> getAllPlayers() {
         return repo.getPlayers();
     }
-    
-    public static void nextTurn(){
-        //Inject a player and a card to the next turn
-        //repo.getTurn().setPlayer(repo.getPlayers().get(Preferences.PLAYER_TURN_INDEX++));
-        if(Preferences.CARD_PACK_INDEX < Preferences.CARD_PACK_QTY){
+
+    public static void nextTurn() {
+        //Inject a player and a card to the new turn
+        //selectAPlayer();
+        pickACard();
+
+    }
+
+    public static void selectAPlayer() {
+        System.out.println(Preferences.PLAYER_TURN_INDEX + "--" + Services.getAllPlayers().size());
+        if (Preferences.PLAYER_TURN_INDEX < Services.getAllPlayers().size()) {
+            repo.getTurn().setPlayer(repo.getPlayers().get(Preferences.PLAYER_TURN_INDEX++));
+        } else {
+            resetPlayerIndex();
+            System.out.println("Player index has been resetted");
+            nextTurn();
+        }
+    }
+
+    private static void resetPlayerIndex() {
+        Preferences.PLAYER_TURN_INDEX = 0;
+    }
+
+    public static void pickACard() {
+        if (Preferences.CARD_PACK_INDEX < Preferences.CARD_PACK_QTY) {
             repo.getTurn().setCard(repo.getCards().get(Preferences.CARD_PACK_INDEX++));
         } else {
             resetCardPackIndex();
-            System.out.println("Pack has been resetted");
+            System.out.println("Card Pack has been resetted");
             nextTurn();
         }
-        
-        
-
     }
-    
-    public static Turn getTurn(){
+
+    private static void resetCardPackIndex() {
+        Preferences.CARD_PACK_INDEX = 0;
+        Collections.shuffle(repo.getCards());
+    }
+
+    public static Turn getTurn() {
         return repo.getTurn();
     }
-     
+    
+
 }

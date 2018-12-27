@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -19,6 +20,12 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     private URL location;
+
+    @FXML
+    private Label name;
+
+    @FXML
+    private Label points;
 
     @FXML
     private ImageView dice1;
@@ -58,18 +65,8 @@ public class BoardGame_Controller implements Initializable {
     void onactionNextTurn(ActionEvent event) {
         Services.nextTurn();
 
-        switch (Services.getTurn().getCard().getName()) {
-            case "ChestCard":
-                System.out.println("ChestCard");
-                cardView.setImage(new Image("Assets/Cards/ChestCard_x.png"));
-                break;
-            case "MonkeyParrotCard":
-                System.out.println("monkey parrot");
-                cardView.setImage(new Image("Assets/Cards/monkeyParrot.jpg"));
-            default:
-                System.out.println("None");
-        }
-
+        //name.setText(Services.getAllPlayers().get(Preferences.PLAYER_TURN_INDEX).getName());
+        cardView.setImage(Services.getTurn().getCard().getImage());
     }
 
     @FXML
