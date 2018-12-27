@@ -9,9 +9,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
 
@@ -53,21 +55,31 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     private ImageView cardView;
+    
+    @FXML
+    private Label cardName;
+
+    
+    @FXML
+    private Text cardDescription;
 
     List<ImageView> dices;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
-    }
+    }//initialize
 
     @FXML
     void onactionNextTurn(ActionEvent event) {
         Services.nextTurn();
+
+        cardName.setText(Services.getTurn().getCard().getName());
+        cardDescription.setText(Services.getTurn().getCard().getDescription());
         name.setText(Services.getTurn().getPlayer().getName());
         cardView.setImage(Services.getTurn().getCard().getImage());
         points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
-    }
+    }//onactionNextTurn
 
     @FXML
     void onActionPlay(ActionEvent event) {
@@ -76,7 +88,7 @@ public class BoardGame_Controller implements Initializable {
         for (ImageView dice : dices) {
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
 
-        }
+        }//for
     }//onActionPlay
 
 }//BoardGame
