@@ -80,6 +80,11 @@ public class BoardGame_Controller implements Initializable {
         name.setText(Services.getTurn().getPlayer().getName());
         cardView.setImage(Services.getTurn().getCard().getImage());
         points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
+        int index = 0;
+        for (ImageView dice : dices) {
+            dice.setImage(new Image("Assets/DicesLayouts/mystery.png"));
+
+        }//for
     }//onactionNextTurn
 
     @FXML

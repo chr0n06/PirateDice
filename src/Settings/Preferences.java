@@ -58,6 +58,6 @@ public class Preferences {
     public static int WINNING_SCORE = 6000;
     
     //Dice Layout
-    public static String DICE_LAYOUT = "Cartoon";//"Zeke";//"3D";////"Cartoon";"Real"; 
+    public static String DICE_LAYOUT = "Zeke";//"Cartoon";//"3D";////"Cartoon";"Real"; 
 
 }
