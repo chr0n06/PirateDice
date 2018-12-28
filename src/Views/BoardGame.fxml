@@ -41,7 +41,7 @@
                <children>
                   <ImageView id="dice1" fx:id="dice1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Parrot.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" />
@@ -51,7 +51,7 @@
                <children>
                   <ImageView id="dice2" fx:id="dice2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Diamond.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" />
@@ -61,7 +61,7 @@
                <children>
                   <ImageView id="dice3" fx:id="dice3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Monkey.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox mnemonicParsing="false" />
@@ -71,7 +71,7 @@
                <children>
                   <ImageView id="dice4" fx:id="dice4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Parrot.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox mnemonicParsing="false" />
@@ -81,7 +81,7 @@
                <children>
                   <ImageView id="dice5" fx:id="dice5" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Gold.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox mnemonicParsing="false" />
@@ -91,7 +91,7 @@
                <children>
                   <ImageView id="dice6" fx:id="dice6" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Death.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox mnemonicParsing="false" />
@@ -101,7 +101,7 @@
                <children>
                   <ImageView id="dice7" fx:id="dice7" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Diamond.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox mnemonicParsing="false" />
@@ -111,7 +111,7 @@
                <children>
                   <ImageView id="dice8" fx:id="dice8" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../Assets/DicesLayouts/3D/Swords.png" />
+                        <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
                   <CheckBox mnemonicParsing="false" />
@@ -128,11 +128,7 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="cardView" fitHeight="212.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Assets/Cards/ChestCard_x.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="cardView" fitHeight="212.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true" />
                   <Text fx:id="cardDescription" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="117.60002541542053" />
                </children>
             </VBox>

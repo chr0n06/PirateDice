@@ -28,17 +28,17 @@ public class Preferences {
     public static int CARD_MONKEY_PIRATE_QTY = 4;
     public static int CARD_WITCH_QTY = 4;
     
-    public static String CARD_PIRATEBOATEASY_IMG = "Assets/Cards/PirateBoatEasyCard.jpg";
-    public static String CARD_PIRATEBOATMEDIUM_IMG = "Assets/Cards/PirateBoatMediumCard.jpg";
-    public static String CARD_PIRATEBOATHARD_IMG = "Assets/Cards/PirateBoatHardCard.jpg";
-    public static String CARD_DOUBLESKULL_IMG = "Assets/Cards/DoubleSkullCard.jpg";
-    public static String CARD_SIMPLESKULL_IMG = "Assets/Cards/SimpleSkullCard.jpg";
+    public static String CARD_PIRATEBOATEASY_IMG = "Assets/Cards/PirateBoatEasyCard_x.png";
+    public static String CARD_PIRATEBOATMEDIUM_IMG = "Assets/Cards/PirateBoatMediumCard_x.png";
+    public static String CARD_PIRATEBOATHARD_IMG = "Assets/Cards/PirateBoatHardCard_x.png";
+    public static String CARD_DOUBLESKULL_IMG = "Assets/Cards/DoubleSkullCard_x.png";
+    public static String CARD_SIMPLESKULL_IMG = "Assets/Cards/SimpleSkullCard_x.png";
     public static String CARD_CHEST_IMG = "Assets/Cards/ChestCard_x.png";
-    public static String CARD_PIRATE_IMG = "Assets/Cards/PirateCard.jpg";
-    public static String CARD_BRILLIANT_DIAMOND_IMG = "Assets/Cards/DiamondCard_x.png";
-    public static String CARD_PIECEOFGOLD_IMG = "Assets/Cards/GoldenPiece.jpg";
-    public static String CARD_MONKEY_PIRATE_IMG = "Assets/Cards/monkeyParrot.jpg";
-    public static String CARD_WITCH_IMG = "Assets/Cards/witchCard.jpg";
+    public static String CARD_PIRATE_IMG = "Assets/Cards/PirateCard_x.png";
+    public static String CARD_BRILLIANT_DIAMOND_IMG = "Assets/Cards/Diamond_x.png";
+    public static String CARD_PIECEOFGOLD_IMG = "Assets/Cards/GoldenPiece_x.png";
+    public static String CARD_MONKEY_PIRATE_IMG = "Assets/Cards/MonkeyParrot_x.png";
+    public static String CARD_WITCH_IMG = "Assets/Cards/witchCard_x.png";
     
     public static String[] PLAYER_NAMES = {
         "Maxime",
