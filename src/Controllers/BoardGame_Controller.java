@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -56,6 +57,30 @@ public class BoardGame_Controller implements Initializable {
     private ImageView dice8;
 
     @FXML
+    private CheckBox checkBox1;
+
+    @FXML
+    private CheckBox checkBox2;
+
+    @FXML
+    private CheckBox checkBox3;
+
+    @FXML
+    private CheckBox checkBox4;
+
+    @FXML
+    private CheckBox checkBox5;
+
+    @FXML
+    private CheckBox checkBox6;
+
+    @FXML
+    private CheckBox checkBox7;
+
+    @FXML
+    private CheckBox checkBox8;
+
+    @FXML
     private ImageView cardView;
 
     @FXML
@@ -65,10 +90,13 @@ public class BoardGame_Controller implements Initializable {
     private Text cardDescription;
 
     List<ImageView> dices;
-
+    List<CheckBox> checkboxes;
+    boolean selector = true;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
+        checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
     }//initialize
 
     @FXML
@@ -93,9 +121,18 @@ public class BoardGame_Controller implements Initializable {
         int index = 0;
         for (ImageView dice : dices) {
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
-
         }//for
     }//onActionPlay
+
+    @FXML
+    void onActionSelectAllDices(ActionEvent event) {
+        int index = 0;
+        for (CheckBox checkbox : checkboxes) {
+            checkbox.setSelected(selector);
+            
+        }//for
+        selector =!selector;
+    }//onActionSelectAllDices
 
     @FXML
     void MenuQuit(ActionEvent event) {

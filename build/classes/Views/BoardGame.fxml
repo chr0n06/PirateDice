@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -44,7 +45,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" />
+                  <CheckBox fx:id="checkBox1" mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -54,7 +55,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBox2" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -64,7 +65,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBox3" mnemonicParsing="false" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -74,7 +75,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBox4" mnemonicParsing="false" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -84,7 +85,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBox5" mnemonicParsing="false" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -94,7 +95,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBox6" mnemonicParsing="false" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -104,7 +105,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBox7" mnemonicParsing="false" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
@@ -114,7 +115,7 @@
                         <Image url="@../Assets/DicesLayouts/mystery.png" />
                      </image>
                   </ImageView>
-                  <CheckBox mnemonicParsing="false" />
+                  <CheckBox fx:id="checkBox8" mnemonicParsing="false" />
                </children>
             </VBox>
          </children>
@@ -123,16 +124,32 @@
          <children>
             <VBox alignment="CENTER" layoutX="14.0" layoutY="27.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label fx:id="cardName" contentDisplay="CENTER" text="Label" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="cardView" fitHeight="212.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fx:id="cardDescription" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="117.60002541542053" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                     <children>
+                        <Label fx:id="cardName" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="124.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="26.0" prefWidth="99.0" text="Description" textFill="WHITE">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                     <children>
+                        <ImageView fx:id="cardView" fitHeight="212.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="cardDescription" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="104.00004982948303" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <Button layoutX="406.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionPlay" text="Roll All Dice" />
+            <Button layoutX="523.0" layoutY="48.0" mnemonicParsing="false" onAction="#onActionPlay" text="Roll All Dice" />
             <HBox alignment="CENTER" layoutX="201.0" layoutY="243.0" prefHeight="50.0" prefWidth="409.0" spacing="20.0">
                <children>
                   <Label text="Name : " textAlignment="CENTER" textFill="WHITE">
@@ -157,7 +174,12 @@
                   </Label>
                </children>
             </HBox>
-            <Button layoutX="217.0" layoutY="151.0" mnemonicParsing="false" onAction="#onactionNextTurn" text="Next Turn" />
+            <Button layoutX="534.0" layoutY="141.0" mnemonicParsing="false" onAction="#onactionNextTurn" text="Next Turn" />
+            <Button layoutX="430.0" layoutY="87.0" mnemonicParsing="false" onAction="#onActionSelectAllDices" style="-fx-background-color: white;" text="Select / Unselect All">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>
