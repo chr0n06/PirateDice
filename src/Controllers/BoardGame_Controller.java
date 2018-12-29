@@ -3,6 +3,7 @@ package Controllers;
 import BLL.Services;
 import Settings.Preferences;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -89,9 +90,11 @@ public class BoardGame_Controller implements Initializable {
     @FXML
     private Text cardDescription;
 
+    @FXML
+    private Text pointsTemp;
+
     List<ImageView> dices;
     List<CheckBox> checkboxes;
-    boolean selector = true;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -99,6 +102,11 @@ public class BoardGame_Controller implements Initializable {
         checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
     }//initialize
 
+    @FXML
+    void MenuQuit(ActionEvent event) {
+        Platform.exit();
+    }//onActionPlay
+    
     @FXML
     void onactionNextTurn(ActionEvent event) {
         Services.nextTurn();
@@ -109,34 +117,64 @@ public class BoardGame_Controller implements Initializable {
         cardView.setImage(Services.getTurn().getCard().getImage());
         points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
         int index = 0;
-        for (ImageView dice : dices) {
-            dice.setImage(new Image("Assets/DicesLayouts/mystery.png"));
-
-        }//for
+        Services.rollAllDices();
+        resetLayout();
+        
     }//onactionNextTurn
 
     @FXML
     void onActionPlay(ActionEvent event) {
         Services.rollAllDices();
         int index = 0;
+        fillImageInDice();
+    }//onActionPlay
+
+ 
+    @FXML
+    void OnActionRoll(ActionEvent event) {
+        Services.rollSpecificDices(checkWichCheckBoxIsSelected());
+        resetLayout();
+                fillImageInDice();
+        
+    }
+
+    private List<Integer> checkWichCheckBoxIsSelected() {
+        List<Integer> boxchecked = new ArrayList<>();
+        int index = 1;
+        for (CheckBox checkboxe : checkboxes) {
+            if (checkboxe.isSelected()) {
+                boxchecked.add(index);
+            }//if
+            index++;
+        }//for
+        if (boxchecked.size() == 1 ){
+            System.out.println("Select minimum two dice!");
+            boxchecked.clear();
+        
+        }
+         System.out.println(boxchecked.size());
+        return boxchecked;
+        
+    }
+
+    private void resetLayout(){
         for (ImageView dice : dices) {
-            dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
+            dice.setImage(new Image("Assets/DicesLayouts/mystery.png"));
         }//for
-    }//onActionPlay
-
-    @FXML
-    void onActionSelectAllDices(ActionEvent event) {
+        for (CheckBox checkbox : checkboxes){
+            checkbox.setDisable(false);
+            checkbox.setSelected(false);
+        }
+    }
+    
+    private void fillImageInDice() {
         int index = 0;
-        for (CheckBox checkbox : checkboxes) {
-            checkbox.setSelected(selector);
-            
+        for (ImageView dice : dices) {
+            if (Services.getAllDices().get(index).getState() == "Death"){
+                checkboxes.get(index).setDisable(true);
+            } else checkboxes.get(index).setDisable(false);
+            dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
+
         }//for
-        selector =!selector;
-    }//onActionSelectAllDices
-
-    @FXML
-    void MenuQuit(ActionEvent event) {
-        Platform.exit();
-    }//onActionPlay
-
+    }
 }//BoardGame

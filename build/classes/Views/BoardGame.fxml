@@ -174,12 +174,8 @@
                   </Label>
                </children>
             </HBox>
-            <Button layoutX="534.0" layoutY="141.0" mnemonicParsing="false" onAction="#onactionNextTurn" text="Next Turn" />
-            <Button layoutX="430.0" layoutY="87.0" mnemonicParsing="false" onAction="#onActionSelectAllDices" style="-fx-background-color: white;" text="Select / Unselect All">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
+            <Button layoutX="529.0" layoutY="85.0" mnemonicParsing="false" onAction="#onactionNextTurn" text="Next Turn" />
+            <Button layoutX="545.0" layoutY="120.0" mnemonicParsing="false" onAction="#OnActionRoll" text="Roll" />
          </children>
     </AnchorPane>
   </children>

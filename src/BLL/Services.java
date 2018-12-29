@@ -29,13 +29,14 @@ public class Services {
     }
 
     public static void rollSpecificDices(List<Integer> dices) {
-        for (Integer diceId : dices) {
-            if (isDiceRollable(diceId)) {
-                repo.getDices().get(diceId - 1).rollDice();
-            }
-
-        }
-    }
+        if (!dices.isEmpty()) {
+            for (Integer diceId : dices) {
+                if (isDiceRollable(diceId)) {
+                    repo.getDices().get(diceId - 1).rollDice();
+                }//if
+            }//for
+        }//if
+    }//rollSpecificDices
 
     public static boolean isDiceRollable(int diceId) {
         return !repo.getDices().get(diceId - 1).isDeath();
@@ -89,6 +90,5 @@ public class Services {
     public static Turn getTurn() {
         return repo.getTurn();
     }
-    
 
 }
