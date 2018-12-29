@@ -116,26 +116,17 @@ public class BoardGame_Controller implements Initializable {
         name.setText(Services.getTurn().getPlayer().getName());
         cardView.setImage(Services.getTurn().getCard().getImage());
         points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
-        int index = 0;
+        
         Services.rollAllDices();
         resetLayout();
         
     }//onactionNextTurn
 
     @FXML
-    void onActionPlay(ActionEvent event) {
-        Services.rollAllDices();
-        int index = 0;
-        fillImageInDice();
-    }//onActionPlay
-
- 
-    @FXML
     void OnActionRoll(ActionEvent event) {
         Services.rollSpecificDices(checkWichCheckBoxIsSelected());
         resetLayout();
-                fillImageInDice();
-        
+        fillImageInDice();
     }
 
     private List<Integer> checkWichCheckBoxIsSelected() {
@@ -148,13 +139,10 @@ public class BoardGame_Controller implements Initializable {
             index++;
         }//for
         if (boxchecked.size() == 1 ){
-            System.out.println("Select minimum two dice!");
+            System.out.println("Select minimum two dice!"); //Will have to manage a popup on the main thread
             boxchecked.clear();
-        
-        }
-         System.out.println(boxchecked.size());
+        }//if
         return boxchecked;
-        
     }
 
     private void resetLayout(){
@@ -164,7 +152,7 @@ public class BoardGame_Controller implements Initializable {
         for (CheckBox checkbox : checkboxes){
             checkbox.setDisable(false);
             checkbox.setSelected(false);
-        }
+        }//for
     }
     
     private void fillImageInDice() {
@@ -172,9 +160,10 @@ public class BoardGame_Controller implements Initializable {
         for (ImageView dice : dices) {
             if (Services.getAllDices().get(index).getState() == "Death"){
                 checkboxes.get(index).setDisable(true);
+                checkboxes.get(index).setSelected(false);
             } else checkboxes.get(index).setDisable(false);
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
-
         }//for
-    }
+    }//fillImageInDice
+    
 }//BoardGame

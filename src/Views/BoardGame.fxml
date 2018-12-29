@@ -149,7 +149,6 @@
                   </HBox>
                </children>
             </VBox>
-            <Button layoutX="523.0" layoutY="48.0" mnemonicParsing="false" onAction="#onActionPlay" text="Roll All Dice" />
             <HBox alignment="CENTER" layoutX="201.0" layoutY="243.0" prefHeight="50.0" prefWidth="409.0" spacing="20.0">
                <children>
                   <Label text="Name : " textAlignment="CENTER" textFill="WHITE">
