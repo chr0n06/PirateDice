@@ -124,7 +124,7 @@
             </HBox>
           <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="627.0" prefWidth="1538.0">
                <children>
-                  <VBox alignment="CENTER" layoutX="14.0" layoutY="85.0" prefHeight="540.0" prefWidth="550.0" style="-fx-background-color: white; -fx-background-radius: 50px; -fx-opacity: 75%;">
+                  <VBox alignment="CENTER" layoutX="14.0" layoutY="85.0" prefHeight="540.0" prefWidth="550.0" styleClass="card" stylesheets="@css/Style.css">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
                            <children>

@@ -15,3 +15,8 @@ and open the template in the editor.
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;  
 }
+
+.card{
+    -fx-background-color: rgba(255, 255, 255, 0.65);
+    -fx-border-radius: 25px;
+}
