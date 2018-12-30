@@ -7,12 +7,9 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 ## The Game
 ![picture](src/Assets/PirateDice.jpg)
 
-## Rules
+## Actual Interface (Temp)
 
-![picture](src/Assets/Rules/Rules_1.png)
-![picture](src/Assets/Rules/Rules_2.png)
-![picture](src/Assets/Rules/Rules_3.png)
-![picture](src/Assets/Rules/Rules_4.png)
+![picture](src/Assets/Looking/2018-12-29.png)
 
 ## Phase(s)
 
@@ -30,10 +27,6 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Preparing a Preferences files 
 - [x] Preparing a Strong Assets 
 - [ ] Implementing the business logic   
-
-## Actual Interface (Temp)
-
-![picture](src/Assets/Looking/2018-12-29.png)
 
 <!--
 35 cartes Pirates
@@ -61,6 +54,12 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
   -4 épées => 1000
 -Joute 6000 points
 -->
+## Rules
+
+![picture](src/Assets/Rules/Rules_1.png)
+![picture](src/Assets/Rules/Rules_2.png)
+![picture](src/Assets/Rules/Rules_3.png)
+![picture](src/Assets/Rules/Rules_4.png)
 
 ## Copyright
 ***
