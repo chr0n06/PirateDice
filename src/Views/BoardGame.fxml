@@ -16,166 +16,177 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardGame_Controller">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" onAction="#MenuQuit" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Copyright" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-      <HBox alignment="CENTER" prefHeight="0.0" prefWidth="437.0" spacing="10.0" style="-fx-background-color: black;">
-         <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+<AnchorPane styleClass="body" stylesheets="@css/Style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardGame_Controller">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="653.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+          <MenuBar>
+            <menus>
+              <Menu mnemonicParsing="false" text="File">
+                <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#MenuQuit" text="Quit" />
+                </items>
+              </Menu>
+              <Menu mnemonicParsing="false" text="Help">
+                <items>
+                  <MenuItem mnemonicParsing="false" text="Copyright" />
+                </items>
+              </Menu>
+            </menus>
+          </MenuBar>
+            <HBox alignment="CENTER" prefHeight="68.0" prefWidth="640.0" spacing="100.0">
                <children>
-                  <ImageView id="dice1" fx:id="dice1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox1" mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ImageView id="dice2" fx:id="dice2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox2" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ImageView id="dice3" fx:id="dice3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox3" mnemonicParsing="false" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ImageView id="dice4" fx:id="dice4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox4" mnemonicParsing="false" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ImageView id="dice5" fx:id="dice5" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox5" mnemonicParsing="false" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ImageView id="dice6" fx:id="dice6" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox6" mnemonicParsing="false" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ImageView id="dice7" fx:id="dice7" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox7" mnemonicParsing="false" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ImageView id="dice8" fx:id="dice8" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../Assets/DicesLayouts/mystery.png" />
-                     </image>
-                  </ImageView>
-                  <CheckBox fx:id="checkBox8" mnemonicParsing="false" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="363.0" prefWidth="634.0" style="-fx-background-image: &quot;../Assets/CanvasBackground.png&quot;; -fx-background-color: black;" VBox.vgrow="ALWAYS">
-         <children>
-            <VBox alignment="CENTER" layoutX="14.0" layoutY="27.0" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label fx:id="cardName" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="124.0" text="Label" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </Label>
-                        <Label prefHeight="26.0" prefWidth="99.0" text="Description" textFill="WHITE">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </Label>
+                        <ImageView id="dice1" fx:id="dice1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox1" mnemonicParsing="false" prefHeight="18.0" prefWidth="18.0" />
                      </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <ImageView fx:id="cardView" fitHeight="212.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true" />
-                        <Text fx:id="cardDescription" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="104.00004982948303" />
+                        <ImageView id="dice2" fx:id="dice2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox2" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" />
                      </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <HBox alignment="CENTER" layoutX="201.0" layoutY="243.0" prefHeight="50.0" prefWidth="409.0" spacing="20.0">
-               <children>
-                  <Label text="Name : " textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="name" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <Label text="Point(s) : " textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="points" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView id="dice3" fx:id="dice3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox3" mnemonicParsing="false" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView id="dice4" fx:id="dice4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox4" mnemonicParsing="false" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView id="dice5" fx:id="dice5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox5" mnemonicParsing="false" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView id="dice6" fx:id="dice6" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox6" mnemonicParsing="false" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView id="dice7" fx:id="dice7" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox7" mnemonicParsing="false" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView id="dice8" fx:id="dice8" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Assets/DicesLayouts/mystery.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="checkBox8" mnemonicParsing="false" />
+                     </children>
+                  </VBox>
                </children>
             </HBox>
-            <Button layoutX="529.0" layoutY="85.0" mnemonicParsing="false" onAction="#onactionNextTurn" text="Next Turn" />
-            <Button layoutX="545.0" layoutY="120.0" mnemonicParsing="false" onAction="#OnActionRoll" text="Roll" />
-         </children>
-    </AnchorPane>
-  </children>
-</VBox>
+          <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="627.0" prefWidth="1538.0">
+               <children>
+                  <VBox alignment="CENTER" layoutX="14.0" layoutY="85.0" prefHeight="540.0" prefWidth="550.0" style="-fx-background-color: white; -fx-background-radius: 50px; -fx-opacity: 75%;">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                           <children>
+                              <Label fx:id="cardName" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="285.0" text="Label" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="33.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="242.0" text="Description" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="33.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="490.0" prefWidth="503.0" spacing="25.0">
+                           <children>
+                              <ImageView fx:id="cardView" fitHeight="490.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+                              <Text fx:id="cardDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="232.0000193119049">
+                                 <font>
+                                    <Font name="System Bold Italic" size="26.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                  </VBox>
+                  <HBox alignment="CENTER" layoutX="1048.0" layoutY="521.0" prefHeight="50.0" prefWidth="409.0" spacing="20.0">
+                     <children>
+                        <Label text="Name : " textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="name" text="Label" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label text="Point(s) : " textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="points" text="Label" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button layoutX="1363.0" layoutY="63.0" mnemonicParsing="false" onAction="#onactionNextTurn" text="Next Turn" />
+                  <Button layoutX="1378.0" layoutY="106.0" mnemonicParsing="false" onAction="#OnActionRoll" text="Roll" />
+               </children>
+          </AnchorPane>
+        </children>
+      </VBox>
+   </children>
+</AnchorPane>

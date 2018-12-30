@@ -23,9 +23,13 @@ public class PirateDiceMain extends Application{
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("../Views/BoardGame.fxml"));
         
+        
+        
+        
         //stage.initStyle(StageStyle.UNDECORATED);
         Scene scene = new Scene(root);
         
+        stage.setMaximized(true);
         stage.setScene(scene);
         
         stage.show();

@@ -67,4 +67,6 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - Author : Haim Shafir
 - Design : Jose Pedro
 - Programmor : Maxime Laniel 
+
+- Image(s) : <a href="https://www.freepik.com/free-vector/island-background-design_1020626.htm">Designed by Brgfx</a> 
 ***
