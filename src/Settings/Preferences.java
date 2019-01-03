@@ -5,8 +5,6 @@
  */
 package Settings;
 
-import javafx.scene.image.Image;
-
 /**
  *
  * @author Maxime
@@ -27,7 +25,7 @@ public class Preferences {
     public static int CARD_PIECEOFGOLD_QTY = 4;
     public static int CARD_MONKEY_PIRATE_QTY = 4;
     public static int CARD_WITCH_QTY = 4;
-    
+
     public static String CARD_PIRATEBOATEASY_IMG = "Assets/Cards/PirateBoatEasyCard_x.png";
     public static String CARD_PIRATEBOATMEDIUM_IMG = "Assets/Cards/PirateBoatMediumCard_x.png";
     public static String CARD_PIRATEBOATHARD_IMG = "Assets/Cards/PirateBoatHardCard_x.png";
@@ -39,29 +37,31 @@ public class Preferences {
     public static String CARD_PIECEOFGOLD_IMG = "Assets/Cards/GoldenPiece_x.png";
     public static String CARD_MONKEY_PIRATE_IMG = "Assets/Cards/MonkeyParrot_x.png";
     public static String CARD_WITCH_IMG = "Assets/Cards/witchCard_x.png";
-    
-    //Dice Preferences
-    
+
+    //Dice Setup 
+    public static int DICE_SIDE_QTY = 6;
     public static int DICE_UNIT_COUNT = 100;
-    
+    public static int DICE_COMBO_3SIMILAR_COUNT = 100;
+    public static int DICE_COMBO_4SIMILAR_COUNT = 200;
+    public static int DICE_COMBO_5SIMILAR_COUNT = 500;
+    public static int DICE_COMBO_6SIMILAR_COUNT = 1000;
+    public static int DICE_COMBO_7SIMILAR_COUNT = 2000;
+    public static int DICE_COMBO_8SIMILAR_COUNT = 4000;
+    public static int DICE_COMBO_ALL_COUNT = 300;
+    public static String DICE_LAYOUT = "3D";//Zeke"Cartoon";//"3D";////"Cartoon";"Real"; 
+   
+    //Player Setup
     public static String[] PLAYER_NAMES = {
         "Maxime",
         "Sebastien",
         "Cynthia",
         "Charles"
     };
- 
-    public static int DEFAULT_LIFE_QTY = 3;
-
-    public static int DICE_SIDE_QTY = 6;
-
-
     public static int PLAYER_STARTING_POINTS = 0;
     public static int PLAYER_TURN_INDEX = 0;
-
-    public static int WINNING_SCORE = 6000;
     
-    //Dice Layout
-    public static String DICE_LAYOUT = "3D";//Zeke"Cartoon";//"3D";////"Cartoon";"Real"; 
+    //Turn Setup
+    public static int DEFAULT_LIFE_QTY = 3;
+    public static int WINNING_SCORE = 6000;
 
 }

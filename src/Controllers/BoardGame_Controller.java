@@ -130,7 +130,7 @@ public class BoardGame_Controller implements Initializable {
     }
 
     private void updatePointsTemp() {
-        pointsTemp.setText(String.valueOf(Services.countPoint()));
+        pointsTemp.setText(String.valueOf(Services.getTempPoints()));
     }
 
     private List<Integer> checkWichCheckBoxIsSelected() {

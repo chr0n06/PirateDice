@@ -28,9 +28,10 @@ public class Services {
         }
     }
 
-    public static int countPoint() {
+    public static int getTempPoints() {
         int points = 0;
-        points += firstPhase(); 
+        points += firstPhase(); // Count simple valuable dice
+        points += secondPhase();// Count combo of similar dices
         repo.getTurn().setScore(points); 
         return repo.getTurn().getScore();
     }
@@ -41,6 +42,14 @@ public class Services {
             if ((dice.getState().equals("Gold")) || (dice.getState().equals("Diamond"))){
                 tempPoints += Preferences.DICE_UNIT_COUNT;
             }
+        }
+        return tempPoints;
+    }
+    
+     private static int secondPhase(){
+        int tempPoints = 0;
+        for (Dice dice : repo.getDices()) {
+            
         }
         return tempPoints;
     }
