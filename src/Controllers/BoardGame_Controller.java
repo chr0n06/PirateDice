@@ -15,6 +15,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
@@ -148,6 +153,11 @@ public class BoardGame_Controller implements Initializable {
             dice.setImage(new Image("Assets/DicesLayouts/mystery.png"));
         }//for
         for (CheckBox checkbox : checkboxes){
+            /*Make the checkboxex more interesting for the player
+            
+            /*BackgroundImage img = new BackgroundImage(new Image("Assets/DicesLayouts/mystery.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+            Background background = new Background(img);
+            checkbox.setBackground(background);*/
             checkbox.setDisable(false);
             checkbox.setSelected(false);
         }//for
