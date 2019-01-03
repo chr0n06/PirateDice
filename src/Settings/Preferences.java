@@ -47,7 +47,7 @@ public class Preferences {
     public static int DICE_COMBO_6SIMILAR_COUNT = 1000;
     public static int DICE_COMBO_7SIMILAR_COUNT = 2000;
     public static int DICE_COMBO_8SIMILAR_COUNT = 4000;
-    public static int DICE_COMBO_ALL_COUNT = 300;
+    public static int DICE_COMBO_ALL_COUNT = 500;
     public static String DICE_LAYOUT = "3D";//Zeke"Cartoon";//"3D";////"Cartoon";"Real"; 
    
     //Player Setup
