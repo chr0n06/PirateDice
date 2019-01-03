@@ -28,6 +28,23 @@ public class Services {
         }
     }
 
+    public static int countPoint() {
+        int points = 0;
+        points += firstPhase(); 
+        repo.getTurn().setScore(points); 
+        return repo.getTurn().getScore();
+    }
+    
+    private static int firstPhase(){
+        int tempPoints = 0;
+        for (Dice dice : repo.getDices()) {
+            if ((dice.getState().equals("Gold")) || (dice.getState().equals("Diamond"))){
+                tempPoints += Preferences.DICE_UNIT_COUNT;
+            }
+        }
+        return tempPoints;
+    }
+    
     public static void rollSpecificDices(List<Integer> dices) {
         if (!dices.isEmpty()) {
             for (Integer diceId : dices) {
@@ -55,7 +72,10 @@ public class Services {
         selectAPlayer();
         pickACard();
 
+
     }
+    
+  
 
     public static void selectAPlayer() {
         System.out.println(Preferences.PLAYER_TURN_INDEX + "--" + Services.getAllPlayers().size());

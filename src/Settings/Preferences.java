@@ -40,6 +40,10 @@ public class Preferences {
     public static String CARD_MONKEY_PIRATE_IMG = "Assets/Cards/MonkeyParrot_x.png";
     public static String CARD_WITCH_IMG = "Assets/Cards/witchCard_x.png";
     
+    //Dice Preferences
+    
+    public static int DICE_UNIT_COUNT = 100;
+    
     public static String[] PLAYER_NAMES = {
         "Maxime",
         "Sebastien",

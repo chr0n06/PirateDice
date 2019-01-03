@@ -15,11 +15,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
@@ -94,11 +89,11 @@ public class BoardGame_Controller implements Initializable {
     private Text cardDescription;
 
     @FXML
-    private Text pointsTemp;
+    private Label pointsTemp;
 
     List<ImageView> dices;
     List<CheckBox> checkboxes;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
@@ -109,7 +104,7 @@ public class BoardGame_Controller implements Initializable {
     void MenuQuit(ActionEvent event) {
         Platform.exit();
     }//onActionPlay
-    
+
     @FXML
     void onactionNextTurn(ActionEvent event) {
         Services.nextTurn();
@@ -119,10 +114,10 @@ public class BoardGame_Controller implements Initializable {
         name.setText(Services.getTurn().getPlayer().getName());
         cardView.setImage(Services.getTurn().getCard().getImage());
         points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
-        
+
         Services.rollAllDices();
         resetLayout();
-        
+
     }//onactionNextTurn
 
     @FXML
@@ -130,6 +125,12 @@ public class BoardGame_Controller implements Initializable {
         Services.rollSpecificDices(checkWichCheckBoxIsSelected());
         resetLayout();
         fillImageInDice();
+
+        updatePointsTemp();
+    }
+
+    private void updatePointsTemp() {
+        pointsTemp.setText(String.valueOf(Services.countPoint()));
     }
 
     private List<Integer> checkWichCheckBoxIsSelected() {
@@ -141,14 +142,19 @@ public class BoardGame_Controller implements Initializable {
             }//if
             index++;
         }//for
-        if (boxchecked.size() == 1 ){
+        if (boxchecked.size() == 1) {
             System.out.println("Select minimum two dice!"); //Will have to manage a popup on the main thread
             boxchecked.clear();
         }//if
         return boxchecked;
     }
 
-    private void resetLayout(){
+    private void resetLayout() {
+        resetDices();
+        resetPointsTemp();
+    }
+
+    private void resetDices(){
         for (ImageView dice : dices) {
             dice.setImage(new Image("Assets/DicesLayouts/mystery.png"));
         }//for
@@ -163,15 +169,21 @@ public class BoardGame_Controller implements Initializable {
         }//for
     }
     
+    private void resetPointsTemp() {
+        pointsTemp.setText("0");
+    }
+
     private void fillImageInDice() {
         int index = 0;
         for (ImageView dice : dices) {
-            if (Services.getAllDices().get(index).getState() == "Death"){
+            if (Services.getAllDices().get(index).getState() == "Death") {
                 checkboxes.get(index).setDisable(true);
                 checkboxes.get(index).setSelected(false);
-            } else checkboxes.get(index).setDisable(false);
+            } else {
+                checkboxes.get(index).setDisable(false);
+            }
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
         }//for
     }//fillImageInDice
-    
+
 }//BoardGame
