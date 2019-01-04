@@ -69,8 +69,6 @@ public final class Dice {
 
     public String getState() {
         return state;
-    }
-
-    
+    }    
 
 }

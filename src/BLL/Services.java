@@ -49,20 +49,41 @@ public class Services {
     }
 
     private static int secondPhase() {
-        //Count Dice Repetition
         int tempPoints = 0;
-        Map<String, Integer> diceRepetions = new HashMap<String, Integer>() {
-            {
-                put("Gold", 0);
-                put("Diamond", 0);
-                put("Parrot", 0);
-                put("Monkey", 0);
-                put("Swords", 0);
-            }
-        };
+
+        for (Map.Entry<String, Integer> entry : calculateDiceCombo().entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+
+            switch (value) {
+                case 3:
+                    tempPoints += Preferences.DICE_COMBO_3SIMILAR_COUNT;
+                    break;
+                case 4:
+                    tempPoints += Preferences.DICE_COMBO_4SIMILAR_COUNT;
+                    break;
+                case 5:
+                    tempPoints += Preferences.DICE_COMBO_5SIMILAR_COUNT;
+                    break;
+                case 6:
+                    tempPoints += Preferences.DICE_COMBO_6SIMILAR_COUNT;
+                    break;
+                case 7:
+                    tempPoints += Preferences.DICE_COMBO_7SIMILAR_COUNT;
+                    break;
+                case 8:
+                    tempPoints += Preferences.DICE_COMBO_ALL_COUNT;
+                    break;
+            }//switch
+        }//foreach
+        System.out.println("Combo pts = " + tempPoints);
+        return tempPoints;
+    }
+
+    private static Map<String, Integer> calculateDiceCombo() {
+        Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
 
         for (Dice dice : repo.getDices()) {
-            System.out.println(repo.getDices().size());
             switch (dice.getState()) {
                 case "Gold":
                     diceRepetions.merge("Gold", 1, Integer::sum);
@@ -81,9 +102,8 @@ public class Services {
                     break;
             }//switch
         }//for
-        
-        diceRepetions.forEach( (key, value) -> { System.out.println( "Key: " + key + "\t" + " Value: " + value ); });
-        return tempPoints;
+
+        return diceRepetions;
     }
 
     public static void rollSpecificDices(List<Integer> dices) {
