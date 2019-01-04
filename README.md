@@ -29,7 +29,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 ### Business logic
 
-#### And Turn effect
+#### End Turn effect
 - [x] Implementing the BL for : PirateCard
 - [ ] Implementing the BL for : GoldenPiece  
 - [ ] Implementing the BL for : DiamondCard 
