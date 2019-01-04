@@ -130,12 +130,12 @@ public class BoardGame_Controller implements Initializable {
     }
 
     private void updatePointsTemp() {
-        if(Services.getTempPoints() > 0){
-           pointsTemp.setText(String.valueOf("+"+Services.getTempPoints())); 
-        } else {
-            pointsTemp.setText(String.valueOf("-"+Services.getTempPoints())); 
+        int tempPoints = Services.getTempPoints();
+        if (tempPoints > 0) {
+            pointsTemp.setText(String.valueOf("+" + tempPoints));
+        } else if (tempPoints < 0) {
+            pointsTemp.setText(String.valueOf("-" + tempPoints));
         }
-        
     }
 
     private List<Integer> checkWichCheckBoxIsSelected() {
@@ -159,11 +159,11 @@ public class BoardGame_Controller implements Initializable {
         resetPointsTemp();
     }
 
-    private void resetDices(){
+    private void resetDices() {
         for (ImageView dice : dices) {
             dice.setImage(new Image("Assets/DicesLayouts/mystery.png"));
         }//for
-        for (CheckBox checkbox : checkboxes){
+        for (CheckBox checkbox : checkboxes) {
             /*Make the checkboxex more interesting for the player
             
             /*BackgroundImage img = new BackgroundImage(new Image("Assets/DicesLayouts/mystery.png"), BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
@@ -173,7 +173,7 @@ public class BoardGame_Controller implements Initializable {
             checkbox.setSelected(false);
         }//for
     }
-    
+
     private void resetPointsTemp() {
         pointsTemp.setText("0");
     }
