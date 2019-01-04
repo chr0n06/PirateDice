@@ -26,7 +26,23 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Coding a singleton repository
 - [x] Preparing a Preferences files 
 - [x] Preparing a Strong Assets 
-- [ ] Implementing the business logic   
+
+### Business logic
+
+#### And Turn effect
+- [x] Implementing the BL for : PirateCard
+- [ ] Implementing the BL for : GoldenPiece  
+- [ ] Implementing the BL for : DiamondCard 
+- [ ] Implementing the BL for : PirateBoatCardEasy
+- [ ] Implementing the BL for : PirateBoatCardMedium
+- [ ] Implementing the BL for : PirateBoatCardHard
+- [ ] Implementing the BL for : MonkeyPirateCard  
+
+#### During turn effect 
+- [ ] Implementing the BL for : ChestCard  
+- [ ] Implementing the BL for : WitchCard  
+- [ ] Implementing the BL for : SimpleSkullCard  
+- [ ] Implementing the BL for : DoubleSkullCard
 
 <!--
 35 cartes Pirates

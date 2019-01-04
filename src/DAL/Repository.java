@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -86,7 +85,7 @@ public class Repository {
         );
         cardQtyManager(
                 "PirateCard",
-                "Your points will be doubled at the end of that turn", 
+                "Your points will be doubled at the end of the turn", 
                 Preferences.CARD_PIRATE_IMG,
                 Preferences.CARD_PIRATE_QTY
         );

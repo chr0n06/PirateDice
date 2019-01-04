@@ -34,7 +34,11 @@ public class Services {
         int points = 0;
         points += firstPhase(); // Count simple valuable dice
         points += secondPhase();// Count combo of similar dices
-        repo.getTurn().setScore(points);
+        if (repo.getTurn().getCard().getName().equals("PirateCard")){
+            repo.getTurn().setScore(points * 2);
+        } else {
+            repo.getTurn().setScore(points);
+        }       
         return repo.getTurn().getScore();
     }
 
