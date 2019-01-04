@@ -34,11 +34,8 @@ public class Services {
         int points = 0;
         points += firstPhase(); // Count simple valuable dice
         points += secondPhase();// Count combo of similar dices
-        if (repo.getTurn().getCard().getName().equals("PirateCard")){
-            repo.getTurn().setScore(points * 2);
-        } else {
-            repo.getTurn().setScore(points);
-        }       
+        points = thirdPhase(points); // Check card effects
+        repo.getTurn().setScore(points);
         return repo.getTurn().getScore();
     }
 
@@ -84,6 +81,13 @@ public class Services {
         return tempPoints;
     }
 
+     private static int thirdPhase(int points) {      
+        if (repo.getTurn().getCard().getName().equals("PirateCard")){
+            return points *= 2;
+        } 
+        return points;
+     }
+    
     private static Map<String, Integer> calculateDiceCombo() {
         Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
 
