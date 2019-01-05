@@ -33,9 +33,11 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Implementing rolling dices
 - [x] Implementing the switch card
 - [x] Implementing the Death
+- [x] Implementing the lost tempPts when player obtain three Deaths 
 - [ ] Implementing the beat the death
 
 #### Cards 
+
 -End Turn effect-
 - [x] Implementing the BL for : PirateCard
 - [x] Implementing the BL for : GoldenPiece  
@@ -43,7 +45,8 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [ ] Implementing the BL for : PirateBoatCardEasy
 - [ ] Implementing the BL for : PirateBoatCardMedium
 - [ ] Implementing the BL for : PirateBoatCardHard
-- [ ] Implementing the BL for : MonkeyPirateCard  
+- [ ] Implementing the BL for : MonkeyPirateCard
+
 -During turn effect- 
 - [ ] Implementing the BL for : SimpleSkullCard  
 - [ ] Implementing the BL for : DoubleSkullCard 

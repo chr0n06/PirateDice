@@ -33,9 +33,8 @@ public class Services {
                         repo.getTurn().getLifes() - 1
                 );
                 System.out.println("minus 1 from start, actual life = " + repo.getTurn().getLifes());
-
-            }
-        }
+            }//if
+        }//for
     }
 
     public static void acceptPoints() {
@@ -47,10 +46,14 @@ public class Services {
 
     public static int getTempPoints() {
         int points = 0;
-        points += firstPhase(); //Count simple valuable dice
-        points += secondPhase();//Count combo of similar dices
-        points = thirdPhase(points); //Card influence PirateCard
-        repo.getTurn().setScore(points);
+        if ((repo.getTurn().getLifes() > 0) && (repo.getTurn().getLifes() <= 3)) {
+            points += firstPhase(); //Count simple valuable dice
+            points += secondPhase();//Count combo of similar dices
+            points = thirdPhase(points); //Card influence PirateCard
+            repo.getTurn().setScore(points);
+        } else if (repo.getTurn().getLifes() <= 0) {
+            repo.getTurn().setScore(0);
+        }
         return repo.getTurn().getScore();
     }
 
