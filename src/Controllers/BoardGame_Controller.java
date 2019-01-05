@@ -114,7 +114,8 @@ public class BoardGame_Controller implements Initializable {
         name.setText(Services.getTurn().getPlayer().getName());
         cardView.setImage(Services.getTurn().getCard().getImage());
         points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
-
+        
+        Services.acceptPoints();
         Services.rollAllDices();
         resetLayout();
 
@@ -126,7 +127,7 @@ public class BoardGame_Controller implements Initializable {
         resetLayout();
         fillImageInDice();
 
-        updatePointsTemp();
+        updatePointsTemp();//Visual aspect
     }
 
     private void updatePointsTemp() {

@@ -14,7 +14,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
 
 /**
  *
@@ -27,14 +26,30 @@ public class Services {
     public static void rollAllDices() {
         for (Dice dice : repo.getDices()) {
             dice.rollDice();
+
+            //remove lifes on the start
+            if (dice.getState().equals("Death")) {
+                repo.getTurn().setLifes(
+                        repo.getTurn().getLifes() - 1
+                );
+                System.out.println("minus 1 from start, actual life = " + repo.getTurn().getLifes());
+
+            }
         }
+    }
+
+    public static void acceptPoints() {
+        int tempPoints = repo.getTurn().getPlayer().getPoint();
+        repo.getTurn().getPlayer().setPoint(
+                tempPoints + getTempPoints()//Add Turn point to actual points
+        );
     }
 
     public static int getTempPoints() {
         int points = 0;
-        points += firstPhase(); // Count simple valuable dice
-        points += secondPhase();// Count combo of similar dices
-        points = thirdPhase(points); // Check card effects
+        points += firstPhase(); //Count simple valuable dice
+        points += secondPhase();//Count combo of similar dices
+        points = thirdPhase(points); //Card influence PirateCard
         repo.getTurn().setScore(points);
         return repo.getTurn().getScore();
     }
@@ -46,12 +61,12 @@ public class Services {
                 tempPoints += Preferences.DICE_UNIT_COUNT;
             }
         }
-        
+
         //Card influence GoldenPiece & DiamondCard
-        if(repo.getTurn().getCard().getName().equals("GoldenPiece")||repo.getTurn().getCard().getName().equals("DiamondCard")){
+        if (repo.getTurn().getCard().getName().equals("GoldenPiece") || repo.getTurn().getCard().getName().equals("DiamondCard")) {
             tempPoints += Preferences.DICE_UNIT_COUNT;
         }//if
-        
+
         return tempPoints;
     }
 
@@ -93,7 +108,6 @@ public class Services {
                 return points *= 2;
             }
         }
-
         return points;
     }
 
@@ -119,13 +133,13 @@ public class Services {
                     break;
             }//switch
         }//for
-        
+
         //Card influence GoldenPiece
-        if(repo.getTurn().getCard().getName().equals("GoldenPiece")){
+        if (repo.getTurn().getCard().getName().equals("GoldenPiece")) {
             diceRepetions.merge("Gold", 1, Integer::sum);
         }//if
         //Card influence DiamondCard
-         if(repo.getTurn().getCard().getName().equals("DiamondCard")){
+        if (repo.getTurn().getCard().getName().equals("DiamondCard")) {
             diceRepetions.merge("Diamond", 1, Integer::sum);
         }//if
         return diceRepetions;
@@ -133,11 +147,24 @@ public class Services {
 
     public static void rollSpecificDices(List<Integer> dices) {
         if (!dices.isEmpty()) {
-            for (Integer diceId : dices) {
-                if (isDiceRollable(diceId)) {
-                    repo.getDices().get(diceId - 1).rollDice();
-                }//if
-            }//for
+            if (repo.getTurn().getLifes() > 0) {
+                for (Integer diceId : dices) {
+                    if (isDiceRollable(diceId)) {
+                        repo.getDices().get(diceId - 1).rollDice();
+                        if (repo.getDices().get(diceId - 1).getState().equals("Death")) {
+                            repo.getTurn().setLifes(
+                                    repo.getTurn().getLifes() - 1
+                            );
+                            System.out.println("minus 1 from start, actual life = " + repo.getTurn().getLifes());
+                        }//if 
+                    }//if
+                }//for
+            } else if (repo.getTurn().getLifes() == 0) {
+                System.out.println("You're death!!");
+            } else if (repo.getTurn().getLifes() > 0) {
+                System.out.println("You beat the death");
+                //Implement a method going on the death island
+            }
         }//if
     }//rollSpecificDices
 
@@ -157,6 +184,7 @@ public class Services {
         //Inject a player and a card to the new turn
         selectAPlayer();
         pickACard();
+        resetTurnLife();
 
     }
 
@@ -183,6 +211,11 @@ public class Services {
             System.out.println("Card Pack has been resetted");
             nextTurn();
         }
+    }
+
+    public static void resetTurnLife() {
+        repo.getTurn().setLifes(Preferences.DEFAULT_LIFE_QTY);
+        System.out.println("lifes of that turn as been resetted");
     }
 
     private static void resetCardPackIndex() {

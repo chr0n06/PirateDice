@@ -32,7 +32,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 #### GamePlay
 - [x] Implementing rolling dices
 - [x] Implementing the switch card
-- [ ] Implementing the Death
+- [x] Implementing the Death
 - [ ] Implementing the beat the death
 
 #### Cards 
