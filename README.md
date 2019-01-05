@@ -29,20 +29,26 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 ### Business logic
 
-#### End Turn effect
+#### GamePlay
+- [x] Implementing rolling dices
+- [x] Implementing the switch card
+- [ ] Implementing the Death
+- [ ] Implementing the beat the death
+
+#### Cards 
+-End Turn effect-
 - [x] Implementing the BL for : PirateCard
-- [ ] Implementing the BL for : GoldenPiece  
-- [ ] Implementing the BL for : DiamondCard 
+- [x] Implementing the BL for : GoldenPiece  
+- [x] Implementing the BL for : DiamondCard 
 - [ ] Implementing the BL for : PirateBoatCardEasy
 - [ ] Implementing the BL for : PirateBoatCardMedium
 - [ ] Implementing the BL for : PirateBoatCardHard
 - [ ] Implementing the BL for : MonkeyPirateCard  
-
-#### During turn effect 
-- [ ] Implementing the BL for : ChestCard  
-- [ ] Implementing the BL for : WitchCard  
+-During turn effect- 
 - [ ] Implementing the BL for : SimpleSkullCard  
-- [ ] Implementing the BL for : DoubleSkullCard
+- [ ] Implementing the BL for : DoubleSkullCard 
+- [ ] Implementing the BL for : WitchCard  
+- [ ] Implementing the BL for : ChestCard 
 
 <!--
 35 cartes Pirates

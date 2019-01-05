@@ -46,6 +46,12 @@ public class Services {
                 tempPoints += Preferences.DICE_UNIT_COUNT;
             }
         }
+        
+        //Card influence GoldenPiece & DiamondCard
+        if(repo.getTurn().getCard().getName().equals("GoldenPiece")||repo.getTurn().getCard().getName().equals("DiamondCard")){
+            tempPoints += Preferences.DICE_UNIT_COUNT;
+        }//if
+        
         return tempPoints;
     }
 
@@ -81,13 +87,16 @@ public class Services {
         return tempPoints;
     }
 
-     private static int thirdPhase(int points) {      
-        if (repo.getTurn().getCard().getName().equals("PirateCard")){
-            return points *= 2;
-        } 
+    private static int thirdPhase(int points) {
+        if (repo.getTurn().getCard() != null) {
+            if (repo.getTurn().getCard().getName().equals("PirateCard")) {
+                return points *= 2;
+            }
+        }
+
         return points;
-     }
-    
+    }
+
     private static Map<String, Integer> calculateDiceCombo() {
         Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
 
@@ -110,7 +119,15 @@ public class Services {
                     break;
             }//switch
         }//for
-
+        
+        //Card influence GoldenPiece
+        if(repo.getTurn().getCard().getName().equals("GoldenPiece")){
+            diceRepetions.merge("Gold", 1, Integer::sum);
+        }//if
+        //Card influence DiamondCard
+         if(repo.getTurn().getCard().getName().equals("DiamondCard")){
+            diceRepetions.merge("Diamond", 1, Integer::sum);
+        }//if
         return diceRepetions;
     }
 

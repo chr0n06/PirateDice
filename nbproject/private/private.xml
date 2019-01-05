@@ -5,8 +5,11 @@
         <group>
             <file>file:/D:/PirateDice/src/BLL/Services.java</file>
             <file>file:/D:/PirateDice/src/Model/Dice.java</file>
+            <file>file:/D:/PirateDice/src/DAL/Repository.java</file>
             <file>file:/D:/PirateDice/src/Controllers/BoardGame_Controller.java</file>
             <file>file:/D:/PirateDice/src/Settings/Preferences.java</file>
+            <file>file:/D:/PirateDice/src/Model/Card.java</file>
+            <file>file:/D:/PirateDice/src/Model/Turn.java</file>
         </group>
     </open-files>
 </project-private>
