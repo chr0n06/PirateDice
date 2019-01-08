@@ -158,15 +158,27 @@ public class Services {
                             repo.getTurn().setLifes(
                                     repo.getTurn().getLifes() - 1
                             );
-                            System.out.println("minus 1 from start, actual life = " + repo.getTurn().getLifes());
+                            System.out.println("minus 1, actual life = " + repo.getTurn().getLifes());
                         }//if 
                     }//if
                 }//for
             } else if (repo.getTurn().getLifes() == 0) {
                 System.out.println("You're death!!");
-            } else if (repo.getTurn().getLifes() > 0) {
+            } else if (repo.getTurn().getLifes() < 0) {
                 System.out.println("You beat the death");
-                //Implement a method going on the death island
+                //Implement a method to go on the death island
+                
+                for (Integer diceId : dices) {
+                    if (isDiceRollable(diceId)) {
+                        repo.getDices().get(diceId - 1).rollDice();
+                        if (repo.getDices().get(diceId - 1).getState().equals("Death")) {
+                            repo.getTurn().setLifes(
+                                    repo.getTurn().getLifes() - 1
+                            );
+                            System.out.println("minus 1, actual life = " + repo.getTurn().getLifes());
+                        }//if 
+                    }//if
+                }//for   
             }
         }//if
     }//rollSpecificDices

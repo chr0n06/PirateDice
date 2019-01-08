@@ -11,6 +11,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -98,6 +99,14 @@ public class BoardGame_Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
         checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
+
+        Services.nextTurn();
+        cardName.setText(Services.getTurn().getCard().getName());
+        cardDescription.setText(Services.getTurn().getCard().getDescription());
+        name.setText(Services.getTurn().getPlayer().getName());
+        cardView.setImage(Services.getTurn().getCard().getImage());
+        points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
+
     }//initialize
 
     @FXML
@@ -107,6 +116,7 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     void onactionNextTurn(ActionEvent event) {
+        Services.acceptPoints();
         Services.nextTurn();
 
         cardName.setText(Services.getTurn().getCard().getName());
@@ -114,8 +124,7 @@ public class BoardGame_Controller implements Initializable {
         name.setText(Services.getTurn().getPlayer().getName());
         cardView.setImage(Services.getTurn().getCard().getImage());
         points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
-        
-        Services.acceptPoints();
+
         Services.rollAllDices();
         resetLayout();
 
