@@ -22,6 +22,6 @@ and open the template in the editor.
 }
 
 .button{
-    -fx-background-color: brown;
+    -fx-background-color: green;
     -fx-border-radius: 50px;
 }

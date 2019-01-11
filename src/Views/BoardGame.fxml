@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -192,12 +193,32 @@
                                 </Label>
                             </children>
                         </HBox>
-                  
-             
-                  
-                        <Button layoutX="1363.0" layoutY="63.0" mnemonicParsing="false" onAction="#onactionNextTurn" styleClass="button" stylesheets="@css/Style.css" text="Next Turn" />
-                        <Button layoutX="1378.0" layoutY="106.0" mnemonicParsing="false" onAction="#OnActionRoll" text="Roll" />
                         <AnchorPane layoutX="2.0" layoutY="711.0" prefHeight="296.0" prefWidth="1497.0" />
+                  <VBox alignment="CENTER" layoutX="1261.0" layoutY="99.0" prefHeight="253.0" prefWidth="252.0" spacing="25.0">
+                     <children>
+                        
+                   
+                        
+                              <Button mnemonicParsing="false" onAction="#onactionNextTurn" opacity="0.6" styleClass="button" stylesheets="@css/Style.css" text="Next Turn" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Button>
+                              <Button mnemonicParsing="false" onAction="#OnActionRoll" text="Roll" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="acceptPts" mnemonicParsing="false" onAction="#OnActionAcceptPoints" opacity="0.61" text="Accept points" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#4d4d4dc3" height="113.94" radius="54.0875" spread="0.62" width="104.41" />
+                           </effect>
+                        </Button>
+                     </children>
+                  </VBox>
                     </children>
                 </AnchorPane>
             </children>

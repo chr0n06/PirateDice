@@ -24,6 +24,7 @@ public class Services {
     public static Repository repo = Repository.getInstance();
 
     public static void rollAllDices() {
+        repo.getTurn().setInitiated(true);
         for (Dice dice : repo.getDices()) {
             dice.rollDice();
 
@@ -167,7 +168,7 @@ public class Services {
             } else if (repo.getTurn().getLifes() < 0) {
                 System.out.println("You beat the death");
                 //Implement a method to go on the death island
-                
+
                 for (Integer diceId : dices) {
                     if (isDiceRollable(diceId)) {
                         repo.getDices().get(diceId - 1).rollDice();
@@ -230,6 +231,7 @@ public class Services {
 
     public static void resetTurnLife() {
         repo.getTurn().setLifes(Preferences.DEFAULT_LIFE_QTY);
+        repo.getTurn().setInitiated(false);
         System.out.println("lifes of that turn as been resetted");
     }
 

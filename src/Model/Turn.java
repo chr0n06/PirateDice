@@ -16,12 +16,14 @@ public class Turn {
     private Card card;
     private int score;
     private int lifes;
+    private boolean initiated;
     
     public Turn() {
         this.player = null;
         this.card = null;
         this.score = 0;
         this.lifes = Preferences.DEFAULT_LIFE_QTY;
+        this.initiated = false;
     }    
 
     public Player getPlayer() {
@@ -55,5 +57,15 @@ public class Turn {
     public void setLifes(int lifes) {
         this.lifes = lifes;
     }
+
+    public boolean isInitiated() {
+        return initiated;
+    }
+
+    public void setInitiated(boolean initiated) {
+        this.initiated = initiated;
+    }
+    
+    
  
 }

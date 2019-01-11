@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -26,6 +27,9 @@ public class BoardGame_Controller implements Initializable {
     @FXML
     private URL location;
 
+    @FXML
+    private Button acceptPts;
+    
     @FXML
     private Label name;
 
@@ -116,7 +120,7 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     void onactionNextTurn(ActionEvent event) {
-        Services.acceptPoints();
+        this.acceptPts.setVisible(true);
         Services.nextTurn();
 
         cardName.setText(Services.getTurn().getCard().getName());
@@ -139,6 +143,12 @@ public class BoardGame_Controller implements Initializable {
         updatePointsTemp();//Visual aspect
     }
 
+    @FXML
+    void OnActionAcceptPoints(ActionEvent event) {
+         Services.acceptPoints();
+         this.acceptPts.setVisible(false);
+         
+    }
     private void updatePointsTemp() {
         int tempPoints = Services.getTempPoints();
         if (tempPoints > 0) {
