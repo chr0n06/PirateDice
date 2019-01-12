@@ -48,8 +48,8 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [ ] Implementing the BL for : MonkeyPirateCard
 
 -During turn effect- 
-- [ ] Implementing the BL for : SimpleSkullCard  
-- [ ] Implementing the BL for : DoubleSkullCard 
+- [x] Implementing the BL for : SimpleSkullCard  
+- [x] Implementing the BL for : DoubleSkullCard 
 - [ ] Implementing the BL for : WitchCard  
 - [ ] Implementing the BL for : ChestCard 
 
