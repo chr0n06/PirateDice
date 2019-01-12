@@ -168,6 +168,7 @@ public class Services {
             } else if (repo.getTurn().getLifes() < 0) {
                 System.out.println("You beat the death");
                 //Implement a method to go on the death island
+                boolean isNewDiceDeath = false;
 
                 for (Integer diceId : dices) {
                     if (isDiceRollable(diceId)) {
@@ -201,6 +202,16 @@ public class Services {
         selectAPlayer();
         pickACard();
         resetTurnLife();
+
+        //Card influence SimpleSkullCard
+        if (repo.getTurn().getCard().getName().equals("SimpleSkullCard")) {
+            repo.getTurn().setLifes(repo.getTurn().getLifes() - 1);
+            System.out.println("Minus 1 life because of the SimpleSkullCard");
+            //Card influence DoubleSkullCard
+        } else if (repo.getTurn().getCard().getName().equals("DoubleSkullCard")) {
+            repo.getTurn().setLifes(repo.getTurn().getLifes() - 2);
+            System.out.println("Minus 2 life because of the DoubleSkullCard");
+        }
 
     }
 
