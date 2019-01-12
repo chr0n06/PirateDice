@@ -8,7 +8,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -194,7 +193,7 @@
                             </children>
                         </HBox>
                         <AnchorPane layoutX="2.0" layoutY="711.0" prefHeight="296.0" prefWidth="1497.0" />
-                  <VBox alignment="CENTER" layoutX="1261.0" layoutY="99.0" prefHeight="253.0" prefWidth="252.0" spacing="25.0">
+                  <VBox alignment="CENTER" layoutX="1261.0" layoutY="99.0" prefHeight="253.0" prefWidth="252.0" spacing="60.0">
                      <children>
                         
                    
@@ -204,7 +203,7 @@
                               <Font size="30.0" />
                            </font>
                         </Button>
-                              <Button mnemonicParsing="false" onAction="#OnActionRoll" text="Roll" textFill="WHITE">
+                              <Button fx:id="roll_btn" mnemonicParsing="false" onAction="#OnActionRoll" text="Roll" textFill="WHITE">
                            <font>
                               <Font size="30.0" />
                            </font>
@@ -213,9 +212,6 @@
                            <font>
                               <Font size="30.0" />
                            </font>
-                           <effect>
-                              <DropShadow color="#4d4d4dc3" height="113.94" radius="54.0875" spread="0.62" width="104.41" />
-                           </effect>
                         </Button>
                      </children>
                   </VBox>

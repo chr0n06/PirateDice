@@ -6,12 +6,10 @@
 package piratedice;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  *
@@ -19,23 +17,7 @@ import javafx.stage.StageStyle;
  */
 public class PirateDiceMain extends Application{
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../Views/BoardGame.fxml"));
-        
-        
-        
-        
-        //stage.initStyle(StageStyle.UNDECORATED);
-        Scene scene = new Scene(root);
-        
-        stage.setMaximized(true);
-     
-        stage.setScene(scene);
-        
-        stage.show();
-    }
-
+    
 
     /**
      * @param args the command line arguments
@@ -44,4 +26,14 @@ public class PirateDiceMain extends Application{
         launch(args);
     }
     
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("../Views/BoardGame.fxml"));
+        
+        //stage.initStyle(StageStyle.UNDECORATED);
+        Scene scene = new Scene(root);
+        stage.setMaximized(true);
+        stage.setScene(scene);
+        stage.show();
+    }    
 }

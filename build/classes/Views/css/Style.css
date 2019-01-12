@@ -23,5 +23,13 @@ and open the template in the editor.
 
 .button{
     -fx-background-color: green;
-    -fx-border-radius: 50px;
+
+}
+
+#acceptPts{
+    -fx-box-shadow: 10px 10px grey;
+}
+
+#acceptPts:hover{
+-fx-background-color: blue;
 }
