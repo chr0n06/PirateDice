@@ -42,9 +42,9 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Implementing the BL for : PirateCard
 - [x] Implementing the BL for : GoldenPiece  
 - [x] Implementing the BL for : DiamondCard 
-- [ ] Implementing the BL for : PirateBoatCardEasy
-- [ ] Implementing the BL for : PirateBoatCardMedium
-- [ ] Implementing the BL for : PirateBoatCardHard
+- [x] Implementing the BL for : PirateBoatCardEasy
+- [x] Implementing the BL for : PirateBoatCardMedium
+- [x] Implementing the BL for : PirateBoatCardHard
 - [ ] Implementing the BL for : MonkeyPirateCard
 
 -During turn effect- 
@@ -52,6 +52,9 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Implementing the BL for : DoubleSkullCard 
 - [ ] Implementing the BL for : WitchCard  
 - [ ] Implementing the BL for : ChestCard 
+
+-Issue(s)
+- [ ] Line 133 :: service : EVERYTIME WE PLAY PTS INCREMENT for PirateBoatCards implementation
 
 <!--
 35 cartes Pirates
