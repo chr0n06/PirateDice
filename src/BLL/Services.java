@@ -51,30 +51,29 @@ public class Services {
                 if (diceRepetions.get("Swords") >= 2) {
                     repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 300);
                     System.out.println("Player has killed the easy boat!");
-                }
-            }
+                }//if3
+            }//if2
+        }//if1
 
-        }
         //Card influence PirateBoatCardMedium
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
             if (diceRepetions.containsKey("Swords")) {
                 if (diceRepetions.get("Swords") >= 3) {
                     repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 500);
                     System.out.println("Player has killed the medium boat!");
-                }
-            }
+                }//if3
+            }//if2
+        }//if1
 
-        }
         //Card influence PirateBoatCardHard
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
             if (diceRepetions.containsKey("Swords")) {
                 if (diceRepetions.get("Swords") >= 4) {
                     repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 1000);
                     System.out.println("Player has killed the hard boat!");
-                }
-            }
-        }
-
+                }//if3
+            }//if2
+        }//if1
     }
 
     public static int getTempPoints() {
@@ -171,6 +170,16 @@ public class Services {
             }//switch
         }//for
 
+        //Card influence MonkeyPirateCard
+        if (repo.getTurn().getCard().getName().equals("MonkeyParrotCard")) {
+            if (diceRepetions.containsKey("Monkey") && diceRepetions.containsKey("Parrot")) {
+                int monkeyParrotAggragation = 0;
+                monkeyParrotAggragation = diceRepetions.get("Monkey");
+                diceRepetions.replace("Parrot", diceRepetions.get("Parrot"), diceRepetions.get("Parrot") + monkeyParrotAggragation);
+                diceRepetions.remove("Monkey");
+            }
+        }
+
         //Card influence GoldenPiece
         if (repo.getTurn().getCard().getName().equals("GoldenPiece")) {
             diceRepetions.merge("Gold", 1, Integer::sum);
@@ -245,7 +254,7 @@ public class Services {
             }//else
             System.out.println("Minus 300 points till you roll at least 2 swords");
         }//if
-        
+
         //Card influence PirateBoatCardMedium
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
             if (repo.getTurn().getPlayer().getPoint() >= 500) {
@@ -255,7 +264,7 @@ public class Services {
             }//else
             System.out.println("Minus 500 points till you roll at least 3 swords");
         }//if
-        
+
         //Card influence PirateBoatCardHard
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
             if (repo.getTurn().getPlayer().getPoint() >= 1000) {

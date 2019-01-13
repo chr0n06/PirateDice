@@ -57,7 +57,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 ### Issue(s)
 - [x] Line 133 :: service : EVERYTIME WE PLAY PTS INCREMENT for PirateBoatCards 
-
+- [ ] Problem when player pts is shorter than the pirateBoatCards
 
 <!--
 35 cartes Pirates
