@@ -46,7 +46,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Implementing the BL for : PirateBoatCardEasy
 - [x] Implementing the BL for : PirateBoatCardMedium
 - [x] Implementing the BL for : PirateBoatCardHard
-- [ ] Implementing the BL for : MonkeyPirateCard
+- [x] Implementing the BL for : MonkeyPirateCard
 
 -During turn effect- 
 - [x] Implementing the BL for : SimpleSkullCard  
@@ -58,7 +58,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 ### Issue(s)
 - [x] Line 133 :: service : EVERYTIME WE PLAY PTS INCREMENT for PirateBoatCards 
 - [ ] Problem when player pts is shorter than the pirateBoatCards
-
+- [ ] Factorizing MonkeyPirateCard
 <!--
 35 cartes Pirates
 -Coffre au trésor
