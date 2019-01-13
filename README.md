@@ -13,12 +13,12 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 ## Phase(s)
 
-| # | Life cycle |                  Description                       |
-|---|------------|----------------------------------------------------|
-| 1 | ALPHA      | Building the minimum viable product of the game    |
-| 2 | BETA       | Enhance gaming experience                          |
-| 3 | RELEASE    | Deploying a Mobile version of the game             |
-| 4 | RELEASE    | Implementing a multiplayer game experience         |
+| # | Life cycle |                  Description                       | State |
+|---|------------|----------------------------------------------------|-------|
+| 1 | ALPHA      | Building the minimum viable product of the game    |  [x]  |
+| 2 | BETA       | Enhance gaming experience                          |  [ ]  |
+| 3 | RELEASE    | Deploying a Mobile version of the game             |  [ ]  |
+| 4 | RELEASE    | Implementing a multiplayer game experience         |  [ ]  |
 
 ## What have been done
 
@@ -35,9 +35,10 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Implementing the Death
 - [x] Implementing the lost tempPts when player obtain three Deaths 
 - [ ] Implementing the beat the death
+- [ ] Implementing the ending turn
+- [ ] Implementing the setup menu
 
 #### Cards 
-
 -End Turn effect-
 - [x] Implementing the BL for : PirateCard
 - [x] Implementing the BL for : GoldenPiece  
@@ -53,8 +54,10 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [ ] Implementing the BL for : WitchCard  
 - [ ] Implementing the BL for : ChestCard 
 
--Issue(s)
-- [ ] Line 133 :: service : EVERYTIME WE PLAY PTS INCREMENT for PirateBoatCards implementation
+
+### Issue(s)
+- [x] Line 133 :: service : EVERYTIME WE PLAY PTS INCREMENT for PirateBoatCards 
+
 
 <!--
 35 cartes Pirates

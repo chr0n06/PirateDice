@@ -40,9 +40,41 @@ public class Services {
 
     public static void acceptPoints() {
         int tempPoints = repo.getTurn().getPlayer().getPoint();
+        Map<String, Integer> diceRepetions = calculateDiceCombo();
         repo.getTurn().getPlayer().setPoint(
                 tempPoints + getTempPoints()//Add Turn point to actual points
         );
+
+        //Card influence PirateBoatCardEasy
+        if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
+            if (diceRepetions.containsKey("Swords")) {
+                if (diceRepetions.get("Swords") >= 2) {
+                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 300);
+                    System.out.println("Player has killed the easy boat!");
+                }
+            }
+
+        }
+        //Card influence PirateBoatCardMedium
+        if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
+            if (diceRepetions.containsKey("Swords")) {
+                if (diceRepetions.get("Swords") >= 3) {
+                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 500);
+                    System.out.println("Player has killed the medium boat!");
+                }
+            }
+
+        }
+        //Card influence PirateBoatCardHard
+        if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
+            if (diceRepetions.containsKey("Swords")) {
+                if (diceRepetions.get("Swords") >= 4) {
+                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 1000);
+                    System.out.println("Player has killed the hard boat!");
+                }
+            }
+        }
+
     }
 
     public static int getTempPoints() {
@@ -104,43 +136,6 @@ public class Services {
             }//switch
         }//foreach
         System.out.println("Combo pts = " + tempPoints);
-
-        //Card influence PirateBoatCardEasy
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
-            /**
-             * *******
-             *
-             * ISSUE HERE EVERYTIME WE PLAY PTS INCREMENT
-             *
-             */
-            if (diceRepetions.containsKey("Swords")) {
-                if (diceRepetions.get("Swords") >= 2) {
-                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 300);
-                    System.out.println("Player has killed the easy boat!");
-                }
-            }
-
-        }
-        //Card influence PirateBoatCardMedium
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
-            if (diceRepetions.containsKey("Swords")) {
-                if (diceRepetions.get("Swords") >= 3) {
-                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 500);
-                    System.out.println("Player has killed the medium boat!");
-                }
-            }
-
-        }
-        //Card influence PirateBoatCardHard
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
-            if (diceRepetions.containsKey("Swords")) {
-                if (diceRepetions.get("Swords") >= 4) {
-                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 1000);
-                    System.out.println("Player has killed the hard boat!");
-                }
-            }
-        }
-
         return tempPoints;
     }
 
@@ -245,34 +240,31 @@ public class Services {
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
             if (repo.getTurn().getPlayer().getPoint() >= 300) {
                 repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 300);
-                System.out.println("Minus 300 point till you roll at least 2 swords");
             } else {
                 repo.getTurn().getPlayer().setPoint(0);
-                System.out.println("Minus 300 points till you roll at least 4 swords");
-            }
-
-        }
+            }//else
+            System.out.println("Minus 300 points till you roll at least 2 swords");
+        }//if
+        
         //Card influence PirateBoatCardMedium
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
             if (repo.getTurn().getPlayer().getPoint() >= 500) {
                 repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 500);
-                System.out.println("Minus 500 points till you roll at least 3 swords");
             } else {
                 repo.getTurn().getPlayer().setPoint(0);
-                System.out.println("Minus 500 points till you roll at least 4 swords");
-            }
-        }
+            }//else
+            System.out.println("Minus 500 points till you roll at least 3 swords");
+        }//if
+        
         //Card influence PirateBoatCardHard
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
             if (repo.getTurn().getPlayer().getPoint() >= 1000) {
                 repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 1000);
-                System.out.println("Minus 1000 points till you roll at least 4 swords");
             } else {
                 repo.getTurn().getPlayer().setPoint(0);
-                System.out.println("Minus 1000 points till you roll at least 4 swords");
-            }
-
-        }
+            }//else
+            System.out.println("Minus 1000 points till you roll at least 4 swords");
+        }//if
 
         //Card influence SimpleSkullCard
         if (repo.getTurn().getCard().getName().equals("SimpleSkullCard")) {
