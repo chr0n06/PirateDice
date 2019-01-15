@@ -26,10 +26,19 @@ and open the template in the editor.
 
 }
 
+#deathCard{
+    -fx-width:50px;
+    -fx-heigth:50px;
+    -fx-background-image: url("/Assets/DicesLayouts/3D-2/Death.png");
+    -fx-background-size: cover;     
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center; 
+}
+/*
 #acceptPts{
     -fx-box-shadow: 10px 10px grey;
 }
 
 #acceptPts:hover{
--fx-background-color: blue;
-}
+    -fx-background-color: blue;
+}*/

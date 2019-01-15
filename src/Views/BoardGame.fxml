@@ -195,6 +195,11 @@
                         <AnchorPane layoutX="2.0" layoutY="711.0" prefHeight="296.0" prefWidth="1497.0" />
                   <VBox alignment="CENTER" layoutX="1261.0" layoutY="99.0" prefHeight="253.0" prefWidth="252.0" spacing="60.0">
                      <children>
+                        <Button fx:id="witchCardPower" mnemonicParsing="false" onAction="#onactionwitchCardPower" prefHeight="99.0" prefWidth="174.0">
+                           <font>
+                              <Font size="66.0" />
+                           </font>
+                        </Button>
                         
                    
                         
