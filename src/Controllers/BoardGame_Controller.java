@@ -11,7 +11,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -144,7 +143,7 @@ public class BoardGame_Controller implements Initializable {
         } else {
             this.witchCardPower.setVisible(false);
         }
-        
+
         cardName.setText(Services.getTurn().getCard().getName());
         cardDescription.setText(Services.getTurn().getCard().getDescription());
         name.setText(Services.getTurn().getPlayer().getName());
@@ -166,12 +165,25 @@ public class BoardGame_Controller implements Initializable {
     }
 
     @FXML
-    void onactionwitchCardPower(ActionEvent event){
-        this.witchCardPower.setVisible(false);
+    void onactionwitchCardPower(ActionEvent event) {
+        int diceIndex = Services.findFirstDeathDice();
         
-        //implement action here!
+        if (Services.isOneDeathDice()) {//Check if there is one death Dice
+            Services.getTurn().setLifes(Services.getTurn().getLifes()+1); //Add a life
+            System.out.println("One life has been added");
+
+            //Set one Death Dice to be changeable                             
+            this.checkboxes.get(diceIndex).setDisable(false); //Find the checkboxe that need to be activated
+            Services.getAllDices().get(diceIndex).setState("mystery"); //Change state of the death dice
+            this.dices.get(diceIndex).setImage(new Image("Assets/DicesLayouts/mystery.png")); //Reset dice image 
+            
+            this.witchCardPower.setVisible(false);
+            System.out.println("At least one dice is death, proceed...");
+        } else {
+            System.out.println("No Dice is death for the moment!");
+        }
     }
-    
+
     @FXML
     void OnActionAcceptPoints(ActionEvent event) {
         Services.acceptPoints();
@@ -241,6 +253,7 @@ public class BoardGame_Controller implements Initializable {
             } else {
                 checkboxes.get(index).setDisable(false);
             }
+            //System.out.println(Services.getAllDices().get(index).getState());
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
         }//for
     }//fillImageInDice

@@ -328,4 +328,26 @@ public class Services {
         return repo.getTurn();
     }
 
+    public static boolean isOneDeathDice() {
+        boolean status = false;
+        for (Dice dice : repo.getDices()) {
+            if (dice.isDeath()) {
+                status = true;
+                return status;
+            }
+        }
+        return status;
+    }
+
+    public static int findFirstDeathDice() {
+        int index = 0;//can cause error 
+        
+        for (Dice dice : repo.getDices()) {
+            if (dice.isDeath()){
+                return dice.getId()-1;
+            }
+        }
+        return index;
+    }
+    
 }

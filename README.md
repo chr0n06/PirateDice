@@ -51,7 +51,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 -During turn effect- 
 - [x] Implementing the BL for : SimpleSkullCard  
 - [x] Implementing the BL for : DoubleSkullCard 
-- [ ] Implementing the BL for : WitchCard  
+- [x] Implementing the BL for : WitchCard  
 - [ ] Implementing the BL for : ChestCard 
 
 
