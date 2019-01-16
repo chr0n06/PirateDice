@@ -2,11 +2,15 @@ package Controllers;
 
 import BLL.Services;
 import Settings.Preferences;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +20,12 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
@@ -101,6 +111,9 @@ public class BoardGame_Controller implements Initializable {
     @FXML
     private Button witchCardPower;
 
+    @FXML
+    private AnchorPane anchorPane_Background;
+
     List<ImageView> dices;
     List<CheckBox> checkboxes;
 
@@ -144,11 +157,12 @@ public class BoardGame_Controller implements Initializable {
             this.witchCardPower.setVisible(false);
         }
 
-        cardName.setText(Services.getTurn().getCard().getName());
-        cardDescription.setText(Services.getTurn().getCard().getDescription());
-        name.setText(Services.getTurn().getPlayer().getName());
-        cardView.setImage(Services.getTurn().getCard().getImage());
-        points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
+        this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
+        this.cardName.setText(Services.getTurn().getCard().getName());
+        this.cardDescription.setText(Services.getTurn().getCard().getDescription());
+        this.name.setText(Services.getTurn().getPlayer().getName());
+        this.cardView.setImage(Services.getTurn().getCard().getImage());
+        this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
         Services.rollAllDices();
         resetLayout();
@@ -157,26 +171,33 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     void OnActionRoll(ActionEvent event) {
+
         Services.rollSpecificDices(checkWichCheckBoxIsSelected());
         resetLayout();
         fillImageInDice();
 
+        if (Services.getTurn().getLifes() < 0) {
+            this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/DeadIsland.png')");
+        } else {
+            this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
+        }
         updatePointsTemp();//Visual aspect
+
     }
 
     @FXML
     void onactionwitchCardPower(ActionEvent event) {
         int diceIndex = Services.findFirstDeathDice();
-        
+
         if (Services.isOneDeathDice()) {//Check if there is one death Dice
-            Services.getTurn().setLifes(Services.getTurn().getLifes()+1); //Add a life
+            Services.getTurn().setLifes(Services.getTurn().getLifes() + 1); //Add a life
             System.out.println("One life has been added");
 
             //Set one Death Dice to be changeable                             
             this.checkboxes.get(diceIndex).setDisable(false); //Find the checkboxe that need to be activated
             Services.getAllDices().get(diceIndex).setState("mystery"); //Change state of the death dice
             this.dices.get(diceIndex).setImage(new Image("Assets/DicesLayouts/mystery.png")); //Reset dice image 
-            
+
             this.witchCardPower.setVisible(false);
             System.out.println("At least one dice is death, proceed...");
         } else {
@@ -253,7 +274,6 @@ public class BoardGame_Controller implements Initializable {
             } else {
                 checkboxes.get(index).setDisable(false);
             }
-            //System.out.println(Services.getAllDices().get(index).getState());
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
         }//for
     }//fillImageInDice

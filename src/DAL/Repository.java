@@ -67,19 +67,19 @@ public class Repository {
     private void generateCards() {
         cardQtyManager(
                 "WitchCard", 
-                "You have the capability to reroll one Death dice by the end of your turn!",
+                "You have the capability to reroll one Death dice by the end of the turn!",
                 Preferences.CARD_WITCH_IMG,
                 Preferences.CARD_WITCH_QTY
         );
         cardQtyManager(
                 "SimpleSkullCard",
-                "You already start your turn with only 2 lifes",
+                "Start your turn with only 2 lifes",
                 Preferences.CARD_SIMPLESKULL_IMG,
                 Preferences.CARD_SIMPLESKULL_QTY
         );
         cardQtyManager(
                 "DoubleSkullCard",
-                "You already start your turn with only 1 life",
+                "Start your turn with only 1 life",
                 Preferences.CARD_DOUBLESKULL_IMG,
                 Preferences.CARD_DOUBLESKULL_QTY
         );
@@ -91,7 +91,7 @@ public class Repository {
         );
         cardQtyManager(
                 "MonkeyParrotCard",
-                "The monkey and Parrot are considered similars dices", 
+                "Monkey and Parrot are considered similars dices", 
                 Preferences.CARD_MONKEY_PIRATE_IMG,
                 Preferences.CARD_MONKEY_PIRATE_QTY
         );

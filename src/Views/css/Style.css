@@ -26,7 +26,7 @@ and open the template in the editor.
 
 }
 
-#deathCard{
+#witchCardPower{
     -fx-width:50px;
     -fx-heigth:50px;
     -fx-background-image: url("/Assets/DicesLayouts/3D-2/Death.png");

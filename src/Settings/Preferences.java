@@ -24,7 +24,7 @@ public class Preferences {
     public static int CARD_BRILLIANT_DIAMOND_QTY = 4;
     public static int CARD_PIECEOFGOLD_QTY = 4;
     public static int CARD_MONKEY_PIRATE_QTY = 4;
-    public static int CARD_WITCH_QTY = 44;
+    public static int CARD_WITCH_QTY = 4;
 
     public static String CARD_PIRATEBOATEASY_IMG = "Assets/Cards/PirateBoatEasyCard_x.png";
     public static String CARD_PIRATEBOATMEDIUM_IMG = "Assets/Cards/PirateBoatMediumCard_x.png";
