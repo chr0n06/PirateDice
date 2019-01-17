@@ -119,15 +119,15 @@ public class BoardGame_Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
-        checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
+        this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
+        this.checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
 
         Services.nextTurn();
-        cardName.setText(Services.getTurn().getCard().getName());
-        cardDescription.setText(Services.getTurn().getCard().getDescription());
-        name.setText(Services.getTurn().getPlayer().getName());
-        cardView.setImage(Services.getTurn().getCard().getImage());
-        points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
+        this.cardName.setText(Services.getTurn().getCard().getName());
+        this.cardDescription.setText(Services.getTurn().getCard().getDescription());
+        this.name.setText(Services.getTurn().getPlayer().getName());
+        this.cardView.setImage(Services.getTurn().getCard().getImage());
+        this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
         //WitchCard Influence
         if (Services.getTurn().getCard().getName().equals("WitchCard")) {
@@ -165,7 +165,7 @@ public class BoardGame_Controller implements Initializable {
         this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
         Services.rollAllDices();
-        resetLayout();
+        this.resetLayout();
 
     }//onactionNextTurn
 
@@ -173,9 +173,10 @@ public class BoardGame_Controller implements Initializable {
     void OnActionRoll(ActionEvent event) {
 
         Services.rollSpecificDices(checkWichCheckBoxIsSelected());
-        resetLayout();
-        fillImageInDice();
+        this.resetLayout();
+        this.fillImageInDice();
 
+        //Background Manager
         if (Services.getTurn().getLifes() < 0) {
             this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/DeadIsland.png')");
         } else {
