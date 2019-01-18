@@ -9,7 +9,11 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 ## Actual Interface (Temp)
 
-![picture](src/Assets/Looking/2019-01-12.png)
+### On the Island 
+![picture](src/Assets/Looking/2019-01-17_Island.png)
+
+### On the Death Island
+![picture](src/Assets/Looking/2019-01-17_Death.png)
 
 ## Phase(s)
 
@@ -37,8 +41,9 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 - [x] Implementing the switch card
 - [x] Implementing the Death
 - [x] Implementing the lost tempPts when player obtain three Deaths 
-- [ ] Implementing the beat the death
-- [ ] Implementing the ending turn
+- [x] Implementing the beat the death
+- [ ] Implementing minus pts for all other players when beat the death
+- [ ] Implementing the ending game
 - [ ] Implementing the setup menu
 
 #### Cards 
