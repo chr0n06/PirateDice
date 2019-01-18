@@ -5,7 +5,7 @@
 This project is a very simple exercice that I build like I do a puzzle. I do it simply to relax and keep on touch with Java. Here I implement this cool game I've played with friends. 
 
 ## The Game
-![picture](src/Assets/PirateDice.jpg)
+<!--![picture](src/Assets/PirateDice.jpg)-->
 ![picture](src/Assets/PirateDice_2.jpg)
 https://www.korb-rau.vedes.de/media/getproductdetailsvideo/default/62610581/62610581.mp4
 
