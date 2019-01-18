@@ -12,19 +12,27 @@ import Settings.Preferences;
  * @author Maxime
  */
 public class Turn {
+
     private Player player;
     private Card card;
     private int score;
     private int lifes;
-    private boolean initiated;
     
+    /* Used in Death Island while the player drop a Death, 
+    the minusLife is activated and the player is allowed to continue.
+     */
+    private boolean minusLife;
+    
+    private boolean initiated;
+
     public Turn() {
         this.player = null;
         this.card = null;
         this.score = 0;
         this.lifes = Preferences.DEFAULT_LIFE_QTY;
+        this.minusLife = true;
         this.initiated = false;
-    }    
+    }
 
     public Player getPlayer() {
         return player;
@@ -65,7 +73,15 @@ public class Turn {
     public void setInitiated(boolean initiated) {
         this.initiated = initiated;
     }
+
+    public boolean isMinusLife() {
+        return minusLife;
+    }
+
+    public void setMinusLife(boolean minusLife) {
+        this.minusLife = minusLife;
+    }
+
     
     
- 
 }

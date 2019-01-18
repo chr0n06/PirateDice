@@ -23,6 +23,19 @@ public class Services {
 
     public static Repository repo = Repository.getInstance();
 
+    /**
+     * Roll Dices methods
+     */
+    /**
+     * The rollAllDices method allow to roll every dices for the first time in
+     * the turn.
+     *
+     * @param none
+     * @return void
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     public static void rollAllDices() {
         repo.getTurn().setInitiated(true);
         for (Dice dice : repo.getDices()) {
@@ -36,8 +49,69 @@ public class Services {
                 System.out.println("minus 1 from start, actual life = " + repo.getTurn().getLifes());
             }//if
         }//for
+    }//rollAllDices
+
+    /**
+     * The rollSpecificDices method allow to roll every dices that have been
+     * checked.
+     *
+     * @param List<Integer>
+     * @return void
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
+    public static void rollSpecificDices(List<Integer> dices) {
+        if (!dices.isEmpty()) {
+            if (repo.getTurn().getLifes() > 0) {
+                for (Integer diceId : dices) {
+                    if (isDiceRollable(diceId)) {
+                        repo.getDices().get(diceId - 1).rollDice();
+                        if (repo.getDices().get(diceId - 1).getState().equals("Death")) {
+                            repo.getTurn().setLifes(
+                                    repo.getTurn().getLifes() - 1
+                            );
+                            System.out.println("minus 1, actual life = " + repo.getTurn().getLifes());
+                        }//if 
+                    }//if
+                }//for
+            }//if 
+        }//if
+    }//rollSpecificDices
+
+    /**
+     * The rollAllDicesFromDeathIsland method allow to roll every dices when the
+     * player enter into the Death Island.
+     *
+     * @param none
+     * @return void
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
+    public static void rollAllDicesFromDeathIsland() {
+        if (repo.getTurn().isMinusLife()) {
+            repo.getTurn().setMinusLife(false);
+            if (repo.getTurn().getLifes() > -6) { //Impossible to continue, only one dice left !
+                for (Dice dice : repo.getDices()) {
+                    if (!dice.getState().equals("Death")) {
+                        dice.rollDice();
+                        if (dice.getState().equals("Death")) {
+                            repo.getTurn().setLifes(
+                                    repo.getTurn().getLifes() - 1);//remove lifes in DeathIsland
+                            System.out.println("minus 1 from Death Island, actual life = " + repo.getTurn().getLifes());
+                            repo.getTurn().setMinusLife(true);
+                        }//if
+                    }//if
+                }//for
+            }//if 
+        }//if  
     }
 
+    //Need JavaDoc
+    /**
+     * Points manger methods
+     */
     public static void acceptPoints() {
         int tempPoints = repo.getTurn().getPlayer().getPoint();
         Map<String, Integer> diceRepetions = calculateDiceCombo();
@@ -191,42 +265,6 @@ public class Services {
         return diceRepetions;
     }
 
-    public static void rollSpecificDices(List<Integer> dices) {
-        if (!dices.isEmpty()) {
-            if (repo.getTurn().getLifes() > 0) {
-                for (Integer diceId : dices) {
-                    if (isDiceRollable(diceId)) {
-                        repo.getDices().get(diceId - 1).rollDice();
-                        if (repo.getDices().get(diceId - 1).getState().equals("Death")) {
-                            repo.getTurn().setLifes(
-                                    repo.getTurn().getLifes() - 1
-                            );
-                            System.out.println("minus 1, actual life = " + repo.getTurn().getLifes());
-                        }//if 
-                    }//if
-                }//for
-            } else if (repo.getTurn().getLifes() == 0) {
-                System.out.println("You're death!!");
-            } else if (repo.getTurn().getLifes() < 0) {
-                System.out.println("You beat the death");
-                //Implement a method to go on the death island
-                boolean isNewDiceDeath = false;
-
-                for (Integer diceId : dices) {
-                    if (isDiceRollable(diceId)) {
-                        repo.getDices().get(diceId - 1).rollDice();
-                        if (repo.getDices().get(diceId - 1).getState().equals("Death")) {
-                            repo.getTurn().setLifes(
-                                    repo.getTurn().getLifes() - 1
-                            );
-                            System.out.println("minus 1, actual life = " + repo.getTurn().getLifes());
-                        }//if 
-                    }//if
-                }//for   
-            }
-        }//if
-    }//rollSpecificDices
-
     public static boolean isDiceRollable(int diceId) {
         return !repo.getDices().get(diceId - 1).isDeath();
     }
@@ -244,7 +282,7 @@ public class Services {
         selectAPlayer();
         pickACard();
         resetTurnLife();
-
+        resetTurnMinusLife();
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
             if (repo.getTurn().getPlayer().getPoint() >= 300) {
@@ -318,7 +356,12 @@ public class Services {
         repo.getTurn().setInitiated(false);
         System.out.println("lifes of that turn as been resetted");
     }
-
+    
+    public static void resetTurnMinusLife() {
+        repo.getTurn().setMinusLife(true);
+        System.out.println("minusLife of that turn as been resetted");
+    }
+    
     private static void resetCardPackIndex() {
         Preferences.CARD_PACK_INDEX = 0;
         Collections.shuffle(repo.getCards());
@@ -341,13 +384,13 @@ public class Services {
 
     public static int findFirstDeathDice() {
         int index = 0;//can cause error 
-        
+
         for (Dice dice : repo.getDices()) {
-            if (dice.isDeath()){
-                return dice.getId()-1;
+            if (dice.isDeath()) {
+                return dice.getId() - 1;
             }
         }
         return index;
     }
-    
+
 }

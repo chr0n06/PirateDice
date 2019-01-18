@@ -2,15 +2,11 @@ package Controllers;
 
 import BLL.Services;
 import Settings.Preferences;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,11 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
@@ -110,6 +101,9 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     private Button witchCardPower;
+    
+    @FXML
+    private Button rollDicesToKill;
 
     @FXML
     private AnchorPane anchorPane_Background;
@@ -144,10 +138,23 @@ public class BoardGame_Controller implements Initializable {
     }//onActionPlay
 
     @FXML
+    void onActionRollDicesToKill (ActionEvent event){
+        this.roll_btn.setVisible(false);
+        this.acceptPts.setVisible(false);
+        
+        Services.rollAllDicesFromDeathIsland();
+        
+        this.resetLayout();
+        this.fillImageInDice(); 
+        
+        updatePointsTemp();//to change : minus points
+    }
+    
+    @FXML
     void onactionNextTurn(ActionEvent event) {
         this.acceptPts.setVisible(true);
         this.roll_btn.setVisible(true);
-
+        this.rollDicesToKill.setVisible(false);
         Services.nextTurn();
 
         //WitchCard Influence
@@ -179,6 +186,9 @@ public class BoardGame_Controller implements Initializable {
         //Background Manager
         if (Services.getTurn().getLifes() < 0) {
             this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/DeadIsland.png')");
+            this.acceptPts.setVisible(false);
+            this.roll_btn.setVisible(false);
+            this.rollDicesToKill.setVisible(true);
         } else {
             this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
         }
