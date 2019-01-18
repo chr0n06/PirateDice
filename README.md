@@ -9,6 +9,10 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 ![picture](src/Assets/PirateDice_2.jpg)
 https://www.youtube.com/watch?v=D0BZScAbwU4
 
+
+<a href="https://www.youtube.com/watch?v=D0BZScAbwU4" target="_blank"><img src="https://www.spielezar.ch/5820/piraten-kapern.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+
 ## Actual Interface (Temp)
 
 ### On the Island 
