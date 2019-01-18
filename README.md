@@ -78,6 +78,8 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 ## Copyright
 ***
 - Author : Haim Shafir
+[![Haim Shafir](https://youtu.be/uT5c_MfSZzY)
+
 - Design : Jose Pedro
 - Programmor : Maxime Laniel 
 
