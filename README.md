@@ -7,7 +7,7 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 ## The Game
 <!--![picture](src/Assets/PirateDice.jpg)-->
 ![picture](src/Assets/PirateDice_2.jpg)
-https://www.korb-rau.vedes.de/media/getproductdetailsvideo/default/62610581/62610581.mp4
+https://www.youtube.com/watch?v=D0BZScAbwU4
 
 ## Actual Interface (Temp)
 
