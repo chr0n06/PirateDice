@@ -6,9 +6,6 @@ This project is a very simple exercice that I build like I do a puzzle. I do it 
 
 ## The Game
 <!--![picture](src/Assets/PirateDice.jpg)-->
-![picture](src/Assets/PirateDice_2.jpg)
-https://www.youtube.com/watch?v=D0BZScAbwU4
-
 
 <a href="https://www.youtube.com/watch?v=D0BZScAbwU4" target="_blank"><img src="https://www.spielezar.ch/5820/piraten-kapern.jpg" 
 alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
