@@ -108,9 +108,19 @@ public class Services {
         }//if  
     }
 
-    //Need JavaDoc
+    
     /**
-     * Points manger methods
+     * Points manager methods
+     */
+    /**
+     * The acceptPoints method allows the player to accept points of the actual
+     * turn
+     *
+     * @param none
+     * @return void
+     * @version 1.0
+     *
+     * @author Maxime Laniel
      */
     public static void acceptPoints() {
         int tempPoints = repo.getTurn().getPlayer().getPoint();
@@ -149,7 +159,16 @@ public class Services {
             }//if2
         }//if1
     }
-
+    
+    /**
+     * The getTempPoints method go trought multiple phases to check after each roll what is the value of the dices 
+     *
+     * @param none
+     * @return Integer
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     public static int getTempPoints() {
         int points = 0;
         if ((repo.getTurn().getLifes() > 0) && (repo.getTurn().getLifes() <= 3)) {
@@ -356,12 +375,12 @@ public class Services {
         repo.getTurn().setInitiated(false);
         System.out.println("lifes of that turn as been resetted");
     }
-    
+
     public static void resetTurnMinusLife() {
         repo.getTurn().setMinusLife(true);
         System.out.println("minusLife of that turn as been resetted");
     }
-    
+
     private static void resetCardPackIndex() {
         Preferences.CARD_PACK_INDEX = 0;
         Collections.shuffle(repo.getCards());
