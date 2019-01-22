@@ -37,7 +37,7 @@ public class Services {
      * @author Maxime Laniel
      */
     public static void rollAllDices() {
-        repo.getTurn().setInitiated(true);
+        //repo.getTurn().setInitiated(true);
         for (Dice dice : repo.getDices()) {
             dice.rollDice();
 
@@ -92,7 +92,7 @@ public class Services {
     public static void rollAllDicesFromDeathIsland() {
         if (repo.getTurn().isMinusLife()) {
             repo.getTurn().setMinusLife(false);
-            if (repo.getTurn().getLifes() > -6) { //Impossible to continue, only one dice left !
+            if (repo.getTurn().getLifes() > -6) { //-6 cause it's impossible to continue, only one dice left !
                 for (Dice dice : repo.getDices()) {
                     if (!dice.getState().equals("Death")) {
                         dice.rollDice();
@@ -108,7 +108,6 @@ public class Services {
         }//if  
     }
 
-    
     /**
      * Points manager methods
      */
@@ -159,9 +158,10 @@ public class Services {
             }//if2
         }//if1
     }
-    
+
     /**
-     * The getTempPoints method go trought multiple phases to check after each roll what is the value of the dices 
+     * The getTempPoints method go trought multiple phases to check after each
+     * roll what is the value of the dices
      *
      * @param none
      * @return Integer
@@ -297,7 +297,17 @@ public class Services {
     }
 
     public static void nextTurn() {
-        //Inject a player and a card to the new turn
+//Death Island influence
+        if (repo.getTurn().getLifes() < 0) {
+            for (Player player : repo.getPlayers()) {
+                if (player.getId() != repo.getTurn().getPlayer().getId()) {
+                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes()) * 100);
+                    System.out.println("Hey there!");
+                }
+            }
+        }
+
+//Inject a player and a card to the new turn
         selectAPlayer();
         pickACard();
         resetTurnLife();
@@ -372,7 +382,7 @@ public class Services {
 
     public static void resetTurnLife() {
         repo.getTurn().setLifes(Preferences.DEFAULT_LIFE_QTY);
-        repo.getTurn().setInitiated(false);
+        //repo.getTurn().setInitiated(false);
         System.out.println("lifes of that turn as been resetted");
     }
 
