@@ -13,13 +13,14 @@ import Settings.Preferences;
  */
 public class Player {
     
+    private static int indexID = 0;
     private int id;
     private String name;
     private int point;
 
     //Constructor(s)
     public Player(String name) {
-        this.id = id;
+        this.id = indexID++;
         this.name = name;
         this.point = Preferences.PLAYER_STARTING_POINTS;
     }

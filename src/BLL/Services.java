@@ -300,9 +300,10 @@ public class Services {
 //Death Island influence
         if (repo.getTurn().getLifes() < 0) {
             for (Player player : repo.getPlayers()) {
+                //System.out.println("Player ID : "+player.getId() +" Actual player ID : " + repo.getTurn().getPlayer().getId());
                 if (player.getId() != repo.getTurn().getPlayer().getId()) {
-                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes()) * 100);
-                    System.out.println("Hey there!");
+                    //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
+                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes()-3) * 100);
                 }
             }
         }
