@@ -297,22 +297,24 @@ public class Services {
     }
 
     public static void nextTurn() {
-//Death Island influence
+        //Death Island influence
         if (repo.getTurn().getLifes() < 0) {
             for (Player player : repo.getPlayers()) {
                 //System.out.println("Player ID : "+player.getId() +" Actual player ID : " + repo.getTurn().getPlayer().getId());
                 if (player.getId() != repo.getTurn().getPlayer().getId()) {
                     //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
-                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes()-3) * 100);
+                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100);
                 }
             }
         }
 
-//Inject a player and a card to the new turn
+        //Inject a player and a card to the new turn
         selectAPlayer();
         pickACard();
+        
         resetTurnLife();
-        resetTurnMinusLife();
+        resetTurnMinusLife(); //Needed when a player goes on the Death Island
+        
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
             if (repo.getTurn().getPlayer().getPoint() >= 300) {
@@ -353,7 +355,6 @@ public class Services {
             repo.getTurn().setLifes(repo.getTurn().getLifes() - 2);
             System.out.println("Minus 2 life because of the DoubleSkullCard");
         }
-
     }
 
     public static void selectAPlayer() {
