@@ -17,9 +17,9 @@ public class Preferences {
      */
     public static int CARD_PACK_INDEX = 0;
     public static int CARD_PACK_QTY = 35;
-    public static int CARD_PIRATEBOATEASY_QTY = 22;
-    public static int CARD_PIRATEBOATMEDIUM_QTY = 22;
-    public static int CARD_PIRATEBOATHARD_QTY = 22;
+    public static int CARD_PIRATEBOATEASY_QTY = 2;
+    public static int CARD_PIRATEBOATMEDIUM_QTY = 2;
+    public static int CARD_PIRATEBOATHARD_QTY = 2;
     public static int CARD_DOUBLESKULL_QTY = 2;
     public static int CARD_SIMPLESKULL_QTY = 3;
     public static int CARD_CHEST_QTY = 4;

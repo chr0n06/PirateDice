@@ -101,7 +101,7 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     private Button witchCardPower;
-    
+
     @FXML
     private Button rollDicesToKill;
 
@@ -115,19 +115,12 @@ public class BoardGame_Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
         this.checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
-             
+
         this.acceptPts.setVisible(true);
         this.roll_btn.setVisible(true);
         this.rollDicesToKill.setVisible(false);
         Services.nextTurn();
-
-        //WitchCard Influence
-        if (Services.getTurn().getCard().getName().equals("WitchCard")) {
-            this.witchCardPower.setVisible(true);
-        } else {
-            this.witchCardPower.setVisible(false);
-        }
-
+        this.witchCardPower.setVisible(Services.witchCardInfluence());
         this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
         this.cardName.setText(Services.getTurn().getCard().getName());
         this.cardDescription.setText(Services.getTurn().getCard().getDescription());
@@ -137,7 +130,7 @@ public class BoardGame_Controller implements Initializable {
 
         Services.rollAllDices();
         this.resetLayout();
-  
+
     }//initialize
 
     @FXML
@@ -146,32 +139,25 @@ public class BoardGame_Controller implements Initializable {
     }//onActionPlay
 
     @FXML
-    void onActionRollDicesToKill (ActionEvent event){
+    void onActionRollDicesToKill(ActionEvent event) {
         this.roll_btn.setVisible(false);
         this.acceptPts.setVisible(false);
-        
+
         Services.rollAllDicesFromDeathIsland();
-        
+
         this.resetLayout();
-        this.fillImageInDice(); 
-        
+        this.fillImageInDice();
+
         updatePointsTemp();//to change : minus points
     }
-    
+
     @FXML
     void onactionNextTurn(ActionEvent event) {
         this.acceptPts.setVisible(true);
         this.roll_btn.setVisible(true);
         this.rollDicesToKill.setVisible(false);
         Services.nextTurn();
-
-        //WitchCard Influence
-        if (Services.getTurn().getCard().getName().equals("WitchCard")) {
-            this.witchCardPower.setVisible(true);
-        } else {
-            this.witchCardPower.setVisible(false);
-        }
-
+        this.witchCardPower.setVisible(Services.witchCardInfluence());
         this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
         this.cardName.setText(Services.getTurn().getCard().getName());
         this.cardDescription.setText(Services.getTurn().getCard().getDescription());
@@ -292,7 +278,7 @@ public class BoardGame_Controller implements Initializable {
                 checkboxes.get(index).setSelected(false);
             } else {
                 checkboxes.get(index).setDisable(false);
-            }
+            }//if
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
         }//for
     }//fillImageInDice

@@ -424,4 +424,8 @@ public class Services {
         return index;
     }
 
+    public static boolean witchCardInfluence(){
+        return Services.getTurn().getCard().getName().equals("WitchCard");
+    }
+        
 }
