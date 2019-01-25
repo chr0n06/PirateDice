@@ -68,6 +68,7 @@ alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
 
 ### Issue(s)
 - [x] Line 133 :: service : EVERYTIME WE PLAY PTS INCREMENT for PirateBoatCards 
+- [x] Starting game problem Death doesn't make any effect
 - [ ] Problem when player pts is shorter than the pirateBoatCards
 - [ ] Factorizing MonkeyPirateCard
 

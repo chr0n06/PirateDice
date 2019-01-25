@@ -115,13 +115,11 @@ public class BoardGame_Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
         this.checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
-
+             
+        this.acceptPts.setVisible(true);
+        this.roll_btn.setVisible(true);
+        this.rollDicesToKill.setVisible(false);
         Services.nextTurn();
-        this.cardName.setText(Services.getTurn().getCard().getName());
-        this.cardDescription.setText(Services.getTurn().getCard().getDescription());
-        this.name.setText(Services.getTurn().getPlayer().getName());
-        this.cardView.setImage(Services.getTurn().getCard().getImage());
-        this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
         //WitchCard Influence
         if (Services.getTurn().getCard().getName().equals("WitchCard")) {
@@ -130,6 +128,16 @@ public class BoardGame_Controller implements Initializable {
             this.witchCardPower.setVisible(false);
         }
 
+        this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
+        this.cardName.setText(Services.getTurn().getCard().getName());
+        this.cardDescription.setText(Services.getTurn().getCard().getDescription());
+        this.name.setText(Services.getTurn().getPlayer().getName());
+        this.cardView.setImage(Services.getTurn().getCard().getImage());
+        this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
+
+        Services.rollAllDices();
+        this.resetLayout();
+  
     }//initialize
 
     @FXML
