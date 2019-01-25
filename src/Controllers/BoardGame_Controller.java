@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -85,6 +86,9 @@ public class BoardGame_Controller implements Initializable {
     private CheckBox checkBox8;
 
     @FXML
+    private ToggleButton chestSave1;
+
+    @FXML
     private ImageView cardView;
 
     @FXML
@@ -110,12 +114,16 @@ public class BoardGame_Controller implements Initializable {
 
     List<ImageView> dices;
     List<CheckBox> checkboxes;
+    List<ToggleButton> chestSaves;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
         this.checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
+        this.chestSaves = Arrays.asList(chestSave1);
 
+        
+        
         this.acceptPts.setVisible(true);
         this.roll_btn.setVisible(true);
         this.rollDicesToKill.setVisible(false);
@@ -128,6 +136,8 @@ public class BoardGame_Controller implements Initializable {
         this.cardView.setImage(Services.getTurn().getCard().getImage());
         this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
+        this.chestSavesDisplay();
+        
         Services.rollAllDices();
         this.resetLayout();
 
@@ -165,6 +175,8 @@ public class BoardGame_Controller implements Initializable {
         this.cardView.setImage(Services.getTurn().getCard().getImage());
         this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
+        
+        this.chestSavesDisplay();
         Services.rollAllDices();
         this.resetLayout();
 
@@ -282,5 +294,17 @@ public class BoardGame_Controller implements Initializable {
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
         }//for
     }//fillImageInDice
+
+    private void chestSavesDisplay() {
+        if (Services.getTurn().getCard().getName().equals("ChestCard")) {
+            for (ToggleButton chestSave : chestSaves) {
+                chestSave.setVisible(true);
+            }//for
+        } else {
+            for (ToggleButton chestSave : chestSaves) {
+                chestSave.setVisible(false);
+            }//for
+        }//if
+    }//chestSavesDisplay
 
 }//BoardGame
