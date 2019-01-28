@@ -182,6 +182,15 @@ public class Services {
         return repo.getTurn().getScore();
     }
 
+    /**
+     * The firstPhase method count all diamond & gold dices
+     *
+     * @param none
+     * @return Integer
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     private static int firstPhase() {
         int tempPoints = 0;
         for (Dice dice : repo.getDices()) {
@@ -198,6 +207,15 @@ public class Services {
         return tempPoints;
     }
 
+    /**
+     * The secondPhase method count all dices combo
+     *
+     * @param none
+     * @return Integer
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     private static int secondPhase() {
         int tempPoints = 0;
         Map<String, Integer> diceRepetions = calculateDiceCombo();
@@ -231,6 +249,15 @@ public class Services {
         return tempPoints;
     }
 
+    /**
+     * The thirdPhase method check if we have to double the amount of points
+     *
+     * @param none
+     * @return Integer
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     private static int thirdPhase(int points) {
         if (repo.getTurn().getCard() != null) {
             if (repo.getTurn().getCard().getName().equals("PirateCard")) {
@@ -239,6 +266,9 @@ public class Services {
         }
         return points;
     }
+    
+    
+    
 
     private static Map<String, Integer> calculateDiceCombo() {
         Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
@@ -311,10 +341,10 @@ public class Services {
         //Inject a player and a card to the new turn
         selectAPlayer();
         pickACard();
-        
+
         resetTurnLife();
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
-        
+
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
             if (repo.getTurn().getPlayer().getPoint() >= 300) {
@@ -424,8 +454,8 @@ public class Services {
         return index;
     }
 
-    public static boolean witchCardInfluence(){
+    public static boolean witchCardInfluence() {
         return Services.getTurn().getCard().getName().equals("WitchCard");
     }
-        
+
 }
