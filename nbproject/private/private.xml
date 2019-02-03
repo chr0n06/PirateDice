@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/PirateDice/src/Views/BoardGame.fxml</file>
             <file>file:/D:/PirateDice/src/piratedice/PirateDiceMain.java</file>
             <file>file:/D:/PirateDice/src/Model/Player.java</file>
@@ -12,6 +13,12 @@
             <file>file:/D:/PirateDice/src/Controllers/BoardGame_Controller.java</file>
             <file>file:/D:/PirateDice/src/Views/css/Style.css</file>
             <file>file:/D:/PirateDice/src/Model/Turn.java</file>
+=======
+            <file>file:/C:/Users/max_p/Desktop/PirateDice/src/Controllers/BoardGame_Controller.java</file>
+            <file>file:/C:/Users/max_p/Desktop/PirateDice/src/Settings/Preferences.java</file>
+            <file>file:/C:/Users/max_p/Desktop/PirateDice/src/Model/Player.java</file>
+            <file>file:/C:/Users/max_p/Desktop/PirateDice/src/BLL/Services.java</file>
+>>>>>>> 51c26c015ff781657c81ffd65866cb0aa973ec0f
         </group>
     </open-files>
 </project-private>
