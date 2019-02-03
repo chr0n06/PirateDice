@@ -87,6 +87,24 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     private ToggleButton chestSave1;
+    
+    @FXML
+    private ToggleButton chestSave2;
+    @FXML
+    
+    private ToggleButton chestSave3;
+    @FXML
+    
+    private ToggleButton chestSave4;
+    
+    @FXML
+    private ToggleButton chestSave5;
+    
+    @FXML
+    private ToggleButton chestSave6;
+    
+    @FXML
+    private ToggleButton chestSave7;
 
     @FXML
     private ImageView cardView;
@@ -120,7 +138,7 @@ public class BoardGame_Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
         this.checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
-        this.chestSaves = Arrays.asList(chestSave1);
+        this.chestSaves = Arrays.asList(chestSave1, chestSave2, chestSave3, chestSave4, chestSave5, chestSave6, chestSave7);
 
         
         
