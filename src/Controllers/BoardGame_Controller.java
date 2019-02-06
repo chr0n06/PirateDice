@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -87,24 +88,27 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     private ToggleButton chestSave1;
-    
+
     @FXML
     private ToggleButton chestSave2;
     @FXML
-    
+
     private ToggleButton chestSave3;
     @FXML
-    
+
     private ToggleButton chestSave4;
-    
+
     @FXML
     private ToggleButton chestSave5;
-    
+
     @FXML
     private ToggleButton chestSave6;
-    
+
     @FXML
     private ToggleButton chestSave7;
+
+    @FXML
+    private ToggleButton chestSave8;
 
     @FXML
     private ImageView cardView;
@@ -134,14 +138,12 @@ public class BoardGame_Controller implements Initializable {
     List<CheckBox> checkboxes;
     List<ToggleButton> chestSaves;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
         this.checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
-        this.chestSaves = Arrays.asList(chestSave1, chestSave2, chestSave3, chestSave4, chestSave5, chestSave6, chestSave7);
-
-        
-        
+        this.chestSaves = Arrays.asList(chestSave1, chestSave2, chestSave3, chestSave4, chestSave5, chestSave6, chestSave7, chestSave8);
         this.acceptPts.setVisible(true);
         this.roll_btn.setVisible(true);
         this.rollDicesToKill.setVisible(false);
@@ -155,7 +157,7 @@ public class BoardGame_Controller implements Initializable {
         this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
         this.chestSavesDisplay();
-        
+
         Services.rollAllDices();
         this.resetLayout();
 
@@ -193,7 +195,6 @@ public class BoardGame_Controller implements Initializable {
         this.cardView.setImage(Services.getTurn().getCard().getImage());
         this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
-        
         this.chestSavesDisplay();
         Services.rollAllDices();
         this.resetLayout();
@@ -316,7 +317,7 @@ public class BoardGame_Controller implements Initializable {
     private void chestSavesDisplay() {
         if (Services.getTurn().getCard().getName().equals("ChestCard")) {
             for (ToggleButton chestSave : chestSaves) {
-                chestSave.isSelected();
+                chestSave.setSelected(false);
                 chestSave.setVisible(true);
             }//for
         } else {
