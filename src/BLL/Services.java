@@ -177,7 +177,13 @@ public class Services {
             points = thirdPhase(points); //Card influence PirateCard
             repo.getTurn().setScore(points);
         } else if (repo.getTurn().getLifes() <= 0) {
+            //Card influence ChestCard
+            if (repo.getTurn().getCard().getName().equals("ChestCard")){
+                //Each card that has been checked
+            }
+                     
             repo.getTurn().setScore(0);
+          
         }
         return repo.getTurn().getScore();
     }
@@ -427,6 +433,7 @@ public class Services {
         Preferences.CARD_PACK_INDEX = 0;
         Collections.shuffle(repo.getCards());
     }
+    
 
     public static Turn getTurn() {
         return repo.getTurn();

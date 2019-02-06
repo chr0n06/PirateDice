@@ -216,7 +216,7 @@ public class BoardGame_Controller implements Initializable {
         } else {
             this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
         }
-        updatePointsTemp();//Visual aspect
+        this.updatePointsTemp();//Visual aspect
 
     }
 
@@ -316,6 +316,7 @@ public class BoardGame_Controller implements Initializable {
     private void chestSavesDisplay() {
         if (Services.getTurn().getCard().getName().equals("ChestCard")) {
             for (ToggleButton chestSave : chestSaves) {
+                chestSave.isSelected();
                 chestSave.setVisible(true);
             }//for
         } else {
