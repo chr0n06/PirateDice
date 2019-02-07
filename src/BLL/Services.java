@@ -75,7 +75,11 @@ public class Services {
                         }//if 
                     }//if
                 }//for
-            }//if 
+            }//if
+            //Card influence ChestCard
+           /* if(repo.getTurn().getCard().getName().equals("ChestCard") && ){
+                
+            }*/
         }//if
     }//rollSpecificDices
 
@@ -350,6 +354,7 @@ public class Services {
 
         resetTurnLife();
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
+        resetTurnInitiation();
 
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
@@ -429,6 +434,11 @@ public class Services {
         System.out.println("minusLife of that turn as been resetted");
     }
 
+    public static void resetTurnInitiation() {
+        repo.getTurn().setInitiated(false);
+        System.out.println("Initiation of that turn as been resetted");
+    }
+    
     private static void resetCardPackIndex() {
         Preferences.CARD_PACK_INDEX = 0;
         Collections.shuffle(repo.getCards());

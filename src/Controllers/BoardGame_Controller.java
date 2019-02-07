@@ -138,7 +138,6 @@ public class BoardGame_Controller implements Initializable {
     List<CheckBox> checkboxes;
     List<ToggleButton> chestSaves;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
@@ -209,13 +208,17 @@ public class BoardGame_Controller implements Initializable {
         this.fillImageInDice();
 
         //Background Manager
-        if (Services.getTurn().getLifes() < 0) {
-            this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/DeadIsland.png')");
-            this.acceptPts.setVisible(false);
-            this.roll_btn.setVisible(false);
-            this.rollDicesToKill.setVisible(true);
-        } else {
-            this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
+        if (Services.getTurn().isInitiated() == false) {
+            if (Services.getTurn().getLifes() < 0) {
+                this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/DeadIsland.png')");
+                this.acceptPts.setVisible(false);
+                this.roll_btn.setVisible(false);
+                this.rollDicesToKill.setVisible(true);
+            } else {
+                Services.getTurn().setInitiated(true);
+                System.out.println("Turn initiated");
+                this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
+            }
         }
         this.updatePointsTemp();//Visual aspect
 
@@ -298,7 +301,7 @@ public class BoardGame_Controller implements Initializable {
     }
 
     private void resetPointsTemp() {
-        pointsTemp.setText("0");
+        this.pointsTemp.setText("0");
     }
 
     private void fillImageInDice() {
