@@ -17,12 +17,13 @@ public class Turn {
     private Card card;
     private int score;
     private int lifes;
-    
+    private boolean endGameActivated; // At least one player has at leats 6000 pts! 
+
     /* Used in Death Island while the player drop a Death, 
     the minusLife is activated and the player is allowed to continue.
      */
     private boolean minusLife;
-    
+
     private boolean initiated;
 
     public Turn() {
@@ -32,6 +33,8 @@ public class Turn {
         this.lifes = Preferences.DEFAULT_LIFE_QTY;
         this.minusLife = true;
         this.initiated = false;
+        this.endGameActivated = false;
+
     }
 
     public Player getPlayer() {
@@ -82,6 +85,14 @@ public class Turn {
         this.minusLife = minusLife;
     }
 
+    public boolean isEndGameActivated() {
+        return endGameActivated;
+    }
+
+    public void setEndGameActivated(boolean endGameActivated) {
+        this.endGameActivated = endGameActivated;
+    }
     
     
+
 }

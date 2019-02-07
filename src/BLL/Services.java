@@ -77,7 +77,7 @@ public class Services {
                 }//for
             }//if
             //Card influence ChestCard
-           /* if(repo.getTurn().getCard().getName().equals("ChestCard") && ){
+            /* if(repo.getTurn().getCard().getName().equals("ChestCard") && ){
                 
             }*/
         }//if
@@ -182,12 +182,12 @@ public class Services {
             repo.getTurn().setScore(points);
         } else if (repo.getTurn().getLifes() <= 0) {
             //Card influence ChestCard
-            if (repo.getTurn().getCard().getName().equals("ChestCard")){
+            if (repo.getTurn().getCard().getName().equals("ChestCard")) {
                 //Each card that has been checked
             }
-                     
+
             repo.getTurn().setScore(0);
-          
+
         }
         return repo.getTurn().getScore();
     }
@@ -276,9 +276,6 @@ public class Services {
         }
         return points;
     }
-    
-    
-    
 
     private static Map<String, Integer> calculateDiceCombo() {
         Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
@@ -358,31 +355,19 @@ public class Services {
 
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
-            if (repo.getTurn().getPlayer().getPoint() >= 300) {
-                repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 300);
-            } else {
-                repo.getTurn().getPlayer().setPoint(0);
-            }//else
+            repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 300);
             System.out.println("Minus 300 points till you roll at least 2 swords");
         }//if
 
         //Card influence PirateBoatCardMedium
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
-            if (repo.getTurn().getPlayer().getPoint() >= 500) {
-                repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 500);
-            } else {
-                repo.getTurn().getPlayer().setPoint(0);
-            }//else
+            repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 500);
             System.out.println("Minus 500 points till you roll at least 3 swords");
         }//if
 
         //Card influence PirateBoatCardHard
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
-            if (repo.getTurn().getPlayer().getPoint() >= 1000) {
-                repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 1000);
-            } else {
-                repo.getTurn().getPlayer().setPoint(0);
-            }//else
+            repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 1000);
             System.out.println("Minus 1000 points till you roll at least 4 swords");
         }//if
 
@@ -438,12 +423,11 @@ public class Services {
         repo.getTurn().setInitiated(false);
         System.out.println("Initiation of that turn as been resetted");
     }
-    
+
     private static void resetCardPackIndex() {
         Preferences.CARD_PACK_INDEX = 0;
         Collections.shuffle(repo.getCards());
     }
-    
 
     public static Turn getTurn() {
         return repo.getTurn();

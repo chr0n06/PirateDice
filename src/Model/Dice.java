@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public final class Dice {
 
-    private static int idIndex = 0;
+    private static int idIndex = 1;
 
     private int id;
     private String state; //Face up of the dice 
@@ -26,9 +26,10 @@ public final class Dice {
 
     //Constructor(s)
     public Dice() {
-        this.id = idIndex++;
+        this.id = idIndex;
         initializeDiceFaces();
         rollDice();
+        idIndex++;
     }
 
     //Method(s)
