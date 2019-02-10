@@ -16,7 +16,6 @@ public class Preferences {
     /**
      * NAME
      */
-    
     public static String CARD_PIRATEBOATEASY_NAME = "PirateBoatCardEasy";
     public static String CARD_PIRATEBOATMEDIUM_NAME = "PirateBoatCardMedium";
     public static String CARD_PIRATEBOATHARD_NAME = "PirateBoatCardHard";
@@ -24,7 +23,7 @@ public class Preferences {
     public static String CARD_SIMPLESKULL_NAME = "SimpleSkullCard";
     public static String CARD_CHEST_NAME = "ChestCard";
     public static String CARD_PIRATE_NAME = "PirateCard";
-    public static String CARD_BRILLIANT_DIAMOND_NAME = "DiamondCard";
+    public static String CARD_DIAMOND_NAME = "DiamondCard";
     public static String CARD_PIECEOFGOLD_NAME = "GoldenPiece";
     public static String CARD_MONKEY_PIRATE_NAME = "MonkeyParrotCard";
     public static String CARD_WITCH_NAME = "WitchCard";
@@ -41,7 +40,7 @@ public class Preferences {
     public static int CARD_SIMPLESKULL_QTY = 3;
     public static int CARD_CHEST_QTY = 4;
     public static int CARD_PIRATE_QTY = 4;
-    public static int CARD_BRILLIANT_DIAMOND_QTY = 4;
+    public static int CARD_DIAMOND_QTY = 4;
     public static int CARD_PIECEOFGOLD_QTY = 4;
     public static int CARD_MONKEY_PIRATE_QTY = 4;
     public static int CARD_WITCH_QTY = 4;
@@ -55,7 +54,7 @@ public class Preferences {
     public static String CARD_SIMPLESKULL_IMG = "Assets/Cards/SimpleSkullCard_x.png";
     public static String CARD_CHEST_IMG = "Assets/Cards/ChestCard_x.png";
     public static String CARD_PIRATE_IMG = "Assets/Cards/PirateCard_x.png";
-    public static String CARD_BRILLIANT_DIAMOND_IMG = "Assets/Cards/Diamond_x.png";
+    public static String CARD_DIAMOND_IMG = "Assets/Cards/Diamond_x.png";
     public static String CARD_PIECEOFGOLD_IMG = "Assets/Cards/GoldenPiece_x.png";
     public static String CARD_MONKEY_PIRATE_IMG = "Assets/Cards/MonkeyParrot_x.png";
     public static String CARD_WITCH_IMG = "Assets/Cards/witchCard_x.png";

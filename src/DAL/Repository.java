@@ -66,70 +66,69 @@ public class Repository {
 
     private void generateCards() {
         cardQtyManager(
-                "WitchCard", 
+                Preferences.CARD_WITCH_NAME, 
                 "You have the capability to reroll one Death dice by the end of the turn!",
                 Preferences.CARD_WITCH_IMG,
                 Preferences.CARD_WITCH_QTY
         );
         cardQtyManager(
-                "SimpleSkullCard",
+                Preferences.CARD_SIMPLESKULL_NAME,
                 "Start your turn with only 2 lifes",
                 Preferences.CARD_SIMPLESKULL_IMG,
                 Preferences.CARD_SIMPLESKULL_QTY
         );
         cardQtyManager(
-                "DoubleSkullCard",
+                Preferences.CARD_DOUBLESKULL_NAME,
                 "Start your turn with only 1 life",
                 Preferences.CARD_DOUBLESKULL_IMG,
                 Preferences.CARD_DOUBLESKULL_QTY
         );
         cardQtyManager(
-                "PirateCard",
+                Preferences.CARD_PIRATE_NAME,
                 "Your points will be doubled at the end of the turn", 
                 Preferences.CARD_PIRATE_IMG,
                 Preferences.CARD_PIRATE_QTY
         );
         cardQtyManager(
-                "MonkeyParrotCard",
+                Preferences.CARD_MONKEY_PIRATE_NAME,
                 "Monkey and Parrot are considered similars dices", 
                 Preferences.CARD_MONKEY_PIRATE_IMG,
                 Preferences.CARD_MONKEY_PIRATE_QTY
         );
         cardQtyManager(
-                "PirateBoatCardEasy",
+                Preferences.CARD_PIRATEBOATEASY_NAME,
                 "Roll 2 swords dices to destroy the pirate boat and collecting his treasure or die trying and lose the equivalent", 
                 Preferences.CARD_PIRATEBOATEASY_IMG,
                 Preferences.CARD_PIRATEBOATEASY_QTY
         );
         cardQtyManager(
-                "PirateBoatCardMedium",
+                Preferences.CARD_PIRATEBOATMEDIUM_NAME,
                 "Roll 3 swords dices to destroy the pirate boat and collecting his treasure or die trying and lose the equivalent", 
                 Preferences.CARD_PIRATEBOATMEDIUM_IMG,
                 Preferences.CARD_PIRATEBOATMEDIUM_QTY
         );
         cardQtyManager(
-                "PirateBoatCardHard",
+                Preferences.CARD_PIRATEBOATHARD_NAME,
                 "Roll 4 swords dices to destroy the pirate boat and collecting his treasure or die trying and lose the equivalent", 
                 Preferences.CARD_PIRATEBOATHARD_IMG,
                 Preferences.CARD_PIRATEBOATHARD_QTY
         );
         cardQtyManager(
-                "ChestCard",
+                Preferences.CARD_CHEST_NAME,
                 "Roll till your death but don't forget to protect the dices of your choice by putting it inside the chest", 
                 Preferences.CARD_CHEST_IMG,
                 Preferences.CARD_CHEST_QTY
         );
         cardQtyManager(
-                "GoldenPiece",
+                Preferences.CARD_PIECEOFGOLD_NAME,
                 "Start your turn with this additional Piece of gold", 
                 Preferences.CARD_PIECEOFGOLD_IMG,
                 Preferences.CARD_PIECEOFGOLD_QTY
         );
-        cardQtyManager(
-                "DiamondCard",
+        cardQtyManager(Preferences.CARD_DIAMOND_NAME,
                 "Start your turn with this additional Brilliant Diamond",
-                Preferences.CARD_BRILLIANT_DIAMOND_IMG,
-                Preferences.CARD_BRILLIANT_DIAMOND_QTY
+                Preferences.CARD_DIAMOND_IMG,
+                Preferences.CARD_DIAMOND_QTY
         );
 
         Collections.shuffle(cards);
