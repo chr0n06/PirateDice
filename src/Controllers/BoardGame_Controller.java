@@ -273,10 +273,13 @@ public class BoardGame_Controller implements Initializable {
             }//if
             index++;
         }//for
-        if (boxchecked.size() == 1) {
-            System.out.println("Select minimum two dice!"); //Will have to manage a popup on the main thread
-            boxchecked.clear();
-        }//if
+        if (!Services.getTurn().getCard().getName().equals("WitchCard")) {
+            if (boxchecked.size() == 1) {
+                System.out.println("Select minimum two dice!"); //Will have to manage a popup on the main thread
+                boxchecked.clear();
+            }//if
+        }
+
         return boxchecked;
     }
 
