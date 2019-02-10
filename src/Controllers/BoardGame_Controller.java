@@ -143,17 +143,10 @@ public class BoardGame_Controller implements Initializable {
         this.dices = Arrays.asList(dice1, dice2, dice3, dice4, dice5, dice6, dice7, dice8);
         this.checkboxes = Arrays.asList(checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7, checkBox8);
         this.chestSaves = Arrays.asList(chestSave1, chestSave2, chestSave3, chestSave4, chestSave5, chestSave6, chestSave7, chestSave8);
-        this.acceptPts.setVisible(true);
-        this.roll_btn.setVisible(true);
-        this.rollDicesToKill.setVisible(false);
-        Services.nextTurn();
-        this.witchCardPower.setVisible(Services.witchCardInfluence());
-        this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
-        this.cardName.setText(Services.getTurn().getCard().getName());
-        this.cardDescription.setText(Services.getTurn().getCard().getDescription());
-        this.name.setText(Services.getTurn().getPlayer().getName());
-        this.cardView.setImage(Services.getTurn().getCard().getImage());
-        this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
+        
+        Services.nextTurn();   
+        setVisualAspects();
+        
 
         this.chestSavesDisplay();
 
@@ -321,7 +314,7 @@ public class BoardGame_Controller implements Initializable {
     }//fillImageInDice
 
     private void chestSavesDisplay() {
-        if (Services.getTurn().getCard().getName().equals("ChestCard")) {
+        if (Services.actualCard("ChestCard")) {
             for (ToggleButton chestSave : chestSaves) {
                 chestSave.setSelected(false);
                 chestSave.setVisible(true);
@@ -333,4 +326,17 @@ public class BoardGame_Controller implements Initializable {
         }//if
     }//chestSavesDisplay
 
+    private void setVisualAspects(){
+        this.acceptPts.setVisible(true);
+        this.roll_btn.setVisible(true);
+        this.rollDicesToKill.setVisible(false);
+        this.witchCardPower.setVisible(Services.witchCardInfluence());
+        this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
+        this.cardName.setText(Services.getTurn().getCard().getName());
+        this.cardDescription.setText(Services.getTurn().getCard().getDescription());
+        this.name.setText(Services.getTurn().getPlayer().getName());
+        this.cardView.setImage(Services.getTurn().getCard().getImage());
+        this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint())); 
+    }
+    
 }//BoardGame

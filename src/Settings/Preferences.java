@@ -11,7 +11,12 @@ package Settings;
  */
 public class Preferences {
 
-    /*CARD SETUP*/    
+    /*CARD SETUP*/ 
+    
+    /**
+     * NAME
+     */
+    
     /**
      * QTY
      */

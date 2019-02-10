@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javafx.scene.control.ToggleButton;
 
 /**
  *
@@ -458,5 +459,9 @@ public class Services {
     public static boolean witchCardInfluence() {
         return Services.getTurn().getCard().getName().equals("WitchCard");
     }
+    
+   public static boolean actualCard(String cardName){
+       return repo.getTurn().getCard().getName().equals(cardName);
+   }
 
 }
