@@ -17,6 +17,18 @@ public class Preferences {
      * NAME
      */
     
+    public static String CARD_PIRATEBOATEASY_NAME = "PirateBoatCardEasy";
+    public static String CARD_PIRATEBOATMEDIUM_NAME = "PirateBoatCardMedium";
+    public static String CARD_PIRATEBOATHARD_NAME = "PirateBoatCardHard";
+    public static String CARD_DOUBLESKULL_NAME = "DoubleSkullCard";
+    public static String CARD_SIMPLESKULL_NAME = "SimpleSkullCard";
+    public static String CARD_CHEST_NAME = "ChestCard";
+    public static String CARD_PIRATE_NAME = "PirateCard";
+    public static String CARD_BRILLIANT_DIAMOND_NAME = "DiamondCard";
+    public static String CARD_PIECEOFGOLD_NAME = "GoldenPiece";
+    public static String CARD_MONKEY_PIRATE_NAME = "MonkeyParrotCard";
+    public static String CARD_WITCH_NAME = "WitchCard";
+    
     /**
      * QTY
      */
