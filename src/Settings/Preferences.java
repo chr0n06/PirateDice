@@ -5,9 +5,8 @@
  */
 package Settings;
 
+import Logger.LogFormatter;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +15,24 @@ import java.util.logging.Logger;
  * @author Maxime
  */
 public class Preferences {
+
+    private static final Logger LOG = Logger.getLogger(Preferences.class.getName());
+    boolean x = setLogger();
+
+
+    /*ANSI Escape code*/
+    /**
+     * COLOR
+     */
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
 
     /*CARD SETUP*/
     /**
@@ -109,6 +126,24 @@ public class Preferences {
     public static int DEFAULT_LIFE_QTY = 3;
     public static int WINNING_SCORE = 6000;
 
+    private static boolean setLogger() {
+        LogFormatter.HANDLER.setFormatter(LogFormatter.FORMATTER);
+        LOG.setUseParentHandlers(false);
+        LOG.addHandler(LogFormatter.HANDLER);
+        LOG.setLevel(Level.ALL);
+        return true;
+    }
+
+    /**
+     * The cardcounter method count every card that has been named correctly to
+     * be considered in the deck
+     *
+     * @param none
+     * @return Integer
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     private static int cardCounter() {
         int cardCounter = 0;
         Field[] fields = Preferences.class.getFields();
@@ -118,13 +153,16 @@ public class Preferences {
             if (field.getName().contains("CARD") && field.getName().contains("QTY")) {
                 try {
                     cardCounter += field.getInt(field);
+                    LOG.log(Level.INFO, field.getName() + " contains " + field.getInt(field) + " cards !");
                 } catch (IllegalArgumentException ex) {
-                    Logger.getLogger(Preferences.class.getName()).log(Level.SEVERE, null, ex);
+                    LOG.log(Level.SEVERE, null, ex);
                 } catch (IllegalAccessException ex) {
-                    Logger.getLogger(Preferences.class.getName()).log(Level.SEVERE, null, ex);
+                    LOG.log(Level.SEVERE, null, ex);
                 }
             }
         }
+        LOG.log(Level.INFO, cardCounter + " card(s) will be created for the deck!");
+
         return cardCounter;
     }
 }
