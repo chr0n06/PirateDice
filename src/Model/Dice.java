@@ -26,21 +26,20 @@ public final class Dice {
 
     //Constructor(s)
     public Dice() {
-        this.id = idIndex;
+        this.id = idIndex++;
         initializeDiceFaces();
         rollDice();
-        idIndex++;
     }
 
     //Method(s)
     private void initializeDiceFaces() {
         try {
-            this.sides.put(0, "Parrot");
-            this.sides.put(1, "Monkey");
-            this.sides.put(2, "Gold");
-            this.sides.put(3, "Diamond");
-            this.sides.put(4, "Swords");
-            this.sides.put(5, "Death");
+            this.sides.put(0, Preferences.DICE_PARROT_NAME);
+            this.sides.put(1, Preferences.DICE_MONKEY_NAME);
+            this.sides.put(2, Preferences.DICE_GOLD_NAME);
+            this.sides.put(3, Preferences.DICE_DIAMOND_NAME);
+            this.sides.put(4, Preferences.DICE_SWORDS_NAME);
+            this.sides.put(5, Preferences.DICE_DEATH_NAME);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -55,7 +54,7 @@ public final class Dice {
     }
     
     public boolean isDeath() {
-        if (this.state == "Death") {
+        if (this.state == Preferences.DICE_DEATH_NAME) {
             return true;
         } else {
             return false;

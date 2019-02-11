@@ -97,19 +97,17 @@ public class Services {
     public static void rollAllDicesFromDeathIsland() {
         if (repo.getTurn().isMinusLife()) {
             repo.getTurn().setMinusLife(false);
-            if (repo.getTurn().getLifes() > -6) { //-6 cause it's impossible to continue, only one dice left !
-                for (Dice dice : repo.getDices()) {
-                    if (!dice.getState().equals("Death")) {
-                        dice.rollDice();
-                        if (dice.getState().equals("Death")) {
-                            repo.getTurn().setLifes(
-                                    repo.getTurn().getLifes() - 1);//remove lifes in DeathIsland
-                            System.out.println("minus 1 from Death Island, actual life = " + repo.getTurn().getLifes());
-                            repo.getTurn().setMinusLife(true);
-                        }//if
+            for (Dice dice : repo.getDices()) {
+                if (!dice.getState().equals("Death")) {
+                    dice.rollDice();
+                    if (dice.getState().equals("Death")) {
+                        repo.getTurn().setLifes(
+                                repo.getTurn().getLifes() - 1);//remove lifes in DeathIsland
+                        System.out.println("minus 1 from Death Island, actual life = " + repo.getTurn().getLifes());
+                        repo.getTurn().setMinusLife(true);
                     }//if
-                }//for
-            }//if 
+                }//if
+            }//for
         }//if  
     }
 
@@ -459,9 +457,13 @@ public class Services {
     public static boolean witchCardInfluence() {
         return Services.getTurn().getCard().getName().equals("WitchCard");
     }
-    
-   public static boolean actualCard(String cardName){
-       return repo.getTurn().getCard().getName().equals(cardName);
-   }
+
+    public static boolean actualCard(String cardName) {
+        return repo.getTurn().getCard().getName().equals(cardName);
+    }
+
+    public static boolean actualDice(String diceName) {
+        return true;
+    }
 
 }

@@ -5,14 +5,19 @@
  */
 package Settings;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Maxime
  */
 public class Preferences {
 
-    /*CARD SETUP*/ 
-    
+    /*CARD SETUP*/
     /**
      * NAME
      */
@@ -27,12 +32,11 @@ public class Preferences {
     public static String CARD_PIECEOFGOLD_NAME = "GoldenPiece";
     public static String CARD_MONKEY_PIRATE_NAME = "MonkeyParrotCard";
     public static String CARD_WITCH_NAME = "WitchCard";
-    
+
     /**
      * QTY
      */
     public static int CARD_PACK_INDEX = 0;
-    public static int CARD_PACK_QTY = 35;
     public static int CARD_PIRATEBOATEASY_QTY = 2;
     public static int CARD_PIRATEBOATMEDIUM_QTY = 2;
     public static int CARD_PIRATEBOATHARD_QTY = 2;
@@ -44,6 +48,7 @@ public class Preferences {
     public static int CARD_PIECEOFGOLD_QTY = 4;
     public static int CARD_MONKEY_PIRATE_QTY = 4;
     public static int CARD_WITCH_QTY = 4;
+    public static int CARD_PACK_QTY = cardCounter();
     /**
      * PATH
      */
@@ -60,6 +65,16 @@ public class Preferences {
     public static String CARD_WITCH_IMG = "Assets/Cards/witchCard_x.png";
 
     /*DICE STEP*/
+    /**
+     * NAME
+     */
+    public static String DICE_DEATH_NAME = "Death";
+    public static String DICE_SWORDS_NAME = "Swords";
+    public static String DICE_PARROT_NAME = "Parrot";
+    public static String DICE_MONKEY_NAME = "Monkey";
+    public static String DICE_GOLD_NAME = "Gold";
+    public static String DICE_DIAMOND_NAME = "Diamond";
+
     /**
      * PTS
      */
@@ -94,4 +109,22 @@ public class Preferences {
     public static int DEFAULT_LIFE_QTY = 3;
     public static int WINNING_SCORE = 6000;
 
+    private static int cardCounter() {
+        int cardCounter = 0;
+        Field[] fields = Preferences.class.getFields();
+
+        for (Field field : fields) {
+            //Here's the naming Convention to be considered in the cardCounter
+            if (field.getName().contains("CARD") && field.getName().contains("QTY")) {
+                try {
+                    cardCounter += field.getInt(field);
+                } catch (IllegalArgumentException ex) {
+                    Logger.getLogger(Preferences.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(Preferences.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return cardCounter;
+    }
 }

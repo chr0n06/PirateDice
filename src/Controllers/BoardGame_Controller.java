@@ -147,7 +147,7 @@ public class BoardGame_Controller implements Initializable {
         Services.nextTurn();
         setVisualAspects();
 
-        this.chestSavesDisplay();
+        this.chestSavesButtonDisplay();
 
         Services.rollAllDices();
         this.resetLayout();
@@ -186,7 +186,7 @@ public class BoardGame_Controller implements Initializable {
         this.cardView.setImage(Services.getTurn().getCard().getImage());
         this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
 
-        this.chestSavesDisplay();
+        this.chestSavesButtonDisplay();
         Services.rollAllDices();
         this.resetLayout();
 
@@ -302,7 +302,7 @@ public class BoardGame_Controller implements Initializable {
     private void fillImageInDice() {
         int index = 0;
         for (ImageView dice : dices) {
-            if (Services.getAllDices().get(index).getState() == "Death") {
+            if (Services.getAllDices().get(index).getState() == Preferences.DICE_DEATH_NAME) {
                 checkboxes.get(index).setDisable(true);
                 checkboxes.get(index).setSelected(false);
             } else {
@@ -312,7 +312,7 @@ public class BoardGame_Controller implements Initializable {
         }//for
     }//fillImageInDice
 
-    private void chestSavesDisplay() {
+    private void chestSavesButtonDisplay() {
         if (Services.actualCard(Preferences.CARD_CHEST_NAME)) {
             chestSaves.forEach(chestSave -> {
                 chestSave.setSelected(false);
@@ -321,7 +321,7 @@ public class BoardGame_Controller implements Initializable {
         } else {
             chestSaves.forEach(chestSave -> chestSave.setVisible(false));
         }//if
-    }//chestSavesDisplay
+    }//chestSavesButtonDisplay
 
     private void setVisualAspects() {
         this.acceptPts.setVisible(true);
@@ -334,6 +334,6 @@ public class BoardGame_Controller implements Initializable {
         this.name.setText(Services.getTurn().getPlayer().getName());
         this.cardView.setImage(Services.getTurn().getCard().getImage());
         this.points.setText(String.valueOf(Services.getTurn().getPlayer().getPoint()));
-    }
+    }//setVisualAspects
 
 }//BoardGame
