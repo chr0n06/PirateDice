@@ -45,6 +45,7 @@ alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
 - [x] Implementing the Death
 - [x] Implementing the lost tempPts when player obtain three Deaths 
 - [x] Implementing the beat the death
+- [x] Implementing the end turn bonus when all dices on the table counts
 - [ ] Implementing minus pts for all other players when beat the death
 - [ ] Implementing the ending game
 - [ ] Implementing the setup menu
@@ -59,6 +60,7 @@ alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
 - [x] Implementing the BL for : PirateBoatCardMedium
 - [x] Implementing the BL for : PirateBoatCardHard
 - [x] Implementing the BL for : MonkeyPirateCard
+
 
 -During turn effect- 
 - [x] Implementing the BL for : SimpleSkullCard  

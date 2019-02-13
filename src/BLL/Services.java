@@ -506,7 +506,7 @@ public class Services {
             } else if (key.equals(Preferences.DICE_MONKEY_NAME)
                     || key.equals(Preferences.DICE_PARROT_NAME)
                     || key.equals(Preferences.DICE_SWORDS_NAME)) {
-                if (value > 3) {
+                if (value < 3) {
                     return 0;
                 }//if2
             }//if1
