@@ -5,7 +5,7 @@
  */
 package Settings;
 
-import Logger.LogFormatter;
+import Logger.LogManager;
 import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,10 +15,13 @@ import java.util.logging.Logger;
  * @author Maxime
  */
 public class Preferences {
-
-    private static final Logger LOG = Logger.getLogger(Preferences.class.getName());
-    boolean x = setLogger();
-
+    /**
+     * LOGGER
+     */
+    private static Logger logger = LogManager.setLogger(
+            Logger.getLogger(Preferences.class.getName()),
+            Level.INFO
+    );
 
     /*ANSI Escape code*/
     /**
@@ -126,14 +129,6 @@ public class Preferences {
     public static int DEFAULT_LIFE_QTY = 3;
     public static int WINNING_SCORE = 6000;
 
-    private static boolean setLogger() {
-        LogFormatter.HANDLER.setFormatter(LogFormatter.FORMATTER);
-        LOG.setUseParentHandlers(false);
-        LOG.addHandler(LogFormatter.HANDLER);
-        LOG.setLevel(Level.ALL);
-        return true;
-    }
-
     /**
      * The cardcounter method count every card that has been named correctly to
      * be considered in the deck
@@ -153,16 +148,17 @@ public class Preferences {
             if (field.getName().contains("CARD") && field.getName().contains("QTY")) {
                 try {
                     cardCounter += field.getInt(field);
-                    LOG.log(Level.INFO, field.getName() + " contains " + field.getInt(field) + " cards !");
+                    logger.log(Level.INFO, field.getName() + " contains " + field.getInt(field) + " cards !");
                 } catch (IllegalArgumentException ex) {
-                    LOG.log(Level.SEVERE, null, ex);
+                    logger.log(Level.SEVERE, null, ex);
                 } catch (IllegalAccessException ex) {
-                    LOG.log(Level.SEVERE, null, ex);
+                    logger.log(Level.SEVERE, null, ex);
                 }
             }
         }
-        LOG.log(Level.INFO, cardCounter + " card(s) will be created for the deck!");
+        logger.log(Level.INFO, cardCounter + " card(s) will be created for the deck!");
 
         return cardCounter;
     }
+
 }

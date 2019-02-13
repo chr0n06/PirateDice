@@ -6,6 +6,7 @@
 package BLL;
 
 import DAL.Repository;
+import Logger.LogManager;
 import Model.Dice;
 import Model.Player;
 import Model.Turn;
@@ -14,6 +15,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.ToggleButton;
 
 /**
@@ -21,6 +24,14 @@ import javafx.scene.control.ToggleButton;
  * @author Maxime
  */
 public class Services {
+
+    /**
+     * LOGGER
+     */
+   /* private static Logger logger = LogManager.setLogger(
+            Logger.getLogger(Preferences.class.getName()),
+            Level.ALL
+    );*/
 
     public static Repository repo = Repository.getInstance();
 
@@ -47,7 +58,7 @@ public class Services {
                 repo.getTurn().setLifes(
                         repo.getTurn().getLifes() - 1
                 );
-                System.out.println("minus 1 from start, actual life = " + repo.getTurn().getLifes());
+                //logger.log(Level.INFO, "Minus 1 from start, actual life = " + repo.getTurn().getLifes());
             }//if
         }//for
     }//rollAllDices
