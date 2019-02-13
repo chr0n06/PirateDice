@@ -64,7 +64,7 @@ public class Preferences {
     public static int CARD_DIAMOND_QTY = 4;
     public static int CARD_PIECEOFGOLD_QTY = 4;
     public static int CARD_MONKEY_PIRATE_QTY = 4;
-    public static int CARD_WITCH_QTY = 4;
+    public static int CARD_WITCH_QTY = 49;
     public static int CARD_PACK_QTY = cardCounter();
     /**
      * PATH

@@ -17,6 +17,7 @@ public class Turn {
     private Card card;
     private int score;
     private int lifes;
+    private boolean witchRoll;
     private boolean endGameActivated; // At least one player has at leats 6000 pts! 
 
     /* Used in Death Island while the player drop a Death, 
@@ -92,7 +93,5 @@ public class Turn {
     public void setEndGameActivated(boolean endGameActivated) {
         this.endGameActivated = endGameActivated;
     }
-    
-    
 
 }

@@ -3,10 +3,12 @@ package Controllers;
 import BLL.Services;
 import Settings.Preferences;
 import java.net.URL;
+import java.security.Provider;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +24,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
+
+    /**
+     * LOGGER
+     */
+    private static Logger logger = Logger.getLogger(Preferences.class.getName());
 
     @FXML
     private ResourceBundle resources;
@@ -208,7 +215,7 @@ public class BoardGame_Controller implements Initializable {
                 this.rollDicesToKill.setVisible(true);
             } else {
                 Services.getTurn().setInitiated(true);
-                System.out.println("Turn initiated");
+                logger.info("Turn initiated");
                 this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
             }
         }
@@ -222,17 +229,20 @@ public class BoardGame_Controller implements Initializable {
 
         if (Services.isOneDeathDice()) {//Check if there is one death Dice
             Services.getTurn().setLifes(Services.getTurn().getLifes() + 1); //Add a life
-            System.out.println("One life has been added");
+            logger.info("One life has been added");
 
             //Set one Death Dice to be changeable                             
             this.checkboxes.get(diceIndex).setDisable(false); //Find the checkboxe that need to be activated
-            Services.getAllDices().get(diceIndex).setState("mystery"); //Change state of the death dice
-            this.dices.get(diceIndex).setImage(new Image("Assets/DicesLayouts/mystery.png")); //Reset dice image 
+            Services.getAllDices().get(diceIndex).rollDice(); //Change state of the death dice
+            System.out.println(Services.getAllDices().get(diceIndex).getState());
+            this.dices.get(diceIndex).setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT+"/"+ 
+                    Services.getAllDices().get(diceIndex).getState()
+                    +".png")); //Reset dice image 
 
             this.witchCardPower.setVisible(false);
-            System.out.println("At least one dice is death, proceed...");
+            logger.info("At least one dice is death, proceed...");
         } else {
-            System.out.println("No Dice is death for the moment!");
+            logger.info("No Dice is death for the moment!");
         }
     }
 
@@ -265,11 +275,11 @@ public class BoardGame_Controller implements Initializable {
             }//if
             index++;
         }//for
-        if (!Services.getTurn().getCard().getName().equals("WitchCard")) {
-            if (boxchecked.size() == 1) {
-                System.out.println("Select minimum two dice!"); //Will have to manage a popup on the main thread
-                boxchecked.clear();
-            }//if
+        
+        if (boxchecked.size() == 1) {
+            
+            logger.info("Select minimum two dices !");//Will have to manage a popup on the main thread
+            boxchecked.clear();
         }
 
         return boxchecked;

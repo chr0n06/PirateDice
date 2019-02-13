@@ -79,7 +79,7 @@ public class Services {
                             repo.getTurn().setLifes(
                                     repo.getTurn().getLifes() - 1
                             );
-                            logger.log(Level.INFO, "minus 1, actual life = " + repo.getTurn().getLifes());
+                            logger.info("Minus 1, actual life = " + repo.getTurn().getLifes());
                         }//if 
                     }//if
                 }//for
@@ -463,7 +463,7 @@ public class Services {
     }
 
     public static boolean witchCardInfluence() {
-        return Services.getTurn().getCard().getName().equals("WitchCard");
+        return Services.getTurn().getCard().getName().equals(Preferences.CARD_WITCH_NAME);
     }
 
     public static boolean actualCard(String cardName) {
