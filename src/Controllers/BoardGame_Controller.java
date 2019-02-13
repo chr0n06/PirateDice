@@ -231,16 +231,12 @@ public class BoardGame_Controller implements Initializable {
             Services.getTurn().setLifes(Services.getTurn().getLifes() + 1); //Add a life
             logger.info("One life has been added");
 
-            //Set one Death Dice to be changeable                             
+            //Change first findable Death Dice                             
             this.checkboxes.get(diceIndex).setDisable(false); //Find the checkboxe that need to be activated
             Services.getAllDices().get(diceIndex).rollDice(); //Change state of the death dice
-            System.out.println(Services.getAllDices().get(diceIndex).getState());
-            this.dices.get(diceIndex).setImage(new Image("Assets/DicesLayouts/"+ Preferences.DICE_LAYOUT+"/"+ 
-                    Services.getAllDices().get(diceIndex).getState()
-                    +".png")); //Reset dice image 
-
+            fillImageInDice();
             this.witchCardPower.setVisible(false);
-            logger.info("At least one dice is death, proceed...");
+            this.pointsTemp.setText(String.valueOf(Services.getTempPoints()));
         } else {
             logger.info("No Dice is death for the moment!");
         }

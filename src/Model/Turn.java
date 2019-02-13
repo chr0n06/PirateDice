@@ -17,8 +17,8 @@ public class Turn {
     private Card card;
     private int score;
     private int lifes;
-    private boolean witchRoll;
     private boolean endGameActivated; // At least one player has at leats 6000 pts! 
+    private Player playerWhoActivatedEndGame;
 
     /* Used in Death Island while the player drop a Death, 
     the minusLife is activated and the player is allowed to continue.
@@ -34,7 +34,9 @@ public class Turn {
         this.lifes = Preferences.DEFAULT_LIFE_QTY;
         this.minusLife = true;
         this.initiated = false;
+        
         this.endGameActivated = false;
+        this.playerWhoActivatedEndGame = null;
 
     }
 
@@ -94,4 +96,12 @@ public class Turn {
         this.endGameActivated = endGameActivated;
     }
 
+    public Player getPlayerWhoActivatedEndGame() {
+        return playerWhoActivatedEndGame;
+    }
+
+    public void setPlayerWhoActivatedEndGame(Player playerWhoActivatedEndGame) {
+        this.playerWhoActivatedEndGame = playerWhoActivatedEndGame;
+    }
+ 
 }

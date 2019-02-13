@@ -239,28 +239,33 @@ public class Services {
         for (Map.Entry<String, Integer> entry : diceRepetions.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
+            if (!key.equals(Preferences.DICE_DEATH_NAME)) {
+                switch (value) {
+                    case 3:
+                        tempPoints += Preferences.DICE_COMBO_3SIMILAR_COUNT;
+                        break;
+                    case 4:
+                        tempPoints += Preferences.DICE_COMBO_4SIMILAR_COUNT;
+                        break;
+                    case 5:
+                        tempPoints += Preferences.DICE_COMBO_5SIMILAR_COUNT;
+                        break;
+                    case 6:
+                        tempPoints += Preferences.DICE_COMBO_6SIMILAR_COUNT;
+                        break;
+                    case 7:
+                        tempPoints += Preferences.DICE_COMBO_7SIMILAR_COUNT;
+                        break;
+                    case 8:
+                        tempPoints += Preferences.DICE_COMBO_ALL_COUNT;
+                        break;
+                }//switch
+            }//foreach
+        }
 
-            switch (value) {
-                case 3:
-                    tempPoints += Preferences.DICE_COMBO_3SIMILAR_COUNT;
-                    break;
-                case 4:
-                    tempPoints += Preferences.DICE_COMBO_4SIMILAR_COUNT;
-                    break;
-                case 5:
-                    tempPoints += Preferences.DICE_COMBO_5SIMILAR_COUNT;
-                    break;
-                case 6:
-                    tempPoints += Preferences.DICE_COMBO_6SIMILAR_COUNT;
-                    break;
-                case 7:
-                    tempPoints += Preferences.DICE_COMBO_7SIMILAR_COUNT;
-                    break;
-                case 8:
-                    tempPoints += Preferences.DICE_COMBO_ALL_COUNT;
-                    break;
-            }//switch
-        }//foreach
+        //End turn bonus checker
+        tempPoints += endTurnBonusChecker(diceRepetions);
+
         logger.log(Level.INFO, "Combo pts = " + tempPoints);
         return tempPoints;
     }
@@ -288,20 +293,23 @@ public class Services {
 
         for (Dice dice : repo.getDices()) {
             switch (dice.getState()) {
-                case "Gold":
-                    diceRepetions.merge("Gold", 1, Integer::sum);
+                case Preferences.DICE_GOLD_NAME:
+                    diceRepetions.merge(Preferences.DICE_GOLD_NAME, 1, Integer::sum);
                     break;
-                case "Diamond":
-                    diceRepetions.merge("Diamond", 1, Integer::sum);
+                case Preferences.DICE_DIAMOND_NAME:
+                    diceRepetions.merge(Preferences.DICE_DIAMOND_NAME, 1, Integer::sum);
                     break;
-                case "Parrot":
-                    diceRepetions.merge("Parrot", 1, Integer::sum);
+                case Preferences.DICE_PARROT_NAME:
+                    diceRepetions.merge(Preferences.DICE_PARROT_NAME, 1, Integer::sum);
                     break;
-                case "Monkey":
-                    diceRepetions.merge("Monkey", 1, Integer::sum);
+                case Preferences.DICE_MONKEY_NAME:
+                    diceRepetions.merge(Preferences.DICE_MONKEY_NAME, 1, Integer::sum);
                     break;
-                case "Swords":
-                    diceRepetions.merge("Swords", 1, Integer::sum);
+                case Preferences.DICE_SWORDS_NAME:
+                    diceRepetions.merge(Preferences.DICE_SWORDS_NAME, 1, Integer::sum);
+                    break;
+                case Preferences.DICE_DEATH_NAME:
+                    diceRepetions.merge(Preferences.DICE_DEATH_NAME, 1, Integer::sum);
                     break;
             }//switch
         }//for
@@ -324,6 +332,7 @@ public class Services {
         if (repo.getTurn().getCard().getName().equals("DiamondCard")) {
             diceRepetions.merge("Diamond", 1, Integer::sum);
         }//if
+
         return diceRepetions;
     }
 
@@ -348,6 +357,19 @@ public class Services {
                     //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
                     player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100);
                 }
+            }
+        }
+
+        //End Game Activation (In progress...)
+        if (repo.getTurn().getPlayer() != null) {
+            if (repo.getTurn().getPlayer().getPoint() >= Preferences.WINNING_SCORE) {
+                if (repo.getTurn().isEndGameActivated()) {
+                    if (repo.getTurn().getPlayerWhoActivatedEndGame().getId() == repo.getTurn().getPlayer().getId()) {
+                        System.out.println("We count points for all players!");
+                    }
+                }
+                repo.getTurn().setEndGameActivated(true);
+                repo.getTurn().setPlayerWhoActivatedEndGame(repo.getTurn().getPlayer());
             }
         }
 
@@ -472,6 +494,25 @@ public class Services {
 
     public static boolean actualDice(String diceName) {
         return true;
+    }
+
+    public static int endTurnBonusChecker(Map<String, Integer> diceRepetions) {
+        for (Map.Entry<String, Integer> entry : diceRepetions.entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+
+            if (key.equals(Preferences.DICE_DEATH_NAME)) {
+                return 0;
+            } else if (key.equals(Preferences.DICE_MONKEY_NAME)
+                    || key.equals(Preferences.DICE_PARROT_NAME)
+                    || key.equals(Preferences.DICE_SWORDS_NAME)) {
+                if (value > 3) {
+                    return 0;
+                }//if2
+            }//if1
+        }//fo
+        System.out.println("GET THE BOOOOOOOOOONUSSSSSSSSSS");
+        return Preferences.DICE_COMBO_ALL_COUNT;
     }
 
 }

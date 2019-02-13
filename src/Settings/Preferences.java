@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Preferences {
     /*LOGGER*/
-    public static final Level LOGGER_LEVEL = Level.ALL;
+    public static final Level LOGGER_LEVEL = Level.OFF;
     private static Logger logger = LogManager.setLogger(
             Logger.getLogger(Preferences.class.getName())
     );
@@ -64,7 +64,7 @@ public class Preferences {
     public static int CARD_DIAMOND_QTY = 4;
     public static int CARD_PIECEOFGOLD_QTY = 4;
     public static int CARD_MONKEY_PIRATE_QTY = 4;
-    public static int CARD_WITCH_QTY = 49;
+    public static int CARD_WITCH_QTY = 4;
     public static int CARD_PACK_QTY = cardCounter();
     /**
      * PATH
@@ -85,12 +85,12 @@ public class Preferences {
     /**
      * NAME
      */
-    public static String DICE_DEATH_NAME = "Death";
-    public static String DICE_SWORDS_NAME = "Swords";
-    public static String DICE_PARROT_NAME = "Parrot";
-    public static String DICE_MONKEY_NAME = "Monkey";
-    public static String DICE_GOLD_NAME = "Gold";
-    public static String DICE_DIAMOND_NAME = "Diamond";
+    public static final String DICE_DEATH_NAME = "Death";
+    public static final String DICE_SWORDS_NAME = "Swords";
+    public static final String DICE_PARROT_NAME = "Parrot";
+    public static final String DICE_MONKEY_NAME = "Monkey";
+    public static final String DICE_GOLD_NAME = "Gold";
+    public static final String DICE_DIAMOND_NAME = "Diamond";
 
     /**
      * PTS
@@ -124,7 +124,7 @@ public class Preferences {
 
     /*TURN SETUP*/
     public static int DEFAULT_LIFE_QTY = 3;
-    public static int WINNING_SCORE = 6000;
+    public static int WINNING_SCORE = 1000;
 
     /**
      * The cardcounter method count every card that has been named correctly to

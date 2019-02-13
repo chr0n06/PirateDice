@@ -52,6 +52,7 @@ alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
 #### Cards 
 -End Turn effect-
 - [x] Implementing the BL for : PirateCard
+- [ ] Implementing the BL for : Death island PirateCard
 - [x] Implementing the BL for : GoldenPiece  
 - [x] Implementing the BL for : DiamondCard 
 - [x] Implementing the BL for : PirateBoatCardEasy
