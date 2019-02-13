@@ -28,10 +28,7 @@ public class Services {
     /**
      * LOGGER
      */
-   /* private static Logger logger = LogManager.setLogger(
-            Logger.getLogger(Preferences.class.getName()),
-            Level.ALL
-    );*/
+    private static Logger logger = Logger.getLogger(Preferences.class.getName());
 
     public static Repository repo = Repository.getInstance();
 
@@ -52,13 +49,12 @@ public class Services {
         //repo.getTurn().setInitiated(true);
         for (Dice dice : repo.getDices()) {
             dice.rollDice();
-
             //remove lifes on the start
             if (dice.getState().equals("Death")) {
                 repo.getTurn().setLifes(
                         repo.getTurn().getLifes() - 1
                 );
-                //logger.log(Level.INFO, "Minus 1 from start, actual life = " + repo.getTurn().getLifes());
+                logger.log(Level.INFO, "Minus 1 from start, actual life = " + repo.getTurn().getLifes());
             }//if
         }//for
     }//rollAllDices
@@ -83,7 +79,7 @@ public class Services {
                             repo.getTurn().setLifes(
                                     repo.getTurn().getLifes() - 1
                             );
-                            System.out.println("minus 1, actual life = " + repo.getTurn().getLifes());
+                            logger.log(Level.INFO, "minus 1, actual life = " + repo.getTurn().getLifes());
                         }//if 
                     }//if
                 }//for
@@ -114,7 +110,7 @@ public class Services {
                     if (dice.getState().equals("Death")) {
                         repo.getTurn().setLifes(
                                 repo.getTurn().getLifes() - 1);//remove lifes in DeathIsland
-                        System.out.println("minus 1 from Death Island, actual life = " + repo.getTurn().getLifes());
+                        logger.log(Level.INFO, "Minus 1 from Death Island, actual life = " + repo.getTurn().getLifes());
                         repo.getTurn().setMinusLife(true);
                     }//if
                 }//if
@@ -147,7 +143,7 @@ public class Services {
             if (diceRepetions.containsKey("Swords")) {
                 if (diceRepetions.get("Swords") >= 2) {
                     repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 300);
-                    System.out.println("Player has killed the easy boat!");
+                    logger.log(Level.INFO, "Player has killed the easy boat!");
                 }//if3
             }//if2
         }//if1
@@ -157,7 +153,7 @@ public class Services {
             if (diceRepetions.containsKey("Swords")) {
                 if (diceRepetions.get("Swords") >= 3) {
                     repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 500);
-                    System.out.println("Player has killed the medium boat!");
+                    logger.log(Level.INFO, "Player has killed the medium boat!");
                 }//if3
             }//if2
         }//if1
@@ -167,7 +163,7 @@ public class Services {
             if (diceRepetions.containsKey("Swords")) {
                 if (diceRepetions.get("Swords") >= 4) {
                     repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 1000);
-                    System.out.println("Player has killed the hard boat!");
+                    logger.log(Level.INFO, "Player has killed the hard boat!");
                 }//if3
             }//if2
         }//if1
@@ -265,7 +261,7 @@ public class Services {
                     break;
             }//switch
         }//foreach
-        System.out.println("Combo pts = " + tempPoints);
+        logger.log(Level.INFO, "Combo pts = " + tempPoints);
         return tempPoints;
     }
 
@@ -366,40 +362,41 @@ public class Services {
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
             repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 300);
-            System.out.println("Minus 300 points till you roll at least 2 swords");
+            logger.log(Level.INFO, "Minus 300 points till you roll at least 2 swords");
         }//if
 
         //Card influence PirateBoatCardMedium
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
             repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 500);
-            System.out.println("Minus 500 points till you roll at least 3 swords");
+            logger.log(Level.INFO, "Minus 500 points till you roll at least 3 swords");
         }//if
 
         //Card influence PirateBoatCardHard
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
             repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 1000);
-            System.out.println("Minus 1000 points till you roll at least 4 swords");
+            logger.log(Level.INFO, "Minus 1000 points till you roll at least 4 swords");
         }//if
 
         //Card influence SimpleSkullCard
         if (repo.getTurn().getCard().getName().equals("SimpleSkullCard")) {
             repo.getTurn().setLifes(repo.getTurn().getLifes() - 1);
-            System.out.println("Minus 1 life because of the SimpleSkullCard");
+            logger.log(Level.INFO, "Minus 1 life because of the SimpleSkullCard");
         }
         //Card influence DoubleSkullCard
         if (repo.getTurn().getCard().getName().equals("DoubleSkullCard")) {
             repo.getTurn().setLifes(repo.getTurn().getLifes() - 2);
-            System.out.println("Minus 2 life because of the DoubleSkullCard");
+            logger.log(Level.INFO, "Minus 2 life because of the DoubleSkullCard");
         }
     }
 
     public static void selectAPlayer() {
-        System.out.println(Preferences.PLAYER_TURN_INDEX + "--" + Services.getAllPlayers().size());
+        //System.out.println(Preferences.PLAYER_TURN_INDEX + "--" + Services.getAllPlayers().size());
+        logger.info("Player #" + Preferences.PLAYER_TURN_INDEX + " is actually playing! Player quantity = " + Services.getAllPlayers().size());
         if (Preferences.PLAYER_TURN_INDEX < Services.getAllPlayers().size()) {
             repo.getTurn().setPlayer(repo.getPlayers().get(Preferences.PLAYER_TURN_INDEX++));
         } else {
             resetPlayerIndex();
-            System.out.println("Player index has been resetted");
+            logger.info("Player index has been resetted");
             nextTurn();
         }
     }
@@ -413,7 +410,7 @@ public class Services {
             repo.getTurn().setCard(repo.getCards().get(Preferences.CARD_PACK_INDEX++));
         } else {
             resetCardPackIndex();
-            System.out.println("Card Pack has been resetted");
+            logger.log(Level.INFO, "Card Pack has been resetted");
             nextTurn();
         }
     }
@@ -421,17 +418,17 @@ public class Services {
     public static void resetTurnLife() {
         repo.getTurn().setLifes(Preferences.DEFAULT_LIFE_QTY);
         //repo.getTurn().setInitiated(false);
-        System.out.println("lifes of that turn as been resetted");
+        logger.log(Level.INFO, "Lifes of that turn as been resetted");
     }
 
     public static void resetTurnMinusLife() {
         repo.getTurn().setMinusLife(true);
-        System.out.println("minusLife of that turn as been resetted");
+        logger.log(Level.INFO, "minusLife of that turn as been resetted");
     }
 
     public static void resetTurnInitiation() {
         repo.getTurn().setInitiated(false);
-        System.out.println("Initiation of that turn as been resetted");
+        logger.log(Level.INFO, "Initiation of that turn as been resetted");
     }
 
     private static void resetCardPackIndex() {

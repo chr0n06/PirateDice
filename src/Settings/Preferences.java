@@ -15,17 +15,14 @@ import java.util.logging.Logger;
  * @author Maxime
  */
 public class Preferences {
-    /**
-     * LOGGER
-     */
+    /*LOGGER*/
+    public static final Level LOGGER_LEVEL = Level.ALL;
     private static Logger logger = LogManager.setLogger(
-            Logger.getLogger(Preferences.class.getName()),
-            Level.INFO
+            Logger.getLogger(Preferences.class.getName())
     );
-
-    /*ANSI Escape code*/
+    
     /**
-     * COLOR
+     * ANSI COLOR
      */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
@@ -148,7 +145,7 @@ public class Preferences {
             if (field.getName().contains("CARD") && field.getName().contains("QTY")) {
                 try {
                     cardCounter += field.getInt(field);
-                    logger.log(Level.INFO, field.getName() + " contains " + field.getInt(field) + " cards !");
+                    //logger.log(Level.INFO, field.getName() + " contains " + field.getInt(field) + " cards !");
                 } catch (IllegalArgumentException ex) {
                     logger.log(Level.SEVERE, null, ex);
                 } catch (IllegalAccessException ex) {

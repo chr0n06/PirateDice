@@ -5,8 +5,8 @@
  */
 package Logger;
 
+import Settings.Preferences;
 import java.util.logging.Level;
-import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 /**
@@ -14,11 +14,11 @@ import java.util.logging.Logger;
  * @author Maxime
  */
 public class LogManager {
-      public static Logger setLogger(Logger logger, Level level) {
+      public static Logger setLogger(Logger logger) {
         LogFormatter.HANDLER.setFormatter(LogFormatter.FORMATTER);
         logger.setUseParentHandlers(false);
         logger.addHandler(LogFormatter.HANDLER);
-        logger.setLevel(level);
+        logger.setLevel(Preferences.LOGGER_LEVEL);
         return logger;
     }
 }

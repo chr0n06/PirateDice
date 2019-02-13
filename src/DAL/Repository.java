@@ -1,5 +1,6 @@
 package DAL;
 
+import Logger.LogManager;
 import Model.Card;
 import Model.Dice;
 import Model.Player;
@@ -8,6 +9,7 @@ import Settings.Preferences;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Logger;
 import javafx.scene.image.Image;
 
 /*
@@ -21,6 +23,11 @@ import javafx.scene.image.Image;
  */
 public class Repository {
 
+    /**
+     * LOGGER
+     */
+    private static Logger logger =  Logger.getLogger(Preferences.class.getName());
+    
     private static Repository repository = null;
     
     private Turn turn;
@@ -132,6 +139,7 @@ public class Repository {
         );
 
         Collections.shuffle(cards);
+        logger.info("Cards has been created and shuffled !");
     }
 
     private void cardQtyManager(String name, String description, String imagePath, int qty) {
