@@ -133,41 +133,12 @@ public class Services {
      */
     public static void acceptPoints() {
         int tempPoints = repo.getTurn().getPlayer().getPoint();
-        Map<String, Integer> diceRepetions = calculateDiceCombo();
+        
         repo.getTurn().getPlayer().setPoint(
                 tempPoints + getTempPoints()//Add Turn point to actual points
         );
-
-        //Card influence PirateBoatCardEasy
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
-            if (diceRepetions.containsKey("Swords")) {
-                if (diceRepetions.get("Swords") >= 2) {
-                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 300);
-                    logger.log(Level.INFO, "Player has killed the easy boat!");
-                }//if3
-            }//if2
-        }//if1
-
-        //Card influence PirateBoatCardMedium
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
-            if (diceRepetions.containsKey("Swords")) {
-                if (diceRepetions.get("Swords") >= 3) {
-                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 500);
-                    logger.log(Level.INFO, "Player has killed the medium boat!");
-                }//if3
-            }//if2
-        }//if1
-
-        //Card influence PirateBoatCardHard
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
-            if (diceRepetions.containsKey("Swords")) {
-                if (diceRepetions.get("Swords") >= 4) {
-                    repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() + 1000);
-                    logger.log(Level.INFO, "Player has killed the hard boat!");
-                }//if3
-            }//if2
-        }//if1
     }
+        
 
     /**
      * The getTempPoints method go trought multiple phases to check after each
@@ -181,10 +152,19 @@ public class Services {
      */
     public static int getTempPoints() {
         int points = 0;
+        Map<String, Integer> diceRepetions = calculateDiceCombo();
+
         if ((repo.getTurn().getLifes() > 0) && (repo.getTurn().getLifes() <= 3)) {
             points += firstPhase(); //Count simple valuable dice
             points += secondPhase();//Count combo of similar dices
             points = thirdPhase(points); //Card influence PirateCard
+            
+            if (pirateBoatInfluence(diceRepetions) < 0){
+                points = pirateBoatInfluence(diceRepetions);
+                System.out.println(points);
+            } else {
+                points += pirateBoatInfluence(diceRepetions); 
+            }
             repo.getTurn().setScore(points);
         } else if (repo.getTurn().getLifes() <= 0) {
             //Card influence ChestCard
@@ -209,6 +189,7 @@ public class Services {
      */
     private static int firstPhase() {
         int tempPoints = 0;
+        
         for (Dice dice : repo.getDices()) {
             if ((dice.getState().equals("Gold")) || (dice.getState().equals("Diamond"))) {
                 tempPoints += Preferences.DICE_UNIT_COUNT;
@@ -235,9 +216,6 @@ public class Services {
     private static int secondPhase() {
         int tempPoints = 0;
         Map<String, Integer> diceRepetions = calculateDiceCombo();
-
-        //Card influence pirateBoat
-        tempPoints += pirateBoatInfluence(diceRepetions);
                 
         for (Map.Entry<String, Integer> entry : diceRepetions.entrySet()) {
             String key = entry.getKey();

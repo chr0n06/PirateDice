@@ -258,7 +258,7 @@ public class BoardGame_Controller implements Initializable {
         if (tempPoints > 0) {
             pointsTemp.setText(String.valueOf("+" + tempPoints));
         } else if (tempPoints < 0) {
-            pointsTemp.setText(String.valueOf("-" + tempPoints));
+            pointsTemp.setText(String.valueOf(tempPoints));
         }
     }
 
