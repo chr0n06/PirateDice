@@ -275,7 +275,17 @@ public class Services {
     }
 
     private static Map<String, Integer> calculateDiceCombo() {
-        Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
+        Map<String, Integer> diceRepetions = new HashMap<String, Integer>(){
+            {
+                put(Preferences.DICE_GOLD_NAME, 0);
+                put(Preferences.DICE_DIAMOND_NAME, 0);
+                put(Preferences.DICE_DEATH_NAME, 0);
+                put(Preferences.DICE_MONKEY_NAME, 0);
+                put(Preferences.DICE_PARROT_NAME, 0);
+                put(Preferences.DICE_SWORDS_NAME, 0);
+            }
+        };
+
 
         for (Dice dice : repo.getDices()) {
             switch (dice.getState()) {

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Preferences {
     /*LOGGER*/
-    public static final Level LOGGER_LEVEL = Level.OFF;
+    public static final Level LOGGER_LEVEL = Level.ALL;
     private static Logger logger = LogManager.setLogger(
             Logger.getLogger(Preferences.class.getName())
     );
@@ -54,7 +54,7 @@ public class Preferences {
      * QTY
      */
     public static int CARD_PACK_INDEX = 0;
-    public static int CARD_PIRATEBOATEASY_QTY = 2;
+    public static int CARD_PIRATEBOATEASY_QTY = 222;
     public static int CARD_PIRATEBOATMEDIUM_QTY = 2;
     public static int CARD_PIRATEBOATHARD_QTY = 2;
     public static int CARD_DOUBLESKULL_QTY = 2;
