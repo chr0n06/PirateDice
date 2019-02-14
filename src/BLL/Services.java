@@ -236,6 +236,9 @@ public class Services {
         int tempPoints = 0;
         Map<String, Integer> diceRepetions = calculateDiceCombo();
 
+        //Card influence pirateBoat
+        tempPoints += pirateBoatInfluence(diceRepetions);
+                
         for (Map.Entry<String, Integer> entry : diceRepetions.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
@@ -381,6 +384,7 @@ public class Services {
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
         resetTurnInitiation();
 
+        /*
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
             repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 300);
@@ -398,7 +402,7 @@ public class Services {
             repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 1000);
             logger.log(Level.INFO, "Minus 1000 points till you roll at least 4 swords");
         }//if
-
+         */
         //Card influence SimpleSkullCard
         if (repo.getTurn().getCard().getName().equals("SimpleSkullCard")) {
             repo.getTurn().setLifes(repo.getTurn().getLifes() - 1);
@@ -496,6 +500,42 @@ public class Services {
         return true;
     }
 
+    public static int pirateBoatInfluence(Map<String, Integer> diceRepetions) {
+        //Card influence PirateBoatCardEasy
+        if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATEASY_NAME)) {
+            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 2) {
+                logger.info("Player lost 300 pts cause the pirate boat won!");
+                return -300;
+            } else {
+                logger.info("Player won 300 pts cause the pirate boat lost!");
+                return 300;
+            }
+        }
+
+        //Card influence PirateBoatCardMedium
+        if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATMEDIUM_NAME)) {
+            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 3) {
+                logger.info("Player lost 500 pts cause the pirate boat won!");
+                return -500;
+            } else {
+                logger.info("Player won 500 pts cause the pirate boat lost!");
+                return 500;
+            }
+        }
+        //Card influence PirateBoatCardHard
+        if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATHARD_NAME)) {
+            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 4) {
+                logger.info("Player lost 1000 pts cause the pirate boat won!");
+                return -1000;
+            } else {
+                logger.info("Player won 1000 pts cause the pirate boat lost!");
+                return 1000;
+            }
+        }
+        logger.severe("Card influeunce doesn't work");
+        return 0;
+    }
+
     public static int endTurnBonusChecker(Map<String, Integer> diceRepetions) {
         for (Map.Entry<String, Integer> entry : diceRepetions.entrySet()) {
             String key = entry.getKey();
@@ -511,7 +551,7 @@ public class Services {
                 }//if2
             }//if1
         }//for
-        logger.info("Player get the ending turn boooooooonuuuuuuus because all dices on the table counts!!!");
+        logger.info("Player get the ending turn bonus because all dices on the table counts!!!");
         return Preferences.DICE_COMBO_ALL_COUNT;
     }
 
