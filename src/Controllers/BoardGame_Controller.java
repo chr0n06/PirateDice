@@ -181,6 +181,7 @@ public class BoardGame_Controller implements Initializable {
 
     @FXML
     void onactionNextTurn(ActionEvent event) {
+        Services.acceptPoints();
         this.acceptPts.setVisible(true);
         this.roll_btn.setVisible(true);
         this.rollDicesToKill.setVisible(false);

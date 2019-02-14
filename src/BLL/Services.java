@@ -133,12 +133,11 @@ public class Services {
      */
     public static void acceptPoints() {
         int tempPoints = repo.getTurn().getPlayer().getPoint();
-        
+
         repo.getTurn().getPlayer().setPoint(
                 tempPoints + getTempPoints()//Add Turn point to actual points
         );
     }
-        
 
     /**
      * The getTempPoints method go trought multiple phases to check after each
@@ -158,12 +157,12 @@ public class Services {
             points += firstPhase(); //Count simple valuable dice
             points += secondPhase();//Count combo of similar dices
             points = thirdPhase(points); //Card influence PirateCard
-            
-            if (pirateBoatInfluence(diceRepetions) < 0){
+
+            //Card influence PirateBoat
+            if (pirateBoatInfluence(diceRepetions) < 0) {
                 points = pirateBoatInfluence(diceRepetions);
-                System.out.println(points);
             } else {
-                points += pirateBoatInfluence(diceRepetions); 
+                points += pirateBoatInfluence(diceRepetions);
             }
             repo.getTurn().setScore(points);
         } else if (repo.getTurn().getLifes() <= 0) {
@@ -171,9 +170,15 @@ public class Services {
             if (repo.getTurn().getCard().getName().equals("ChestCard")) {
                 //Each card that has been checked
             }
-
-            repo.getTurn().setScore(0);
-
+            //Card influence PirateBoat when Player is death
+            if ((repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATEASY_NAME)) || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATMEDIUM_NAME)) || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATHARD_NAME))) {
+                if (pirateBoatInfluence(diceRepetions) < 0) {
+                    points = pirateBoatInfluence(diceRepetions);
+                    repo.getTurn().setScore(points);
+                }
+            } else {
+                repo.getTurn().setScore(0);
+            }
         }
         return repo.getTurn().getScore();
     }
@@ -189,7 +194,7 @@ public class Services {
      */
     private static int firstPhase() {
         int tempPoints = 0;
-        
+
         for (Dice dice : repo.getDices()) {
             if ((dice.getState().equals("Gold")) || (dice.getState().equals("Diamond"))) {
                 tempPoints += Preferences.DICE_UNIT_COUNT;
@@ -216,7 +221,7 @@ public class Services {
     private static int secondPhase() {
         int tempPoints = 0;
         Map<String, Integer> diceRepetions = calculateDiceCombo();
-                
+
         for (Map.Entry<String, Integer> entry : diceRepetions.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
@@ -362,25 +367,6 @@ public class Services {
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
         resetTurnInitiation();
 
-        /*
-        //Card influence PirateBoatCardEasy
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardEasy")) {
-            repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 300);
-            logger.log(Level.INFO, "Minus 300 points till you roll at least 2 swords");
-        }//if
-
-        //Card influence PirateBoatCardMedium
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardMedium")) {
-            repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 500);
-            logger.log(Level.INFO, "Minus 500 points till you roll at least 3 swords");
-        }//if
-
-        //Card influence PirateBoatCardHard
-        if (repo.getTurn().getCard().getName().equals("PirateBoatCardHard")) {
-            repo.getTurn().getPlayer().setPoint(repo.getTurn().getPlayer().getPoint() - 1000);
-            logger.log(Level.INFO, "Minus 1000 points till you roll at least 4 swords");
-        }//if
-         */
         //Card influence SimpleSkullCard
         if (repo.getTurn().getCard().getName().equals("SimpleSkullCard")) {
             repo.getTurn().setLifes(repo.getTurn().getLifes() - 1);
