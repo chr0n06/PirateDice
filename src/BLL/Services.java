@@ -510,8 +510,8 @@ public class Services {
                     return 0;
                 }//if2
             }//if1
-        }//fo
-        System.out.println("GET THE BOOOOOOOOOONUSSSSSSSSSS");
+        }//for
+        logger.info("Player get the ending turn boooooooonuuuuuuus because all dices on the table counts!!!");
         return Preferences.DICE_COMBO_ALL_COUNT;
     }
 
