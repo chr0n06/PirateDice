@@ -159,22 +159,31 @@ public class Services {
             points = thirdPhase(points); //Card influence PirateCard
 
             //Card influence PirateBoat
-            if (pirateBoatInfluence(diceRepetions) < 0) {
-                points = pirateBoatInfluence(diceRepetions);
-            } else {
-                points += pirateBoatInfluence(diceRepetions);
+            if ((repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATEASY_NAME))
+                    || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATMEDIUM_NAME))
+                    || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATHARD_NAME))) {
+                int pirateBoatInfluence = pirateBoatInfluence(diceRepetions);
+                if (pirateBoatInfluence < 0) {
+                    points = pirateBoatInfluence;
+                } else {
+                    points += pirateBoatInfluence;
+                }
             }
+
             repo.getTurn().setScore(points);
+
         } else if (repo.getTurn().getLifes() <= 0) {
             //Card influence ChestCard
             if (repo.getTurn().getCard().getName().equals("ChestCard")) {
                 //Each card that has been checked
             }
             //Card influence PirateBoat when Player is death
-            if ((repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATEASY_NAME)) || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATMEDIUM_NAME)) || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATHARD_NAME))) {
-                if (pirateBoatInfluence(diceRepetions) < 0) {
-                    points = pirateBoatInfluence(diceRepetions);
-                    repo.getTurn().setScore(points);
+            if ((repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATEASY_NAME))
+                    || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATMEDIUM_NAME))
+                    || (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATHARD_NAME))) {
+                int pirateBoatInfluence = pirateBoatInfluence(diceRepetions);
+                if (pirateBoatInfluence < 0) {
+                    repo.getTurn().setScore(pirateBoatInfluence);
                 }
             } else {
                 repo.getTurn().setScore(0);
@@ -275,17 +284,7 @@ public class Services {
     }
 
     private static Map<String, Integer> calculateDiceCombo() {
-        Map<String, Integer> diceRepetions = new HashMap<String, Integer>(){
-            {
-                put(Preferences.DICE_GOLD_NAME, 0);
-                put(Preferences.DICE_DIAMOND_NAME, 0);
-                put(Preferences.DICE_DEATH_NAME, 0);
-                put(Preferences.DICE_MONKEY_NAME, 0);
-                put(Preferences.DICE_PARROT_NAME, 0);
-                put(Preferences.DICE_SWORDS_NAME, 0);
-            }
-        };
-
+        Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
 
         for (Dice dice : repo.getDices()) {
             switch (dice.getState()) {
@@ -477,36 +476,51 @@ public class Services {
     public static int pirateBoatInfluence(Map<String, Integer> diceRepetions) {
         //Card influence PirateBoatCardEasy
         if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATEASY_NAME)) {
-            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 2) {
+            if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
+                if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 2) {
+                    logger.info("Player lost 300 pts cause the pirate boat won!");
+                    return -300;
+                } else {
+                    logger.info("Player won 300 pts cause the pirate boat lost!");
+                    return 300;
+                }//if3
+            } else {
                 logger.info("Player lost 300 pts cause the pirate boat won!");
                 return -300;
-            } else {
-                logger.info("Player won 300 pts cause the pirate boat lost!");
-                return 300;
-            }
-        }
+            }//if2
+        }//if1
 
         //Card influence PirateBoatCardMedium
         if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATMEDIUM_NAME)) {
-            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 3) {
+            if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
+                if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 3) {
+                    logger.info("Player lost 500 pts cause the pirate boat won!");
+                    return -500;
+                } else {
+                    logger.info("Player won 500 pts cause the pirate boat lost!");
+                    return 500;
+                }//if3
+            } else {
                 logger.info("Player lost 500 pts cause the pirate boat won!");
                 return -500;
-            } else {
-                logger.info("Player won 500 pts cause the pirate boat lost!");
-                return 500;
-            }
-        }
+            }//if2
+        }//if1
         //Card influence PirateBoatCardHard
         if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATHARD_NAME)) {
-            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 4) {
+            if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
+                if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 4) {
+                    logger.info("Player lost 1000 pts cause the pirate boat won!");
+                    return -1000;
+                } else {
+                    logger.info("Player won 1000 pts cause the pirate boat lost!");
+                    return 1000;
+                }//if3
+            } else {
                 logger.info("Player lost 1000 pts cause the pirate boat won!");
                 return -1000;
-            } else {
-                logger.info("Player won 1000 pts cause the pirate boat lost!");
-                return 1000;
-            }
-        }
-        logger.severe("Card influeunce doesn't work");
+            }//if2
+        }//if1
+        logger.severe("Card influence doesn't work");
         return 0;
     }
 
@@ -516,11 +530,14 @@ public class Services {
             Integer value = entry.getValue();
 
             if (key.equals(Preferences.DICE_DEATH_NAME)) {
+                logger.warning("At least one dead dice!");
                 return 0;
             } else if (key.equals(Preferences.DICE_MONKEY_NAME)
                     || key.equals(Preferences.DICE_PARROT_NAME)
                     || key.equals(Preferences.DICE_SWORDS_NAME)) {
                 if (value < 3) {
+                    System.out.println(key + " has " + value + " repetitions!");
+                    //logger.warning(key + " has " + value + " repetitions!");
                     return 0;
                 }//if2
             }//if1

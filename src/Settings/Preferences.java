@@ -54,7 +54,7 @@ public class Preferences {
      * QTY
      */
     public static int CARD_PACK_INDEX = 0;
-    public static int CARD_PIRATEBOATEASY_QTY = 222;
+    public static int CARD_PIRATEBOATEASY_QTY = 2;
     public static int CARD_PIRATEBOATMEDIUM_QTY = 2;
     public static int CARD_PIRATEBOATHARD_QTY = 2;
     public static int CARD_DOUBLESKULL_QTY = 2;

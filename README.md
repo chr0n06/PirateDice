@@ -67,7 +67,7 @@ alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
 - [x] Implementing the BL for : DoubleSkullCard 
 - [x] Implementing the BL for : WitchCard  
 - [ ] Implementing the BL for : ChestCard 
-- [ ] Implementing When you die Pirate Boat doesn't make any effects 
+- [ ] Implementing When you die WitchCard doesn't make any effects
 
 ### Issue(s)
 - [x] Line 133 :: service : EVERYTIME WE PLAY PTS INCREMENT for PirateBoatCards 
