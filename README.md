@@ -20,13 +20,13 @@ alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
 
 ## Phase(s)
 
-| # | Life cycle |                  Description                       | State |
-|---|--------------|----------------------------------------------------|-------|
-| 1 | ALPHA        | Building the minimum viable product of the game    |   X   |
-| 2 | BETA         | Enhance gaming experience                          |       |
-| 3 | BETA         | insertion of an AI that works under statistical influence methods ||       
-| 4 | POSSIBILITIE | Deploying a Mobile version of the game             |       |
-| 5 | POSSIBILITIE | Implementing a multiplayer game experience         |       |
+| # |  Life cycle  |                              Description                          | State |
+|---|--------------|-------------------------------------------------------------------|-------|
+| 1 | ALPHA        | Building the minimum viable product of the game                   |   X   |
+| 2 | BETA         | Enhance gaming experience                                         |       |
+| 3 | BETA         | Insertion of an AI that works under statistical influence methods |       |       
+| 4 | POSSIBILITIE | Deploying a Mobile version of the game                            |       |
+| 5 | POSSIBILITIE | Implementing a multiplayer game experience                        |       |
 
 ## What have been done
 
