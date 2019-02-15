@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-12-29, 19:16:05
+    Author     : Maxime
+*/
+
+
+.body{
+    -fx-background-image: url("/Assets/Board/Island.png");
+    -fx-background-size: cover;     
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;  
+}
+
+.card{
+    -fx-background-color: rgba(255, 255, 255, 0.65);
+    -fx-border-radius: 25px;
+}
+
+.button{
+    -fx-background-color: green;
+
+}
+
+#witchCardPower{
+    /*-fx-width:50px;
+    -fx-heigth:50px;
+    -fx-background-image: url("/Assets/DicesLayouts/3D-2/Death.png");
+    -fx-background-size: cover;     
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center; 
+    */
+}
+/*
+#acceptPts{
+    -fx-box-shadow: 10px 10px grey;
+}
+
+#acceptPts:hover{
+    -fx-background-color: blue;
+}*/

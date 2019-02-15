@@ -368,23 +368,16 @@ public class Services {
             }
         }
 
-        //Inject a player and a card to the new turn
-        selectAPlayer();
+        
+        selectAPlayer(); //Inject a player and a card to the new turn
         pickACard();
-
         resetTurnLife();
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
         resetTurnInitiation();
 
-        //Card influence SkullCard
-        switch (repo.getTurn().getCard().getName()) {
-            case Preferences.CARD_SIMPLESKULL_NAME:
-                skullCardInfluence(1);
-                break;
-            case Preferences.CARD_DOUBLESKULL_NAME:
-                skullCardInfluence(2);
-                break;
-        }
+        
+        skullCardInfluence(0);
+       
 
     }
 
@@ -472,9 +465,20 @@ public class Services {
         return true;
     }
 
-    public static void skullCardInfluence(int lifeRemoved) {
+    public static void skullCardInfluence() {
+        int lifeRemoved = 0;
+      
+        switch (repo.getTurn().getCard().getName()) {
+            case Preferences.CARD_SIMPLESKULL_NAME:
+                lifeRemoved = 1;
+                break;
+            case Preferences.CARD_DOUBLESKULL_NAME:
+                lifeRemoved = 2;
+                break;
+        }
+        
         repo.getTurn().setLifes(repo.getTurn().getLifes() - lifeRemoved);
-        logger.log(Level.INFO, "Minus {0} life because of the DoubleSkullCard", lifeRemoved);
+        logger.info("Minus " + lifeRemoved +" life because of the DoubleSkullCard");
     }
 
     public static int pirateBoatInfluence(Map<String, Integer> diceRepetions) {
