@@ -376,7 +376,7 @@ public class Services {
         resetTurnInitiation();
 
         
-        skullCardInfluence(0);
+        skullCardInfluence();
        
 
     }
@@ -478,7 +478,7 @@ public class Services {
         }
         
         repo.getTurn().setLifes(repo.getTurn().getLifes() - lifeRemoved);
-        logger.info("Minus " + lifeRemoved +" life because of the DoubleSkullCard");
+        logger.info(lifeRemoved + " life remove on start caused by a skull card");
     }
 
     public static int pirateBoatInfluence(Map<String, Integer> diceRepetions) {
