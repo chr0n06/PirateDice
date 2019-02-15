@@ -474,54 +474,31 @@ public class Services {
     }
 
     public static int pirateBoatInfluence(Map<String, Integer> diceRepetions) {
-        //Card influence PirateBoatCardEasy
-        if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATEASY_NAME)) {
-            if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
-                if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 2) {
-                    logger.info("Player lost 300 pts cause the pirate boat won!");
-                    return -300;
-                } else {
-                    logger.info("Player won 300 pts cause the pirate boat lost!");
-                    return 300;
-                }//if3
-            } else {
-                logger.info("Player lost 300 pts cause the pirate boat won!");
-                return -300;
-            }//if2
-        }//if1
-
-        //Card influence PirateBoatCardMedium
-        if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATMEDIUM_NAME)) {
-            if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
-                if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 3) {
-                    logger.info("Player lost 500 pts cause the pirate boat won!");
-                    return -500;
-                } else {
-                    logger.info("Player won 500 pts cause the pirate boat lost!");
-                    return 500;
-                }//if3
-            } else {
-                logger.info("Player lost 500 pts cause the pirate boat won!");
-                return -500;
-            }//if2
-        }//if1
-        //Card influence PirateBoatCardHard
-        if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATEBOATHARD_NAME)) {
-            if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
-                if (diceRepetions.get(Preferences.DICE_SWORDS_NAME).intValue() < 4) {
-                    logger.info("Player lost 1000 pts cause the pirate boat won!");
-                    return -1000;
-                } else {
-                    logger.info("Player won 1000 pts cause the pirate boat lost!");
-                    return 1000;
-                }//if3
-            } else {
-                logger.info("Player lost 1000 pts cause the pirate boat won!");
-                return -1000;
-            }//if2
-        }//if1
-        logger.severe("Card influence doesn't work");
+        switch (repo.getTurn().getCard().getName()) {
+            case Preferences.CARD_PIRATEBOATEASY_NAME:
+                return pirateBoatPointManager(diceRepetions, 300);
+            case Preferences.CARD_PIRATEBOATMEDIUM_NAME:
+                return pirateBoatPointManager(diceRepetions, 500);
+            case Preferences.CARD_PIRATEBOATHARD_NAME:
+                return pirateBoatPointManager(diceRepetions, 1000);
+        }
+        logger.severe("pirateBoatInfluence doesn't work");
         return 0;
+    }
+
+    public static int pirateBoatPointManager(Map<String, Integer> diceRepetions, int point) {
+        if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
+            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME) < 2) {
+                logger.log(Level.INFO, "Player lost {0} pts cause the pirate boat won!", point);
+                return -300;
+            } else {
+                logger.log(Level.INFO, "Player won  {0}  pts cause the pirate boat lost!", point);
+                return 300;
+            }//if2
+        } else {
+            logger.log(Level.INFO, "Player lost  {0}  pts cause he doesn''t have any sword!", point);
+            return -300;
+        }//if1
     }
 
     public static int endTurnBonusChecker(Map<String, Integer> diceRepetions) {
@@ -536,14 +513,13 @@ public class Services {
                     || key.equals(Preferences.DICE_PARROT_NAME)
                     || key.equals(Preferences.DICE_SWORDS_NAME)) {
                 if (value < 3) {
-                    System.out.println(key + " has " + value + " repetitions!");
-                    //logger.warning(key + " has " + value + " repetitions!");
+                    logger.warning(key + " has " + value + " repetitions!");
                     return 0;
                 }//if2
             }//if1
         }//for
         logger.info("Player get the ending turn bonus because all dices on the table counts!!!");
         return Preferences.DICE_COMBO_ALL_COUNT;
-    }
+    }//endTurnBonusChecker
 
 }
