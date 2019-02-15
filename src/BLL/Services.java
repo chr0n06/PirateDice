@@ -476,28 +476,28 @@ public class Services {
     public static int pirateBoatInfluence(Map<String, Integer> diceRepetions) {
         switch (repo.getTurn().getCard().getName()) {
             case Preferences.CARD_PIRATEBOATEASY_NAME:
-                return pirateBoatPointManager(diceRepetions, 300);
+                return pirateBoatPointManager(diceRepetions, 300, 2);
             case Preferences.CARD_PIRATEBOATMEDIUM_NAME:
-                return pirateBoatPointManager(diceRepetions, 500);
+                return pirateBoatPointManager(diceRepetions, 500, 3);
             case Preferences.CARD_PIRATEBOATHARD_NAME:
-                return pirateBoatPointManager(diceRepetions, 1000);
+                return pirateBoatPointManager(diceRepetions, 1000, 4);
         }
         logger.severe("pirateBoatInfluence doesn't work");
         return 0;
     }
 
-    public static int pirateBoatPointManager(Map<String, Integer> diceRepetions, int point) {
+    public static int pirateBoatPointManager(Map<String, Integer> diceRepetions, int point, int swordQty) {
         if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
-            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME) < 2) {
+            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME) < swordQty) {
                 logger.log(Level.INFO, "Player lost {0} pts cause the pirate boat won!", point);
-                return -300;
+                return Math.negateExact(point);
             } else {
                 logger.log(Level.INFO, "Player won  {0}  pts cause the pirate boat lost!", point);
-                return 300;
+                return point;
             }//if2
         } else {
             logger.log(Level.INFO, "Player lost  {0}  pts cause he doesn''t have any sword!", point);
-            return -300;
+            return Math.negateExact(point);
         }//if1
     }
 
