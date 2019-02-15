@@ -113,6 +113,10 @@ After a player finishes his round, all points scored (and minus points in the ca
 ![picture](src/Assets/Rules/Rules_3.png)
 ![picture](src/Assets/Rules/Rules_4.png)
 
+## Things I have learned
+
+To be defined later!
+
 ## Copyright
 ***
 - Author : Haim Shafir-https://www.youtube.com/embed/uT5c_MfSZzY

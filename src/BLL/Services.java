@@ -376,20 +376,19 @@ public class Services {
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
         resetTurnInitiation();
 
-        //Card influence SimpleSkullCard
-        if (repo.getTurn().getCard().getName().equals("SimpleSkullCard")) {
-            repo.getTurn().setLifes(repo.getTurn().getLifes() - 1);
-            logger.log(Level.INFO, "Minus 1 life because of the SimpleSkullCard");
+        //Card influence SkullCard
+        switch (repo.getTurn().getCard().getName()) {
+            case Preferences.CARD_SIMPLESKULL_NAME:
+                skullCardInfluence(1);
+                break;
+            case Preferences.CARD_DOUBLESKULL_NAME:
+                skullCardInfluence(2);
+                break;
         }
-        //Card influence DoubleSkullCard
-        if (repo.getTurn().getCard().getName().equals("DoubleSkullCard")) {
-            repo.getTurn().setLifes(repo.getTurn().getLifes() - 2);
-            logger.log(Level.INFO, "Minus 2 life because of the DoubleSkullCard");
-        }
+
     }
 
     public static void selectAPlayer() {
-        //System.out.println(Preferences.PLAYER_TURN_INDEX + "--" + Services.getAllPlayers().size());
         logger.info("Player #" + Preferences.PLAYER_TURN_INDEX + " is actually playing! Player quantity = " + Services.getAllPlayers().size());
         if (Preferences.PLAYER_TURN_INDEX < Services.getAllPlayers().size()) {
             repo.getTurn().setPlayer(repo.getPlayers().get(Preferences.PLAYER_TURN_INDEX++));
@@ -471,6 +470,11 @@ public class Services {
 
     public static boolean actualDice(String diceName) {
         return true;
+    }
+
+    public static void skullCardInfluence(int lifeRemoved) {
+        repo.getTurn().setLifes(repo.getTurn().getLifes() - lifeRemoved);
+        logger.log(Level.INFO, "Minus {0} life because of the DoubleSkullCard", lifeRemoved);
     }
 
     public static int pirateBoatInfluence(Map<String, Integer> diceRepetions) {
