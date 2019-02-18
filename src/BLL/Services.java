@@ -204,14 +204,15 @@ public class Services {
     private static int firstPhase() {
         int tempPoints = 0;
 
+        //Count Gold an Diamond dice on this turn
         for (Dice dice : repo.getDices()) {
-            if ((dice.getState().equals("Gold")) || (dice.getState().equals("Diamond"))) {
+            if ((dice.getState().equals(Preferences.DICE_GOLD_NAME)) || (dice.getState().equals(Preferences.DICE_DIAMOND_NAME))) {
                 tempPoints += Preferences.DICE_UNIT_COUNT;
             }
         }
 
         //Card influence GoldenPiece & DiamondCard
-        if (repo.getTurn().getCard().getName().equals("GoldenPiece") || repo.getTurn().getCard().getName().equals("DiamondCard")) {
+        if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIECEOFGOLD_NAME) || repo.getTurn().getCard().getName().equals(Preferences.CARD_DIAMOND_NAME)) {
             tempPoints += Preferences.DICE_UNIT_COUNT;
         }//if
 
@@ -344,41 +345,14 @@ public class Services {
     }
 
     public static void nextTurn() {
-        //Death Island influence
-        if (repo.getTurn().getLifes() < 0) {
-            for (Player player : repo.getPlayers()) {
-                //System.out.println("Player ID : "+player.getId() +" Actual player ID : " + repo.getTurn().getPlayer().getId());
-                if (player.getId() != repo.getTurn().getPlayer().getId()) {
-                    //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
-                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100);
-                }
-            }
-        }
-
-        //End Game Activation (In progress...)
-        if (repo.getTurn().getPlayer() != null) {
-            if (repo.getTurn().getPlayer().getPoint() >= Preferences.WINNING_SCORE) {
-                if (repo.getTurn().isEndGameActivated()) {
-                    if (repo.getTurn().getPlayerWhoActivatedEndGame().getId() == repo.getTurn().getPlayer().getId()) {
-                        System.out.println("We count points for all players!");
-                    }
-                }
-                repo.getTurn().setEndGameActivated(true);
-                repo.getTurn().setPlayerWhoActivatedEndGame(repo.getTurn().getPlayer());
-            }
-        }
-
-        
+        deathIslandInfluence();
+        endGameActivation();
         selectAPlayer(); //Inject a player and a card to the new turn
         pickACard();
         resetTurnLife();
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
         resetTurnInitiation();
-
-        
         skullCardInfluence();
-       
-
     }
 
     public static void selectAPlayer() {
@@ -467,7 +441,7 @@ public class Services {
 
     public static void skullCardInfluence() {
         int lifeRemoved = 0;
-      
+
         switch (repo.getTurn().getCard().getName()) {
             case Preferences.CARD_SIMPLESKULL_NAME:
                 lifeRemoved = 1;
@@ -476,7 +450,7 @@ public class Services {
                 lifeRemoved = 2;
                 break;
         }
-        
+
         repo.getTurn().setLifes(repo.getTurn().getLifes() - lifeRemoved);
         logger.info(lifeRemoved + " life remove on start caused by a skull card");
     }
@@ -495,18 +469,51 @@ public class Services {
     }
 
     public static int pirateBoatPointManager(Map<String, Integer> diceRepetions, int point, int swordQty) {
-        if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
-            if (diceRepetions.get(Preferences.DICE_SWORDS_NAME) < swordQty) {
-                logger.log(Level.INFO, "Player lost {0} pts cause the pirate boat won!", point);
-                return Math.negateExact(point);
-            } else {
-                logger.log(Level.INFO, "Player won  {0}  pts cause the pirate boat lost!", point);
-                return point;
-            }//if2
+        if (repo.getTurn().getLifes() < 0 && !repo.getTurn().isInitiated()) {
+            logger.info("Pirate Boat Card doesn't make any effects because the player goes on the death island !");
+            return 0;
         } else {
-            logger.log(Level.INFO, "Player lost  {0}  pts cause he doesn''t have any sword!", point);
-            return Math.negateExact(point);
+            if (diceRepetions.containsKey(Preferences.DICE_SWORDS_NAME)) {
+                if (diceRepetions.get(Preferences.DICE_SWORDS_NAME) < swordQty) {
+                    logger.info("Player lost " + point + " pts cause the pirate boat won!");
+                    return Math.negateExact(point);
+                } else {
+                    logger.info("Player won " + point + " pts cause the pirate boat lost!");
+                    return point;
+                }//if3
+            } else {
+                logger.info("Player lost " + point + " pts cause he doesn''t have any sword!");
+                return Math.negateExact(point);
+            }//if2
         }//if1
+    }//pirateBoatPointManager
+
+    public static void deathIslandInfluence() {
+        if (repo.getTurn().getLifes() < 0) {
+            for (Player player : repo.getPlayers()) {
+                //System.out.println("Player ID : "+player.getId() +" Actual player ID : " + repo.getTurn().getPlayer().getId());
+                if (player.getId() != repo.getTurn().getPlayer().getId()) {
+                    //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
+                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100);
+                }
+            }
+        }
+    }
+
+    public static void endGameActivation() {
+        Player player = repo.getTurn().getPlayer();
+
+        if (player != null) {
+            if (player.getPoint() >= Preferences.WINNING_SCORE) {
+                if (repo.getTurn().isEndGameActivated()) {
+                    if (repo.getTurn().getPlayerWhoActivatedEndGame().getId() == player.getId()) {
+                        System.out.println("We count points for all players!");
+                    }
+                }
+                repo.getTurn().setEndGameActivated(true);
+                repo.getTurn().setPlayerWhoActivatedEndGame(player);
+            }
+        }
     }
 
     public static int endTurnBonusChecker(Map<String, Integer> diceRepetions) {
