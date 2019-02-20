@@ -39,6 +39,7 @@ public class Player {
     }
 
     public void setPoint(int point) {
+        System.out.println("HERE !!!!! Player pts  = " + this.getPoint());
         this.point = point;
     }
     

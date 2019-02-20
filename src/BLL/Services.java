@@ -284,6 +284,16 @@ public class Services {
         return points;
     }
 
+    
+    /**
+     * The calculateDiceCombo method give the number of repetition(s) for each dice in the actual turn.
+     *
+     * @param none
+     * @return Map<String, Integer>
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     private static Map<String, Integer> calculateDiceCombo() {
         Map<String, Integer> diceRepetions = new HashMap<String, Integer>();
 
