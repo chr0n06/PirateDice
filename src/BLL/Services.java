@@ -134,9 +134,12 @@ public class Services {
     public static void acceptPoints() {
         int tempPoints = repo.getTurn().getPlayer().getPoint();
 
-        repo.getTurn().getPlayer().setPoint(
-                tempPoints + getTempPoints()//Add Turn point to actual points
-        );
+        if (!repo.getTurn().isPointsAccepted()) {
+            repo.getTurn().setPointsAccepted(true);
+            repo.getTurn().getPlayer().setPoint(
+                    tempPoints + getTempPoints()//Add Turn point to actual points
+            );
+        }
     }
 
     /**
@@ -284,9 +287,9 @@ public class Services {
         return points;
     }
 
-    
     /**
-     * The calculateDiceCombo method give the number of repetition(s) for each dice in the actual turn.
+     * The calculateDiceCombo method give the number of repetition(s) for each
+     * dice in the actual turn.
      *
      * @param none
      * @return Map<String, Integer>
@@ -362,6 +365,7 @@ public class Services {
         resetTurnLife();
         resetTurnMinusLife(); //Needed when a player goes on the Death Island
         resetTurnInitiation();
+        resetPointsAccepted();
         skullCardInfluence();
     }
 
@@ -410,6 +414,12 @@ public class Services {
         Preferences.CARD_PACK_INDEX = 0;
         Collections.shuffle(repo.getCards());
     }
+    
+    private static void resetPointsAccepted(){
+        repo.getTurn().setPointsAccepted(false);
+        logger.log(Level.INFO, "PointsAccepted of that turn as been resetted");
+    }
+            
 
     public static Turn getTurn() {
         return repo.getTurn();

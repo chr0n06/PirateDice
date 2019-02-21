@@ -27,16 +27,18 @@ public class Turn {
 
     private boolean initiated;
 
+    private boolean pointsAccepted;
+    
     public Turn() {
         this.player = null;
         this.card = null;
         this.score = 0;
         this.lifes = Preferences.DEFAULT_LIFE_QTY;
         this.minusLife = true;
-        this.initiated = false;
-        
+        this.initiated = false;     
         this.endGameActivated = false;
         this.playerWhoActivatedEndGame = null;
+        this.pointsAccepted = false;
 
     }
 
@@ -103,5 +105,13 @@ public class Turn {
     public void setPlayerWhoActivatedEndGame(Player playerWhoActivatedEndGame) {
         this.playerWhoActivatedEndGame = playerWhoActivatedEndGame;
     }
- 
+
+    public boolean isPointsAccepted() {
+        return pointsAccepted;
+    }
+
+    public void setPointsAccepted(boolean pointsAccepted) {
+        this.pointsAccepted = pointsAccepted;
+    }
+   
 }
