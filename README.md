@@ -47,14 +47,14 @@ alt="IMAGE ALT TEXT HERE" width="1012" height="580" border="10" /></a>
 - [x] Implementing the lost tempPts when player obtain three Deaths 
 - [x] Implementing the beat the death
 - [x] Implementing the end turn bonus when all dices on the table counts
-- [ ] Implementing minus pts for all other players when beat the death
+- [x] Implementing minus pts for all other players when you go on the death island
 - [ ] Implementing the ending game
 - [ ] Implementing the setup menu
 
 #### Cards 
 -End Turn effect-
-- [ ] Implementing the BL for : PirateCard
-- [ ] Implementing the BL for : Death island PirateCard
+- [x] Implementing the BL for : PirateCard
+- [x] Implementing the BL for : Death island PirateCard
 - [x] Implementing the BL for : GoldenPiece  
 - [x] Implementing the BL for : DiamondCard 
 - [x] Implementing the BL for : PirateBoatCardEasy

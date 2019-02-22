@@ -353,7 +353,7 @@ public class Services {
      * @version 1.0
      *
      * @author Maxime Laniel
-     */    
+     */
     public static boolean isDiceRollable(int diceId) {
         return !repo.getDices().get(diceId - 1).isDeath();
     }
@@ -423,12 +423,11 @@ public class Services {
         Preferences.CARD_PACK_INDEX = 0;
         Collections.shuffle(repo.getCards());
     }
-    
-    private static void resetPointsAccepted(){
+
+    private static void resetPointsAccepted() {
         repo.getTurn().setPointsAccepted(false);
         logger.log(Level.INFO, "PointsAccepted of that turn as been resetted");
     }
-            
 
     public static Turn getTurn() {
         return repo.getTurn();
@@ -493,7 +492,7 @@ public class Services {
             case Preferences.CARD_PIRATEBOATHARD_NAME:
                 return pirateBoatPointManager(diceRepetions, 1000, 4);
         }
-        logger.severe("pirateBoatInfluence doesn't work");
+        logger.severe("PirateBoatInfluence doesn't work");
         return 0;
     }
 
@@ -520,10 +519,24 @@ public class Services {
     public static void deathIslandInfluence() {
         if (repo.getTurn().getLifes() < 0) {
             for (Player player : repo.getPlayers()) {
-                //System.out.println("Player ID : "+player.getId() +" Actual player ID : " + repo.getTurn().getPlayer().getId());
+                //If actual card is Pirate Card, player loose the double
                 if (player.getId() != repo.getTurn().getPlayer().getId()) {
+                    if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATE_NAME)) {
+                        logger.info("Player: " + player.getName() +
+                                " has " + player.getPoint() + 
+                                "! This turn he lost + " + Math.abs(repo.getTurn().getLifes() - 3) * 200 + 
+                                " he now turned to " + (player.getPoint()-Math.abs(repo.getTurn().getLifes() - 3) * 200) + 
+                                " point(s)!");
+                        player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 200);
+                    }
                     //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
-                    player.setPoint(player.getPoint() - repo.getTurn().getLifes() * 100);
+                    logger.info("Player: " + player.getName() +
+                                " has " + player.getPoint() + 
+                                "! This turn he lost + " + Math.abs(repo.getTurn().getLifes() - 3) * 100 + 
+                                " he now turned to " + (player.getPoint()-Math.abs(repo.getTurn().getLifes() - 3) * 100) + 
+                                " point(s)!");
+                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100);
+                    
                 }
             }
         }
