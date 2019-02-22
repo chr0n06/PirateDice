@@ -326,9 +326,9 @@ public class Services {
         //Card influence MonkeyPirateCard
         if (repo.getTurn().getCard().getName().equals("MonkeyParrotCard")) {
             if (diceRepetions.containsKey("Monkey") && diceRepetions.containsKey("Parrot")) {
-                int monkeyParrotAggragation = 0;
-                monkeyParrotAggragation = diceRepetions.get("Monkey");
-                diceRepetions.replace("Parrot", diceRepetions.get("Parrot"), diceRepetions.get("Parrot") + monkeyParrotAggragation);
+                int monkeyParrotAggregation = 0;
+                monkeyParrotAggregation = diceRepetions.get("Monkey");
+                diceRepetions.replace("Parrot", diceRepetions.get("Parrot"), diceRepetions.get("Parrot") + monkeyParrotAggregation);
                 diceRepetions.remove("Monkey");
             }
         }
@@ -345,6 +345,15 @@ public class Services {
         return diceRepetions;
     }
 
+    /**
+     * The isDiceRollable check if the selected Dice is rollable (dead or not)
+     *
+     * @param Integer
+     * @return boolean
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */    
     public static boolean isDiceRollable(int diceId) {
         return !repo.getDices().get(diceId - 1).isDeath();
     }
@@ -514,7 +523,7 @@ public class Services {
                 //System.out.println("Player ID : "+player.getId() +" Actual player ID : " + repo.getTurn().getPlayer().getId());
                 if (player.getId() != repo.getTurn().getPlayer().getId()) {
                     //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
-                    player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100);
+                    player.setPoint(player.getPoint() - repo.getTurn().getLifes() * 100);
                 }
             }
         }
