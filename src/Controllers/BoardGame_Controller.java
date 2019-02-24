@@ -21,6 +21,11 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
@@ -317,6 +322,15 @@ public class BoardGame_Controller implements Initializable {
             }//if
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
         }//for
+        
+        //EXPERIMENTAL
+        for (ToggleButton chestsave : chestSaves) {
+            chestsave.setBackground(new Background(
+                    new BackgroundImage(
+                            new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(5).getState() + ".png"),
+                            BackgroundRepeat.SPACE, BackgroundRepeat.SPACE, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));            
+        }
+        
     }//fillImageInDice
 
     private void chestSavesButtonDisplay() {

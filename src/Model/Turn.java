@@ -19,14 +19,11 @@ public class Turn {
     private int lifes;
     private boolean endGameActivated; // At least one player has at leats 6000 pts! 
     private Player playerWhoActivatedEndGame;
-
     /* Used in Death Island while the player drop a Death, 
     the minusLife is activated and the player is allowed to continue.
      */
     private boolean minusLife;
-
     private boolean initiated;
-
     private boolean pointsAccepted;
     
     public Turn() {
