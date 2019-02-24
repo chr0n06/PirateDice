@@ -259,6 +259,8 @@ public class BoardGame_Controller implements Initializable {
 
     }
 
+   
+    
     private void updatePointsTemp() {
         int tempPoints = Services.getTempPoints();
         if (tempPoints > 0) {
@@ -328,7 +330,10 @@ public class BoardGame_Controller implements Initializable {
             chestsave.setBackground(new Background(
                     new BackgroundImage(
                             new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(5).getState() + ".png"),
-                            BackgroundRepeat.SPACE, BackgroundRepeat.SPACE, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));            
+                            BackgroundRepeat.NO_REPEAT,
+                            BackgroundRepeat.NO_REPEAT,
+                            BackgroundPosition.CENTER,
+                            new BackgroundSize(88, 88, true, true, true, true))));            
         }
         
     }//fillImageInDice
