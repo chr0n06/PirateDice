@@ -259,8 +259,35 @@ public class BoardGame_Controller implements Initializable {
 
     }
 
-   
-    
+    @FXML
+    void onActionToggleClick(ActionEvent event) {
+        if (chestSave4.isArmed()) {
+            chestSave4.disarm();
+            System.out.println("Disarmed");
+           chestSave4.setBackground(new Background(
+                    new BackgroundImage(
+                            new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(5).getState() + ".png"),
+                            BackgroundRepeat.NO_REPEAT,
+                            BackgroundRepeat.NO_REPEAT,
+                            BackgroundPosition.CENTER,
+                            new BackgroundSize(88, 88, true, true, true, true))));
+          
+        } else {
+            chestSave4.arm();
+            System.out.println("Armed");
+            
+            chestSave4.setBackground(new Background(
+                    new BackgroundImage(
+                            new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(5).getState() + ".png"),
+                            BackgroundRepeat.NO_REPEAT,
+                            BackgroundRepeat.NO_REPEAT,
+                            BackgroundPosition.CENTER,
+                            new BackgroundSize(88, 88, true, true, true, true))));
+            
+            //this.chestSave4.setStyle("-fx-background-image: url("+ "/Assets/DicesLayouts.3D/Parrots.png" +")");
+        }
+    }
+
     private void updatePointsTemp() {
         int tempPoints = Services.getTempPoints();
         if (tempPoints > 0) {
@@ -279,9 +306,9 @@ public class BoardGame_Controller implements Initializable {
             }//if
             index++;
         }//for
-        
+
         if (boxchecked.size() == 1) {
-            
+
             logger.info("Select minimum two dices !");//Will have to manage a popup on the main thread
             boxchecked.clear();
         }
@@ -324,8 +351,9 @@ public class BoardGame_Controller implements Initializable {
             }//if
             dice.setImage(new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(index++).getState() + ".png"));
         }//for
-        
+
         //EXPERIMENTAL
+        /*
         for (ToggleButton chestsave : chestSaves) {
             chestsave.setBackground(new Background(
                     new BackgroundImage(
@@ -333,9 +361,10 @@ public class BoardGame_Controller implements Initializable {
                             BackgroundRepeat.NO_REPEAT,
                             BackgroundRepeat.NO_REPEAT,
                             BackgroundPosition.CENTER,
-                            new BackgroundSize(88, 88, true, true, true, true))));            
-        }
-        
+                            new BackgroundSize(88, 88, true, true, true, true))));
+            
+        }*/
+
     }//fillImageInDice
 
     private void chestSavesButtonDisplay() {

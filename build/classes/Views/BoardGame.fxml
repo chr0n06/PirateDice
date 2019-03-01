@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane_Background" prefHeight="1176.0" prefWidth="1942.0" styleClass="body" stylesheets="@css/Style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BoardGame_Controller">
+<AnchorPane fx:id="anchorPane_Background" prefHeight="1176.0" prefWidth="1942.0" styleClass="body" stylesheets="@css/Style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardGame_Controller">
     <children>
         <VBox prefHeight="400.0" prefWidth="653.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -82,7 +82,7 @@
                                     </image>
                                 </ImageView>
                                 <CheckBox fx:id="checkBox4" mnemonicParsing="false" />
-                        <ToggleButton fx:id="chestSave4" mnemonicParsing="false" prefHeight="96.0" prefWidth="96.0" text="ToggleButton" />
+                        <ToggleButton fx:id="chestSave4" mnemonicParsing="false" onAction="#onActionToggleClick" prefHeight="96.0" prefWidth="96.0" text="ToggleButton" />
                             </children>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
