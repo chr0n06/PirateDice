@@ -39,6 +39,9 @@ public class BoardGame_Controller implements Initializable {
     private ResourceBundle resources;
 
     @FXML
+    private Text winningText;
+    
+    @FXML
     private URL location;
 
     @FXML
@@ -191,6 +194,7 @@ public class BoardGame_Controller implements Initializable {
         this.roll_btn.setVisible(true);
         this.rollDicesToKill.setVisible(false);
         Services.nextTurn();
+        this.winningText.setText(Services.endGameManager());
         this.witchCardPower.setVisible(Services.witchCardInfluence());
         this.anchorPane_Background.setStyle("-fx-background-image: url('/Assets/Board/Island.png')");
         this.cardName.setText(Services.getTurn().getCard().getName());
@@ -263,7 +267,7 @@ public class BoardGame_Controller implements Initializable {
     void onActionToggleClick(ActionEvent event) {
         if (chestSave4.isArmed()) {
             chestSave4.disarm();
-            System.out.println("Disarmed");
+            System.out.println(chestSave4.isArmed());
            chestSave4.setBackground(new Background(
                     new BackgroundImage(
                             new Image("Assets/DicesLayouts/" + Preferences.DICE_LAYOUT + "/" + Services.getAllDices().get(5).getState() + ".png"),
@@ -274,7 +278,7 @@ public class BoardGame_Controller implements Initializable {
           
         } else {
             chestSave4.arm();
-            System.out.println("Armed");
+            System.out.println(chestSave4.isArmed());
             
             chestSave4.setBackground(new Background(
                     new BackgroundImage(

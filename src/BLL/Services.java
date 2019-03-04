@@ -368,7 +368,6 @@ public class Services {
 
     public static void nextTurn() {
         deathIslandInfluence();
-        endGameActivation();
         selectAPlayer(); //Inject a player and a card to the new turn
         pickACard();
         resetTurnLife();
@@ -522,40 +521,51 @@ public class Services {
                 //If actual card is Pirate Card, player loose the double
                 if (player.getId() != repo.getTurn().getPlayer().getId()) {
                     if (repo.getTurn().getCard().getName().equals(Preferences.CARD_PIRATE_NAME)) {
-                        logger.info("Player: " + player.getName() +
-                                " has " + player.getPoint() + 
-                                "! This turn he lost + " + Math.abs(repo.getTurn().getLifes() - 3) * 200 + 
-                                " he now turned to " + (player.getPoint()-Math.abs(repo.getTurn().getLifes() - 3) * 200) + 
-                                " point(s)!");
+                        logger.info("Player: " + player.getName()
+                                + " has " + player.getPoint()
+                                + "! This turn he lost + " + Math.abs(repo.getTurn().getLifes() - 3) * 200
+                                + " he now turned to " + (player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 200)
+                                + " point(s)!");
                         player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 200);
                     }
                     //Each player on the bench lost 100 pts for each Skull the actual player roll. -3 because the player start with 3 pts. 
-                    logger.info("Player: " + player.getName() +
-                                " has " + player.getPoint() + 
-                                "! This turn he lost + " + Math.abs(repo.getTurn().getLifes() - 3) * 100 + 
-                                " he now turned to " + (player.getPoint()-Math.abs(repo.getTurn().getLifes() - 3) * 100) + 
-                                " point(s)!");
+                    logger.info("Player: " + player.getName()
+                            + " has " + player.getPoint()
+                            + "! This turn he lost + " + Math.abs(repo.getTurn().getLifes() - 3) * 100
+                            + " he now turned to " + (player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100)
+                            + " point(s)!");
                     player.setPoint(player.getPoint() - Math.abs(repo.getTurn().getLifes() - 3) * 100);
-                    
+
                 }
             }
         }
     }
 
-    public static void endGameActivation() {
+    public static String endGameManager() {
         Player player = repo.getTurn().getPlayer();
 
         if (player != null) {
             if (player.getPoint() >= Preferences.WINNING_SCORE) {
+                System.out.println("player beat the winning score");
                 if (repo.getTurn().isEndGameActivated()) {
+
                     if (repo.getTurn().getPlayerWhoActivatedEndGame().getId() == player.getId()) {
-                        System.out.println("We count points for all players!");
+
+                        for (Player actualplayer : repo.getPlayers()) {
+                            if (actualplayer.getPoint() > player.getPoint()) {
+                                player = actualplayer;
+                            }
+                        }
+                        return player.getName() + " won the game with a total of " + player.getPoint() + " points !!!";
                     }
                 }
                 repo.getTurn().setEndGameActivated(true);
+                System.out.println("End Game is activated");
                 repo.getTurn().setPlayerWhoActivatedEndGame(player);
+                System.out.println("Player " + repo.getTurn().getPlayerWhoActivatedEndGame().getName() + " has activated the end game");
             }
         }
+        return null;
     }
 
     public static int endTurnBonusChecker(Map<String, Integer> diceRepetions) {
