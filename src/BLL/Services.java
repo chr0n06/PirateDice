@@ -358,14 +358,38 @@ public class Services {
         return !repo.getDices().get(diceId - 1).isDeath();
     }
 
+    /**
+     * The getAllDices allows to retrieve all dice(s) created in the repository
+     *
+     * @return List<Dice>
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     public static List<Dice> getAllDices() {
         return repo.getDices();
     }
 
+    /**
+     * The getAllPlayers allows to retrieve all Player(s) created in the repository
+     *
+     * @return List<Player>
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     public static List<Player> getAllPlayers() {
         return repo.getPlayers();
     }
 
+    /**
+     * The nextTurn allows to start a sequence that include all the methods that we need to progress in the game
+     * (One of the most critical method to manage)
+     *
+     * @version 1.0
+     *
+     * @author Maxime Laniel
+     */
     public static void nextTurn() {
         deathIslandInfluence();
         selectAPlayer(); //Inject a player and a card to the new turn
