@@ -59,7 +59,7 @@ public class Preferences {
     public static int CARD_PIRATEBOATHARD_QTY = 2;
     public static int CARD_DOUBLESKULL_QTY = 2;
     public static int CARD_SIMPLESKULL_QTY = 3;
-    public static int CARD_CHEST_QTY = 49;
+    public static int CARD_CHEST_QTY = 4;
     public static int CARD_PIRATE_QTY = 4;
     public static int CARD_DIAMOND_QTY = 4;
     public static int CARD_PIECEOFGOLD_QTY = 4;

@@ -122,7 +122,7 @@ public class Repository {
         );
         cardQtyManager(
                 Preferences.CARD_CHEST_NAME,
-                "Roll till your death but don't forget to protect the dices of your choice by putting it inside the chest", 
+                "Protect the dices of your choice by putting it inside the chest", 
                 Preferences.CARD_CHEST_IMG,
                 Preferences.CARD_CHEST_QTY
         );

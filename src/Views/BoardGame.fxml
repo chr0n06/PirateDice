@@ -11,17 +11,23 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<BorderPane fx:id="anchorPane_Background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardGame_Controller">
+<BorderPane fx:id="anchorPane_Background" styleClass="body" stylesheets="@css/Style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.BoardGame_Controller">
    <top>
-        <VBox BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
                 <MenuBar>
                     <menus>
@@ -41,9 +47,9 @@
                         </Menu>
                     </menus>
                 </MenuBar>
-                <HBox alignment="CENTER" spacing="100.0">
+                <HBox alignment="CENTER" spacing="80.0">
                     <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice1" fx:id="dice1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -54,7 +60,7 @@
                         <ToggleButton fx:id="chestSave1" mnemonicParsing="false" text="ToggleButton" />
                             </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice2" fx:id="dice2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -65,7 +71,7 @@
                         <ToggleButton fx:id="chestSave2" mnemonicParsing="false" text="ToggleButton" />
                             </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice3" fx:id="dice3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -76,7 +82,7 @@
                         <ToggleButton fx:id="chestSave3" mnemonicParsing="false" text="ToggleButton" />
                             </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice4" fx:id="dice4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -87,7 +93,7 @@
                         <ToggleButton fx:id="chestSave4" mnemonicParsing="false" onAction="#onActionToggleClick" text="ToggleButton" />
                             </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice5" fx:id="dice5" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -98,7 +104,7 @@
                         <ToggleButton fx:id="chestSave5" mnemonicParsing="false" text="ToggleButton" />
                             </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice6" fx:id="dice6" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -109,7 +115,7 @@
                         <ToggleButton fx:id="chestSave6" mnemonicParsing="false" text="ToggleButton" />
                             </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice7" fx:id="dice7" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -120,7 +126,7 @@
                         <ToggleButton fx:id="chestSave7" mnemonicParsing="false" text="ToggleButton" />
                             </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" spacing="5.0">
                             <children>
                                 <ImageView id="dice8" fx:id="dice8" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true">
                                     <image>
@@ -130,66 +136,67 @@
                                 <CheckBox fx:id="checkBox8" mnemonicParsing="false" />
                         <ToggleButton fx:id="chestSave8" mnemonicParsing="false" text="ToggleButton" />
                             </children>
+                     <HBox.margin>
+                        <Insets bottom="10.0" />
+                     </HBox.margin>
                         </VBox>
                     </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
                 </HBox>
-                  <Label fx:id="pointsTemp" alignment="CENTER_RIGHT" text="Label" VBox.vgrow="ALWAYS">
-                      <font>
-                          <Font name="MV Boli" size="60.0" />
-                      </font>
-                  </Label>
             </children>
         </VBox>
    </top>
    <left>
-      <VBox BorderPane.alignment="CENTER">
+      <GridPane alignment="CENTER" hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" styleClass="card" stylesheets="@css/Style.css" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+         </rowConstraints>
          <children>
-                  <VBox alignment="CENTER" styleClass="card" stylesheets="@css/Style.css">
-                      <children>
-                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
-                              <children>
-                                  <Label fx:id="cardName" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="285.0" text="Label" textAlignment="CENTER">
-                                      <font>
-                                          <Font name="System Bold" size="33.0" />
-                                      </font>
-                                      <HBox.margin>
-                                          <Insets />
-                                      </HBox.margin>
-                                  </Label>
-                                  <Label prefHeight="50.0" prefWidth="242.0" text="Description" textAlignment="CENTER">
-                                      <font>
-                                          <Font name="System Bold" size="33.0" />
-                                      </font>
-                                  </Label>
-                              </children>
-                          </HBox>
-                          <HBox prefHeight="490.0" prefWidth="896.0" spacing="25.0">
-                              <children>
-                                  <ImageView fx:id="cardView" fitHeight="490.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
-                                  <Text fx:id="cardDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="232.0000193119049">
-                                      <font>
-                                          <Font name="System Bold Italic" size="26.0" />
-                                      </font>
-                                  </Text>
-                              </children>
-                          </HBox>
-                      </children>
-                      <padding>
-                          <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                      </padding>
-                  </VBox>
-            <Button fx:id="rollDicesToKill" mnemonicParsing="false" onAction="#onActionRollDicesToKill" prefHeight="88.0" prefWidth="300.0" style="-fx-background-color: red; -fx-border-radius: 25;" text="Roll dices to kill" textFill="WHITE" visible="false">
+                      <Label text="Description" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <font>
+                              <Font name="System Bold" size="25.0" />
+                          </font>
+                      </Label>
+                      <Text fx:id="cardDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="207.9998972415924" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <font>
+                              <Font name="System Bold Italic" size="19.0" />
+                          </font>
+                      </Text>
+                      <Label fx:id="cardName" alignment="CENTER" contentDisplay="CENTER" text="Label" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <font>
+                              <Font name="System Bold" size="25.0" />
+                          </font>
+                      </Label>
+                      <ImageView fx:id="cardView" pickOnBounds="true" preserveRatio="true" scaleZ="0.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </left>
+   <right>
+      <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="rollDicesToKill" mnemonicParsing="false" onAction="#onActionRollDicesToKill" style="-fx-background-color: red; -fx-border-radius: 25;" text="Roll dices to kill" textFill="WHITE" visible="false">
                <font>
                   <Font size="33.0" />
                </font>
             </Button>
-         </children>
-      </VBox>
-   </left>
-   <right>
-      <VBox alignment="CENTER" spacing="60.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="witchCardPower" mnemonicParsing="false" onAction="#onactionwitchCardPower" prefHeight="66.0" prefWidth="346.0" text="Flip one death dice !" textFill="WHITE">
+            <Button fx:id="witchCardPower" mnemonicParsing="false" onAction="#onactionwitchCardPower" text="Flip one death dice !" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
@@ -216,16 +223,16 @@
       </VBox>
    </right>
    <bottom>
-      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <StackPane BorderPane.alignment="CENTER">
          <children>
-                  <ImageView fitHeight="432.0" fitWidth="1312.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                  <ImageView nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                       <image>
                           <Image url="@../Assets/Board/banner.png" />
                       </image>
                   </ImageView>
-                  <HBox alignment="CENTER" spacing="20.0">
+                  <HBox alignment="CENTER" spacing="10.0">
                       <children>
-                          <Label text="Name : " textAlignment="CENTER" textFill="#e21a1a">
+                          <Label text="Name : " textAlignment="CENTER">
                               <font>
                                   <Font name="MV Boli" size="38.0" />
                               </font>
@@ -235,7 +242,8 @@
                                   <Font name="MV Boli" size="38.0" />
                               </font>
                           </Label>
-                          <Label text="Point(s) : " textAlignment="CENTER" textFill="#e21a1a">
+                  <Region minWidth="40.0" />
+                          <Label text="Point(s) : " textAlignment="CENTER">
                               <font>
                                   <Font name="MV Boli" size="38.0" />
                               </font>
@@ -251,10 +259,27 @@
       </StackPane>
    </bottom>
    <center>
-      <Text fx:id="winningText" fill="#8aba12" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" wrappingWidth="671.6000551462566" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="80.0" />
-         </font>
-      </Text>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="winningText" fill="#8aba12" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" wrappingWidth="671.6000551462566" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="75.0">
+               <font>
+                  <Font size="80.0" />
+               </font>
+            </Text>
+                  <Label fx:id="pointsTemp" alignment="TOP_CENTER" layoutX="323.0" layoutY="20.0" prefHeight="66.0" prefWidth="134.0" styleClass="pts" stylesheets="@css/Style.css" text="Label" AnchorPane.leftAnchor="323.0" AnchorPane.rightAnchor="485.0" AnchorPane.topAnchor="20.0">
+                      <font>
+                          <Font name="MV Boli" size="37.0" />
+                      </font>
+               <textFill>
+                  <RadialGradient centerX="0.508888922797309" centerY="0.5534350999439036" radius="0.5">
+                     <stops>
+                        <Stop color="#36592f" />
+                        <Stop color="#43a82c67" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+                  </Label>
+         </children>
+      </AnchorPane>
    </center>
 </BorderPane>

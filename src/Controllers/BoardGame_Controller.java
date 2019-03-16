@@ -26,6 +26,7 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
 public class BoardGame_Controller implements Initializable {
@@ -147,7 +148,7 @@ public class BoardGame_Controller implements Initializable {
     private Button rollDicesToKill;
 
     @FXML
-    private AnchorPane anchorPane_Background;
+    private BorderPane anchorPane_Background;
 
     List<ImageView> dices;
     List<CheckBox> checkboxes;
